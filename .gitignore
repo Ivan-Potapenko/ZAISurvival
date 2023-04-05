@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+ZAISurvival/Library
+ZAISurvival/Logs
+ZAISurvival/obj
+ZAISurvival/Temp
+ZAISurvival/UserSettings
