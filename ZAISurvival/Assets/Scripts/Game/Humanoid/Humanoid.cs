@@ -22,7 +22,6 @@ public class Humanoid
 
     private Health _health;
 
-
     public Humanoid(CharacterController controller, HumanoidData humanoidData) {
         _health = new Health(humanoidData);
         _weapons = new Weapon[3];

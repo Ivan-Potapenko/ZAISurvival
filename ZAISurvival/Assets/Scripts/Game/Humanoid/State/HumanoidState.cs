@@ -5,11 +5,11 @@ public abstract class HumanoidState
 {
     private CharacterController _controller;
 
-    private StateData _stateData;
+    private HumanoidStateData _stateData;
 
     private Humanoid _humanoid;
 
-    public HumanoidState(CharacterController controller, StateData stateData, Humanoid humanoid) {
+    public HumanoidState(CharacterController controller, HumanoidStateData stateData, Humanoid humanoid) {
         _controller = controller;
         _stateData = stateData;
         _humanoid = humanoid;
