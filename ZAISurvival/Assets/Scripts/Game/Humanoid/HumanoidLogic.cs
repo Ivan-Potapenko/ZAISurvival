@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HumanoidLogic : MonoBehaviour {
+namespace Game {
 
-    private Humanoid _humanoid;
+    public abstract class HumanoidLogic : MonoBehaviour {
 
-    public void Init(Humanoid humanoid) {
-        _humanoid = humanoid;
+        private Humanoid _humanoid;
+
+        public void Init(Humanoid humanoid) {
+            _humanoid = humanoid;
+        }
+
+        public abstract void Move();
+
+        public abstract void Shoot();
     }
-
-    public abstract void Move();
-
-    public abstract void Shoot();
-
 }

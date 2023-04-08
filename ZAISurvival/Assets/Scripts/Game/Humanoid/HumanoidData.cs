@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanoidData : ScriptableObject {
-    private List<HumanoidStateData> _stateDatas;
-    public List<HumanoidStateData> StateDatas => _stateDatas;
+namespace Data {
+
+    [CreateAssetMenu(fileName = "HumanoidData", menuName = "Data/HumanoidData")]
+    public class HumanoidData : ScriptableObject {
+
+        [SerializeField]
+        private List<HumanoidStateData> _stateDatas;
+        public List<HumanoidStateData> StateDatas => _stateDatas;
+    }
 }

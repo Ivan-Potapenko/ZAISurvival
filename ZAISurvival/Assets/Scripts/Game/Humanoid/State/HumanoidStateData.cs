@@ -1,8 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using Game;
+using System;
 using UnityEngine;
+using static Game.Humanoid;
 
-public class HumanoidStateData : ScriptableObject {
+namespace Data {
 
+    [CreateAssetMenu(fileName = "HumanoidStateData", menuName = "Data/HumanoidStateData")]
+    public class HumanoidStateData : ScriptableObject {
 
+        [SerializeField]
+        private StateType _stateType;
+        public StateType StateType => _stateType;
+    }
 }

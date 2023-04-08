@@ -1,24 +1,25 @@
-using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
+using Data;
 
-public abstract class HumanoidState
-{
-    private CharacterController _controller;
+namespace Game {
 
-    private HumanoidStateData _stateData;
+    public abstract class HumanoidState {
 
-    private Humanoid _humanoid;
+        private HumanoidController _controller;
 
-    public HumanoidState(CharacterController controller, HumanoidStateData stateData, Humanoid humanoid) {
-        _controller = controller;
-        _stateData = stateData;
-        _humanoid = humanoid;
+        private HumanoidStateData _stateData;
+
+        private Humanoid _humanoid;
+
+        public HumanoidState(HumanoidController controller, HumanoidStateData stateData, Humanoid humanoid) {
+            _controller = controller;
+            _stateData = stateData;
+            _humanoid = humanoid;
+        }
+
+        public virtual void Move() { }
+
+        public virtual void Run() { }
+
+        public virtual void Jump() { }
     }
-
-    public virtual void Move() { }
-
-    public virtual void Run() { }
-
-    public virtual void Jump() { }
-
 }
