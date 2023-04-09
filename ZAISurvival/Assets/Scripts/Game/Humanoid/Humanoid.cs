@@ -1,7 +1,5 @@
 using Data;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Game {
 
@@ -22,6 +20,9 @@ namespace Game {
         private Weapon CurrentWeapon => _currentWeapon;
 
         private Weapon[] _weapons;
+
+        private ResourceStorage _resourceStorage;
+        public ResourceStorage ResourceStorage => _resourceStorage;
 
         private Health _health;
 
