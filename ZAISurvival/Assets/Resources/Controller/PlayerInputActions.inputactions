@@ -1,8 +1,8 @@
 {
-    "name": "PlayerInput",
+    "name": "PlayerInputActions",
     "maps": [
         {
-            "name": "Main",
+            "name": "Player",
             "id": "a6c2d6d6-6f7d-4716-a1e9-ee8deb1439e1",
             "actions": [
                 {
@@ -11,7 +11,7 @@
                     "id": "886e01ce-5abf-4775-86d5-30690dde64a7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -29,7 +29,7 @@
                     "id": "1094f181-36b0-4e29-96f3-2d9210fbeb9e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
@@ -38,7 +38,7 @@
                     "id": "cecfa814-5362-4ad7-960a-5ee645560b57",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
@@ -47,14 +47,14 @@
                     "id": "102a7e25-6f90-4f13-a9b6-b77ae3d58793",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
                     "name": "MouseMove",
                     "type": "Value",
                     "id": "92204e0e-c711-4c54-98b2-21192d57a88e",
-                    "expectedControlType": "Eyes",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -73,10 +73,10 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "6c8489c8-7df6-40e7-ab8a-8a18667caa84",
                     "path": "2DVector",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -162,11 +162,11 @@
                 },
                 {
                     "name": "",
-                    "id": "6130bbef-c12f-4729-a889-6dc4488102ec",
-                    "path": "",
+                    "id": "1839f5b9-2d79-4016-adf9-8306ae352d2b",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "MouseMove",
                     "isComposite": false,
                     "isPartOfComposite": false

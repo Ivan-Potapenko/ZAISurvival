@@ -8,12 +8,9 @@ namespace Game {
 
         private HumanoidStateData _stateData;
 
-        private Humanoid _humanoid;
-
-        public HumanoidState(HumanoidController controller, HumanoidStateData stateData, Humanoid humanoid) {
+        public HumanoidState(HumanoidController controller, HumanoidStateData stateData) {
             _controller = controller;
             _stateData = stateData;
-            _humanoid = humanoid;
         }
 
         public virtual void Move() { }
