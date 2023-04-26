@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+namespace Game {
 
-public class WeaponLogic : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public class WeaponLogic : HumanoidLogic {
+        public override void OnUpdate() {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+
+        public override void HandleInput(HumanoidInput playerInput) {
+
+        }
     }
 }
