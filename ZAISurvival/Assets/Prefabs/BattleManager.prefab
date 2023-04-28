@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4917368526648841579}
   - {fileID: 669393426387662323}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2614849836253717566
 MonoBehaviour:
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cbbbc9f2992164999a2ebcc7b98813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zombieWaveController: {fileID: 0}
+  _zombieWaveController: {fileID: 486711348072385459}
   _playerSpawner: {fileID: 7066363098907060370}
 --- !u!1001 &219361627352305577
 PrefabInstance:
@@ -191,6 +191,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c952bc4f9352d454b934c8fcf536c6b7, type: 3}
+--- !u!114 &486711348072385459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1092281771561945821, guid: c952bc4f9352d454b934c8fcf536c6b7, type: 3}
+  m_PrefabInstance: {fileID: 714301163324047726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b3a88c5b60fed498d68531699823fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &669393426387662323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 46052880452777117, guid: c952bc4f9352d454b934c8fcf536c6b7, type: 3}
