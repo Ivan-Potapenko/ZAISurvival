@@ -8,6 +8,10 @@ namespace Data {
     public class HumanoidData : ScriptableObject {
 
         [SerializeField]
+        private HealthData _healthData;
+        public HealthData HealthData => _healthData;
+
+        [SerializeField]
         private List<HumanoidStateData> _stateDatas;
         public List<HumanoidStateData> StateDatas => _stateDatas;
     }

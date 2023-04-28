@@ -17,7 +17,7 @@ namespace Game {
         public HumanoidState CurrentState => _currentState;
 
         private Weapon _currentWeapon;
-        private Weapon CurrentWeapon => _currentWeapon;
+        public Weapon CurrentWeapon => _currentWeapon;
 
         private Weapon[] _weapons;
 
@@ -25,9 +25,10 @@ namespace Game {
         public ResourceStorage ResourceStorage => _resourceStorage;
 
         private Health _health;
+        public Health Health => _health;
 
         public Humanoid(HumanoidController controller, HumanoidData humanoidData) {
-            _health = new Health(humanoidData);
+            _health = new Health(humanoidData.HealthData);
             _weapons = new Weapon[3];
             InitStates();
         }
