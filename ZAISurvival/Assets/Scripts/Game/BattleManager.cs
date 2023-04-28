@@ -12,5 +12,13 @@ namespace Game {
         [SerializeField]
         private PlayerSpawner _playerSpawner;
 
+        private void Awake() {
+            Init();
+        }
+
+        private void Init() {
+            _playerSpawner.Spawn();
+        }
+
     }
 }

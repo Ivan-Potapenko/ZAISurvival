@@ -10,12 +10,24 @@ namespace Game {
 
         private HumanoidInput _currentInput;
 
-        private void Awake() {
+        private bool _inited = false;
+
+        public void Init(HumanoidLogicController player) {
+            _humanoidLogicController = player;
             _inputs = new PlayerInputActions();
             _currentInput = new HumanoidInput();
+            _inited = true;
+            EnableInputs();
         }
 
         private void OnEnable() {
+            EnableInputs();
+        }
+
+        private void EnableInputs() {
+            if (!_inited) {
+                return;
+            }
             _inputs.Player.Shoot.Enable();
             _inputs.Player.Aim.Enable();
             _inputs.Player.Build.Enable();
@@ -34,6 +46,13 @@ namespace Game {
         }
 
         private void Update() {
+            HandleInput();
+        }
+
+        private void HandleInput() {
+            if(!_inited) {
+                return;
+            }
             _currentInput.moveDirection = _inputs.Player.Move.ReadValue<Vector2>();
             _currentInput.mouseDelta = _inputs.Player.MouseMove.ReadValue<Vector2>();
             _currentInput.isShooting = _inputs.Player.Shoot.IsPressed();
