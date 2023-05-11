@@ -1,7 +1,6 @@
 using Game;
 using System;
 using UnityEngine;
-using static Game.Humanoid;
 
 namespace Data {
 
@@ -9,7 +8,11 @@ namespace Data {
     public class HumanoidStateData : ScriptableObject {
 
         [SerializeField]
-        private StateType _stateType;
-        public StateType StateType => _stateType;
+        private Humanoid.StateType _stateType;
+        public Humanoid.StateType StateType => _stateType;
+
+        [SerializeField]
+        private float _weaponSpreadModificator;
+        public float WeaponSpreadModificator => _weaponSpreadModificator;
     }
 }

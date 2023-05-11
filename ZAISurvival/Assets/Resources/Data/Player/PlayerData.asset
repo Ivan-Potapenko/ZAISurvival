@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9e016fe0d6d484f91c509488fb66b1, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _stateDatas: []
+  _stateDatas:
+  - {fileID: 11400000, guid: d4bf384728b9a2846bc25dd1ed9bcb8d, type: 2}
+  _weaponPrefabs:
+  - {fileID: 2434442609236586386, guid: 91b59939526bd0f40ab7917ad58a9c4c, type: 3}

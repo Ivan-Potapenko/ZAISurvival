@@ -17,11 +17,20 @@ namespace Game {
         [SerializeField]
         private HumanoidData _humanoidData;
 
+        [SerializeField]
+        private PointOfView _pointOfView;
+
+        [SerializeField]
+        private float _maxYRotate;
+
+        [SerializeField]
+        private float _minYRotate;
+
         private void Awake() {
             _humanoidLogics = GetComponents<HumanoidLogic>().ToList();
             var characterController = GetComponent<CharacterController>();
-            _humanoidController = new HumanoidController(characterController);
-            _humanoid = new Humanoid(_humanoidController, _humanoidData);
+            _humanoidController = new HumanoidController(characterController, _maxYRotate, _minYRotate);
+            _humanoid = new Humanoid(_humanoidController, _humanoidData, _pointOfView);
             InitLogics();
         }
 
@@ -29,6 +38,10 @@ namespace Game {
             for (int i = 0; i < _humanoidLogics.Count; i++) {
                 _humanoidLogics[i].Init(_humanoid);
             }
+        }
+
+        private void Update() {
+            OnUpdate();
         }
 
         private void OnUpdate() {

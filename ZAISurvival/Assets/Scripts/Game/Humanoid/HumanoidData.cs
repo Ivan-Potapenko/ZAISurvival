@@ -1,4 +1,4 @@
-using System.Collections;
+using Game;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,5 +14,9 @@ namespace Data {
         [SerializeField]
         private List<HumanoidStateData> _stateDatas;
         public List<HumanoidStateData> StateDatas => _stateDatas;
+
+        [SerializeField]
+        private List<Weapon> _weaponPrefabs;
+        public List<Weapon> WeaponPrefabs => _weaponPrefabs;
     }
 }

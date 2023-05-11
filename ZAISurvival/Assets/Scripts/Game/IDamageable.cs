@@ -1,14 +1,16 @@
 
+using System;
 using UnityEngine.PlayerLoop;
 
 namespace Game {
 
     public enum DamageType {
-
+        PenetratingBullets
     }
 
+    [Serializable]
     public struct Damage {
-        public int damage;
+        public float damage;
         public DamageType damageType;
     }
 
