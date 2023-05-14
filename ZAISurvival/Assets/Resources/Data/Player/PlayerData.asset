@@ -17,6 +17,7 @@ MonoBehaviour:
   _weaponPrefabs:
   - {fileID: 6522521496537375440, guid: 91b59939526bd0f40ab7917ad58a9c4c, type: 3}
   - {fileID: 8517365454141948059, guid: a307e26581c8dda489869a50b6855750, type: 3}
+  - {fileID: 7702836044722811907, guid: 3066a59f72946b947927a81578f22f28, type: 3}
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 55

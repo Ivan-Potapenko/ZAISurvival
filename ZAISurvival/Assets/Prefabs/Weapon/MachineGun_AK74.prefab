@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponUIData:
-    icon: {fileID: 21300000, guid: 53ef668badc38d24dae5733fb696f6d3, type: 3}
+    icon: {fileID: 21300000, guid: 6822df0c80d27cd41ae8ed5be66f62bf, type: 3}
   _weaponPositionOffset: {x: 0.21, y: -0.16, z: 0.33}
   _weaponData: {fileID: 11400000, guid: 5ce193a6710aaee4e8c0a5be29fa247a, type: 2}
   _shotPoint: {fileID: 2455925073234676076}
