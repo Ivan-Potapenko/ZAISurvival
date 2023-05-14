@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PointOfView : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace Game {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public class PointOfView : MonoBehaviour {
+
+        [SerializeField]
+        private float _cameraNear = 0;
+        public float CameraNear => _cameraNear;
     }
 }
+

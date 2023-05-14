@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Data {
@@ -24,5 +25,25 @@ namespace Data {
         [SerializeField]
         private int _clipSize;
         public int ClipSize => _clipSize;
+
+        [SerializeField]
+        private float _spreadIncreasSpeed = 1;
+        public float SpreadIncreasSpeed => _spreadIncreasSpeed;
+
+        [SerializeField]
+        private float _spreadReductionSpeed = 1;
+        public float SpreadReductionSpeed => _spreadReductionSpeed;
+
+        [SerializeField]
+        private int _bulletsInOneShot = 1;
+        public int BulletsInOneShot => _bulletsInOneShot;
+
+        [SerializeField]
+        private float _reloadTime = 0;
+        public float ReloadTime => _reloadTime;
+
+        [SerializeField]
+        private int _bulletsLoadedAtTime;
+        public int BulletsLoadedAtTime => _bulletsLoadedAtTime;
     }
 }

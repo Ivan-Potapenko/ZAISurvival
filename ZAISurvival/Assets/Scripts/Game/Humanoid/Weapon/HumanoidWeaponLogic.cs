@@ -11,6 +11,12 @@ namespace Game {
         }
 
         public override void HandleInput(HumanoidInput playerInput) {
+            if(playerInput.selectSlot != -1) {
+                _humanoid.ChangeWeaponSlot(playerInput.selectSlot);
+            }
+            if (playerInput.reload) {
+                _humanoid.CurrentWeapon.Reload();
+            }
             if (playerInput.isShooting) {
                 _humanoid.CurrentWeapon.StartAttacking();
             } else {

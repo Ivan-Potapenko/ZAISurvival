@@ -82,6 +82,42 @@ namespace Game
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SelectSlot_1"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec2dfb81-8ba3-45d8-927c-b4693e19fe48"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSlot_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1136ad6-c3e9-4bb7-a8cb-f2a3a0d238d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSlot_3"",
+                    ""type"": ""Button"",
+                    ""id"": ""50d77494-2492-4f0a-9819-e181a6146d7e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3d2b8ed-9a02-4fb9-bcd6-5fccd96740fc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -194,6 +230,50 @@ namespace Game
                     ""action"": ""MouseMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2e0815e-b45e-4f1b-9b53-cda57694a94a"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""SelectSlot_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e821f25d-ec10-4f7d-ba42-8ab07fcca394"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""SelectSlot_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b22f0e6c-bb7d-49b0-bf56-2f1276e79173"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""SelectSlot_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f48e3df-f4f5-4e54-9807-ef750ee32323"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -225,6 +305,10 @@ namespace Game
             m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
             m_Player_Build = m_Player.FindAction("Build", throwIfNotFound: true);
             m_Player_MouseMove = m_Player.FindAction("MouseMove", throwIfNotFound: true);
+            m_Player_SelectSlot_1 = m_Player.FindAction("SelectSlot_1", throwIfNotFound: true);
+            m_Player_SelectSlot_2 = m_Player.FindAction("SelectSlot_2", throwIfNotFound: true);
+            m_Player_SelectSlot_3 = m_Player.FindAction("SelectSlot_3", throwIfNotFound: true);
+            m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -292,6 +376,10 @@ namespace Game
         private readonly InputAction m_Player_Aim;
         private readonly InputAction m_Player_Build;
         private readonly InputAction m_Player_MouseMove;
+        private readonly InputAction m_Player_SelectSlot_1;
+        private readonly InputAction m_Player_SelectSlot_2;
+        private readonly InputAction m_Player_SelectSlot_3;
+        private readonly InputAction m_Player_Reload;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -302,6 +390,10 @@ namespace Game
             public InputAction @Aim => m_Wrapper.m_Player_Aim;
             public InputAction @Build => m_Wrapper.m_Player_Build;
             public InputAction @MouseMove => m_Wrapper.m_Player_MouseMove;
+            public InputAction @SelectSlot_1 => m_Wrapper.m_Player_SelectSlot_1;
+            public InputAction @SelectSlot_2 => m_Wrapper.m_Player_SelectSlot_2;
+            public InputAction @SelectSlot_3 => m_Wrapper.m_Player_SelectSlot_3;
+            public InputAction @Reload => m_Wrapper.m_Player_Reload;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -329,6 +421,18 @@ namespace Game
                 @MouseMove.started += instance.OnMouseMove;
                 @MouseMove.performed += instance.OnMouseMove;
                 @MouseMove.canceled += instance.OnMouseMove;
+                @SelectSlot_1.started += instance.OnSelectSlot_1;
+                @SelectSlot_1.performed += instance.OnSelectSlot_1;
+                @SelectSlot_1.canceled += instance.OnSelectSlot_1;
+                @SelectSlot_2.started += instance.OnSelectSlot_2;
+                @SelectSlot_2.performed += instance.OnSelectSlot_2;
+                @SelectSlot_2.canceled += instance.OnSelectSlot_2;
+                @SelectSlot_3.started += instance.OnSelectSlot_3;
+                @SelectSlot_3.performed += instance.OnSelectSlot_3;
+                @SelectSlot_3.canceled += instance.OnSelectSlot_3;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -351,6 +455,18 @@ namespace Game
                 @MouseMove.started -= instance.OnMouseMove;
                 @MouseMove.performed -= instance.OnMouseMove;
                 @MouseMove.canceled -= instance.OnMouseMove;
+                @SelectSlot_1.started -= instance.OnSelectSlot_1;
+                @SelectSlot_1.performed -= instance.OnSelectSlot_1;
+                @SelectSlot_1.canceled -= instance.OnSelectSlot_1;
+                @SelectSlot_2.started -= instance.OnSelectSlot_2;
+                @SelectSlot_2.performed -= instance.OnSelectSlot_2;
+                @SelectSlot_2.canceled -= instance.OnSelectSlot_2;
+                @SelectSlot_3.started -= instance.OnSelectSlot_3;
+                @SelectSlot_3.performed -= instance.OnSelectSlot_3;
+                @SelectSlot_3.canceled -= instance.OnSelectSlot_3;
+                @Reload.started -= instance.OnReload;
+                @Reload.performed -= instance.OnReload;
+                @Reload.canceled -= instance.OnReload;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -385,6 +501,10 @@ namespace Game
             void OnAim(InputAction.CallbackContext context);
             void OnBuild(InputAction.CallbackContext context);
             void OnMouseMove(InputAction.CallbackContext context);
+            void OnSelectSlot_1(InputAction.CallbackContext context);
+            void OnSelectSlot_2(InputAction.CallbackContext context);
+            void OnSelectSlot_3(InputAction.CallbackContext context);
+            void OnReload(InputAction.CallbackContext context);
         }
     }
 }

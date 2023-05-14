@@ -18,5 +18,9 @@ namespace Data {
         [SerializeField]
         private List<Weapon> _weaponPrefabs;
         public List<Weapon> WeaponPrefabs => _weaponPrefabs;
+
+        [SerializeField]
+        private LayerMask _enemyLayerMask;
+        public LayerMask EnemyLayerMask => _enemyLayerMask;
     }
 }

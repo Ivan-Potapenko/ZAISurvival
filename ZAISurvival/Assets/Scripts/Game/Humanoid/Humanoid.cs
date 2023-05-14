@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using UnityEngine;
+using static Game.Humanoid;
 
 namespace Game {
 
@@ -23,7 +24,8 @@ namespace Game {
         private Weapon[] _weapons;
 
         private int _currentWeaponSlot;
-        public Weapon CurrentWeapon => _weapons[_currentWeaponSlot];
+        public int CurrentWeaponSlot => _currentWeaponSlot;
+        public Weapon CurrentWeapon => _weapons[_currentWeaponSlot - 1];
 
         private ResourceStorage _resourceStorage;
         public ResourceStorage ResourceStorage => _resourceStorage;
@@ -37,19 +39,27 @@ namespace Game {
         private PointOfView _pointOfView;
         public PointOfView PointOfView => _pointOfView;
 
+        private LayerMask _enemyLayerMask;
+        public LayerMask EnemyLayerMask => _enemyLayerMask;
+
         public Humanoid(HumanoidController controller, HumanoidData humanoidData, PointOfView pointOfView) {
             _health = new Health(humanoidData.HealthData);
             _pointOfView = pointOfView;
+            _enemyLayerMask = humanoidData.EnemyLayerMask;
             InitStates(controller, humanoidData);
             InitWeapons(humanoidData);
         }
 
         #region State
         private void InitStates(HumanoidController controller, HumanoidData humanoidData) {
-            _states = new Dictionary<StateType, HumanoidState>();
-            _states.Add(StateType.Test,
-                new TestHumanoidState(controller, humanoidData.StateDatas.Where(state => state.StateType == StateType.Test).FirstOrDefault()));
+            _states = new Dictionary<StateType, HumanoidState> {
+                {StateType.Test, new TestHumanoidState(controller, GetStateData(StateType.Test, humanoidData.StateDatas))}
+            };
             SetCurrentState(StateType.Test);
+        }
+
+        private HumanoidStateData GetStateData(StateType stateType, List<HumanoidStateData> humanoidStateDatas) {
+            return humanoidStateDatas.Where(state => state.StateType == stateType).FirstOrDefault();
         }
 
         public void SetCurrentState(StateType state) {
@@ -67,11 +77,11 @@ namespace Game {
                 _weapons[i] = Object.Instantiate(humanoidData.WeaponPrefabs[i], PointOfView.transform);
                 _weapons[i].Init(this);
             }
-            ChangeWeaponSlot(0);
+            ChangeWeaponSlot(1);
         }
 
         public void ChangeWeaponSlot(int slot) {
-            if (slot > _weapons.Length || slot == _currentWeaponSlot) {
+            if (slot - 1 > _weapons.Length || slot == _currentWeaponSlot) {
                 return;
             }
             _currentWeaponSlot = slot;
@@ -83,6 +93,14 @@ namespace Game {
             foreach (var weapon in _weapons) {
                 weapon.SetActive(false);
             }
+        }
+
+        public WeaponUIData[] GetWeaponsUIData() {
+            var weaponUIDatas = new WeaponUIData[_weapons.Length];
+            for(int i = 0; i< weaponUIDatas.Length;i++) {
+                weaponUIDatas[i] = _weapons[i].GetWeaponUIData(); 
+            }
+            return weaponUIDatas;
         }
         #endregion Weapon
     }

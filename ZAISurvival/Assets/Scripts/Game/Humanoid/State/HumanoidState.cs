@@ -18,7 +18,7 @@ namespace Game {
             _stateData = stateData;
         }
 
-        public virtual void Move() { }
+        public virtual void Move(Vector2 direction) { }
 
         public virtual void Run() { }
 

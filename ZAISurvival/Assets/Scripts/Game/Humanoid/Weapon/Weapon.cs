@@ -1,6 +1,23 @@
+using Data;
+using System;
 using UnityEngine;
 
 namespace Game {
+
+    [Serializable]
+    public struct WeaponUIData {
+        public Sprite icon;
+        [NonSerialized]
+        public int loadedCartridges;
+        [NonSerialized]
+        public int clipSize;
+        [NonSerialized]
+        public float spread;
+        [NonSerialized]
+        public SightType sightType;
+        [NonSerialized]
+        public bool inReload;
+    }
 
     public abstract class Weapon : MonoBehaviour {
 
@@ -8,6 +25,9 @@ namespace Game {
             Melee,
             Range
         }
+
+        [SerializeField]
+        protected WeaponUIData _weaponUIData;
 
         [SerializeField]
         private Vector3 _weaponPositionOffset;
@@ -37,6 +57,10 @@ namespace Game {
         public virtual void SetActive(bool enable) {
             gameObject.SetActive(enable);
         }
+
+        public virtual void Reload() { }
+
+        public abstract WeaponUIData GetWeaponUIData();
     }
 
 }

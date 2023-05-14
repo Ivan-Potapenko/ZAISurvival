@@ -14,5 +14,9 @@ namespace Data {
         [SerializeField]
         private float _weaponSpreadModificator;
         public float WeaponSpreadModificator => _weaponSpreadModificator;
+
+        [SerializeField]
+        private float _speed;
+        public float Speed => _speed;
     }
 }

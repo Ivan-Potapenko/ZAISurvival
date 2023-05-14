@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 namespace Game {
@@ -12,12 +11,16 @@ namespace Game {
         [SerializeField]
         private PlayerSpawner _playerSpawner;
 
-        private void Awake() {
+        [SerializeField]
+        private UIManager _uiManager;
+
+        private void Start() {
             Init();
         }
 
         private void Init() {
             _playerSpawner.Spawn();
+            _uiManager.ActivateScreen(ScreenType.Battle, new InterfaceScreenData { humanoid = _playerSpawner.Player.Humanoid });
         }
 
     }

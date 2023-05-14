@@ -34,6 +34,10 @@ namespace Game {
             _inputs.Player.Jump.Enable();
             _inputs.Player.Move.Enable();
             _inputs.Player.MouseMove.Enable();
+            _inputs.Player.SelectSlot_1.Enable();
+            _inputs.Player.SelectSlot_2.Enable();
+            _inputs.Player.SelectSlot_3.Enable();
+            _inputs.Player.Reload.Enable();
         }
 
         private void OnDisable() {
@@ -43,6 +47,10 @@ namespace Game {
             _inputs.Player.Jump.Disable();
             _inputs.Player.Move.Disable();
             _inputs.Player.MouseMove.Disable();
+            _inputs.Player.SelectSlot_1.Disable();
+            _inputs.Player.SelectSlot_2.Disable();
+            _inputs.Player.SelectSlot_3.Disable();
+            _inputs.Player.Reload.Disable();
         }
 
         private void Update() {
@@ -50,7 +58,7 @@ namespace Game {
         }
 
         private void HandleInput() {
-            if(!_inited) {
+            if (!_inited) {
                 return;
             }
             _currentInput.moveDirection = _inputs.Player.Move.ReadValue<Vector2>();
@@ -59,6 +67,9 @@ namespace Game {
             _currentInput.isAim = _inputs.Player.Aim.IsPressed();
             _currentInput.isJump = _inputs.Player.Jump.WasPressedThisFrame();
             _currentInput.isBuild = _inputs.Player.Build.WasPressedThisFrame();
+            _currentInput.selectSlot = _inputs.Player.SelectSlot_1.WasPressedThisFrame() ? 1 :
+                _inputs.Player.SelectSlot_2.WasPressedThisFrame() ? 2 : _inputs.Player.SelectSlot_3.WasPressedThisFrame() ? 3 : -1;
+            _currentInput.reload = _inputs.Player.Reload.WasPressedThisFrame();
             /*Debug.Log("isShooting = " + _currentInput.isShooting +
                 " isAim = " + _currentInput.isAim +
                 " isBuild = " + _currentInput.isBuild +

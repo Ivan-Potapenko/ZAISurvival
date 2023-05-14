@@ -9,5 +9,7 @@ namespace Game {
         public bool isAim;
         public bool isBuild;
         public bool isJump;
+        public int selectSlot;
+        public bool reload;
     }
 }

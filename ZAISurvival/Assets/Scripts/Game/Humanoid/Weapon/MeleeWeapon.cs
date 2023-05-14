@@ -21,5 +21,9 @@ namespace Game {
         protected override bool TryToMakeAttack() {
             return false;
         }
+
+        public override WeaponUIData GetWeaponUIData() {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -24,8 +24,12 @@ namespace Game {
             if (rotationVector.x < _maxYRotate && rotationVector.x > _minYRotate) {
                 rotationVector.x = _characterController.transform.rotation.eulerAngles.x;
             }
-            Debug.Log(_characterController.transform.rotation.eulerAngles);
             _characterController.transform.rotation = Quaternion.Euler(rotationVector);
+        }
+
+        public void Move(Vector2 direction, float speed) {
+            direction *= speed;
+            _characterController.Move(new Vector3(direction.x, direction.y, _characterController.transform.position.z));
         }
     }
 }

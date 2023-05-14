@@ -7,7 +7,7 @@ namespace Game {
         }
 
         public override void HandleInput(HumanoidInput playerInput) {
-
+            _humanoid.CurrentState.Move(playerInput.moveDirection);
         }
     }
 }

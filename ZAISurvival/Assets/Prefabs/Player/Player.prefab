@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6809456456362527350}
   - component: {fileID: 989482623327956337}
   - component: {fileID: 6010088808498855803}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7032244668157014501}
   - component: {fileID: 2230734713844991127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PointOfView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c081e8b2269f274090af87849c5b2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraNear: 0.3
 --- !u!1001 &6424414412598757517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,6 +172,14 @@ PrefabInstance:
     - target: {fileID: 606155431786806468, guid: 7997cedfd8f0bf34d9a16262d4b2dcfb, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 606155431786806468, guid: 7997cedfd8f0bf34d9a16262d4b2dcfb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670891508680192084, guid: 7997cedfd8f0bf34d9a16262d4b2dcfb, type: 3}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7005454665194580511, guid: 7997cedfd8f0bf34d9a16262d4b2dcfb, type: 3}
       propertyPath: m_RootOrder

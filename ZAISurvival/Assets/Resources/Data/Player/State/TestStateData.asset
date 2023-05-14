@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stateType: 3
   _weaponSpreadModificator: 1
+  _speed: 2
