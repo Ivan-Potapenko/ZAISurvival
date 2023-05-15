@@ -18,5 +18,23 @@ namespace Data {
         [SerializeField]
         private float _speed;
         public float Speed => _speed;
+
+        [SerializeField]
+        private float _jumpForce;
+        public float JumpForce => _jumpForce;
+
+        [SerializeField]
+        private float _gravity;
+        public float Gravity => _gravity;
+
+        [SerializeField]
+        private float _maxYRotate;
+        public float MaxYRotate => _maxYRotate;
+        [SerializeField]
+        private float _minYRotate;
+        public float MinYRotate => _minYRotate;
+        [SerializeField]
+        private float _rotationSpeed;
+        public float RotationSpeed => _rotationSpeed;
     }
 }

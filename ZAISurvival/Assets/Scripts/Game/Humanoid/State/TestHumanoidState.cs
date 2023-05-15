@@ -11,5 +11,10 @@ namespace Game {
             base.Move(direction);
             _controller.Move(direction, StateData.Speed);
         }
+
+        public override void Jump() {
+            base.Jump();
+            _controller.Jump(_stateData.JumpForce);
+        }
     }
 }

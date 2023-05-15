@@ -21,15 +21,12 @@ namespace Game {
         private PointOfView _pointOfView;
 
         [SerializeField]
-        private float _maxYRotate;
-
-        [SerializeField]
-        private float _minYRotate;
+        private Camera _camera;
 
         private void Awake() {
             _humanoidLogics = GetComponents<HumanoidLogic>().ToList();
             var characterController = GetComponent<CharacterController>();
-            _humanoidController = new HumanoidController(characterController, _maxYRotate, _minYRotate);
+            _humanoidController = new HumanoidController(characterController, _camera);
             _humanoid = new Humanoid(_humanoidController, _humanoidData, _pointOfView);
             InitLogics();
         }

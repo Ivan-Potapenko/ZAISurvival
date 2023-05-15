@@ -25,7 +25,11 @@ namespace Game {
         public virtual void Jump() { }
 
         public virtual void Rotate(Vector2 mouseDelta) {
-            HumanoidController.Rotate(mouseDelta);
+            HumanoidController.Rotate(mouseDelta, _stateData.RotationSpeed, _stateData.MinYRotate, _stateData.MaxYRotate);
+        }
+
+        public virtual void UpdateAirYPosition() {
+            _controller.UpdateAirYPosition(StateData.Gravity);
         }
     }
 }

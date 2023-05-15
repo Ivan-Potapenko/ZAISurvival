@@ -56,6 +56,7 @@ namespace Game {
 
         public virtual void SetActive(bool enable) {
             gameObject.SetActive(enable);
+            UpdatePosition();
         }
 
         public virtual void Reload() { }

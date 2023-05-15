@@ -664,7 +664,7 @@ MonoBehaviour:
   _upperStick: {fileID: 8155974757960344658}
   _bottomStick: {fileID: 831733648624615482}
   _center: {fileID: 8391591163340900306}
-  _offset: 2000
+  _offset: 3000
 --- !u!1 &2735278954926298028
 GameObject:
   m_ObjectHideFlags: 0

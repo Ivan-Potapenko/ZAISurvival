@@ -35,7 +35,7 @@ namespace Game {
 
         public override void Init(Humanoid humanoid) {
             base.Init(humanoid);
-            _loadedCartridges = 0;
+            _loadedCartridges = _weaponData.ClipSize;
             _weaponVisual = GetComponent<WeaponVisual>();
         }
 
@@ -159,7 +159,7 @@ namespace Game {
             if (!Application.isPlaying) {
                 return;
             }
-            Gizmos.color = new Color(1, 0.92f, 0, 0.2f);
+            Gizmos.color = Color.green; //new Color(1, 0.92f, 0, 0.2f);
             foreach (var hit in _hits) {
                 Gizmos.DrawCube(hit, new Vector3(0.05f, 0.05f, 0.05f));
             }

@@ -9,6 +9,7 @@ namespace UI {
 
         public override void Show() {
             base.Show();
+            Cursor.lockState = CursorLockMode.Locked;
             _weaponInterfaceController.Init(_interfaceScreenData.humanoid);
             _weaponInterfaceController.SetActive(true);
         }
