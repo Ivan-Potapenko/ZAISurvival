@@ -30,7 +30,12 @@ namespace Game {
         protected WeaponUIData _weaponUIData;
 
         [SerializeField]
-        private Vector3 _weaponPositionOffset;
+        protected Vector3 _weaponPositionOffset;
+
+        [SerializeField]
+        private Vector3 _aimPositionOffset;
+
+        public bool isAim;
 
         public abstract WeaponType Type { get; }
 
@@ -38,6 +43,7 @@ namespace Game {
 
         public virtual void Init(Humanoid humanoid) {
             _humanoid = humanoid;
+            UpdatePosition();
         }
 
         public abstract void StartAttacking();
@@ -51,7 +57,16 @@ namespace Game {
         }
 
         protected virtual void UpdatePosition() {
-            gameObject.transform.localPosition = _weaponPositionOffset;
+            if(isAim) {
+                UpdateAimPosition();
+            }
+            else {
+                gameObject.transform.localPosition = _weaponPositionOffset;
+            }
+        }
+
+        protected virtual void UpdateAimPosition() {
+            gameObject.transform.localPosition = _aimPositionOffset;
         }
 
         public virtual void SetActive(bool enable) {
@@ -62,6 +77,10 @@ namespace Game {
         public virtual void Reload() { }
 
         public abstract WeaponUIData GetWeaponUIData();
+
+        public virtual Vector2 GetCameraOffset() {
+            return Vector2.zero;
+        }
     }
 
 }

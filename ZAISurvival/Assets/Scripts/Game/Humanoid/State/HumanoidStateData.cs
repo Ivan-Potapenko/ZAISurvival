@@ -36,5 +36,17 @@ namespace Data {
         [SerializeField]
         private float _rotationSpeed;
         public float RotationSpeed => _rotationSpeed;
+
+        [SerializeField]
+        private AnimationCurve _moveAccelerationCurve;
+        public AnimationCurve MoveAccelerationCurve => _moveAccelerationCurve;
+
+        [SerializeField]
+        private float _timeToMaxSpeed;
+        public float TimeToMaxSpeed => _timeToMaxSpeed;
+
+        [SerializeField]
+        private float _aimSpeed;
+        public float AimSpeed => _aimSpeed;
     }
 }

@@ -1,6 +1,6 @@
 namespace Game {
 
-    public class MoveLogic : HumanoidLogic {
+    public class HumanoidMoveLogic : HumanoidLogic {
 
         public override void OnUpdate() {
         }

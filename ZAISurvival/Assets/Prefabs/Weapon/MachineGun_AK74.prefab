@@ -284,8 +284,10 @@ MonoBehaviour:
   _weaponUIData:
     icon: {fileID: 21300000, guid: 6822df0c80d27cd41ae8ed5be66f62bf, type: 3}
   _weaponPositionOffset: {x: 0.21, y: -0.16, z: 0.33}
+  _aimPositionOffset: {x: 0, y: -0.045, z: -0.015}
   _weaponData: {fileID: 11400000, guid: 5ce193a6710aaee4e8c0a5be29fa247a, type: 2}
   _shotPoint: {fileID: 2455925073234676076}
+  _afterShotPositionOffset: {x: 0.21, y: -0.12, z: 0.24}
 --- !u!1 &1927369336514790
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +571,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.08
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -621,13 +623,13 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
-      minColor: {r: 1, g: 0.7479997, b: 0.032075405, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      minMaxState: 1
+      minColor: {r: 0.7924528, g: 0.027111296, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+        key1: {r: 0.94509804, g: 0.25540972, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -651,7 +653,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -1065,7 +1067,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 17.909641
+    angle: 4.87183
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1148,10 +1150,10 @@ ParticleSystem:
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 1
-    sphericalDirectionAmount: 0.3
+    sphericalDirectionAmount: 0.1
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.10252011
       mode: 0
       spread: 0
       speed:

@@ -33,6 +33,13 @@ namespace Game {
 
         private bool _inReload;
 
+        private Vector2 _shootCameraOffset;
+
+        private bool _needReduceCameraOffset;
+
+        [SerializeField]
+        private Vector3 _afterShotPositionOffset;
+
         public override void Init(Humanoid humanoid) {
             base.Init(humanoid);
             _loadedCartridges = _weaponData.ClipSize;
@@ -55,12 +62,34 @@ namespace Game {
             _isShooting = true;
             while (_mustAttack) {
                 TryToMakeAttack();
-                yield return new WaitForSeconds(_weaponData.SecondsBetweenAttacks);
+                _shootCameraOffset = new Vector2(Random.Range(-_weaponData.ShootCameraOffset.x, _weaponData.ShootCameraOffset.x), _weaponData.ShootCameraOffset.y);
+                _needReduceCameraOffset = false;
+                StartCoroutine(ChangeShotPosition(_weaponData.SecondsToMaxShootOffset * 2));
+                yield return new WaitForSeconds(_weaponData.SecondsToMaxShootOffset);
+                _needReduceCameraOffset = true;
+                yield return new WaitForSeconds(_weaponData.SecondsToMaxShootOffset);
+                _shootCameraOffset = Vector2.zero;
+                yield return new WaitForSeconds(_weaponData.SecondsBetweenAttacks - _weaponData.SecondsToMaxShootOffset * 2);
                 if (!_weaponData.IsAutomaticWeapon || _loadedCartridges <= 0) {
                     break;
                 }
             }
             _isShooting = false;
+        }
+
+        protected virtual IEnumerator ChangeShotPosition(float time) {
+            var startPosition = _weaponPositionOffset;
+            while (time > 0) {
+                var step = Time.deltaTime / _weaponData.SecondsToMaxShootOffset;
+                if (_needReduceCameraOffset) {
+                    _weaponPositionOffset = Vector3.Lerp(_weaponPositionOffset, startPosition, step);
+                } else {
+                    _weaponPositionOffset = Vector3.Lerp(_weaponPositionOffset, _afterShotPositionOffset, step);
+                }
+                time -= Time.deltaTime;
+                yield return null;
+            }
+            _weaponPositionOffset = startPosition;
         }
 
         protected override bool TryToMakeAttack() {
@@ -75,6 +104,10 @@ namespace Game {
                 }
             }
             return true;
+        }
+
+        public override Vector2 GetCameraOffset() {
+            return (_shootCameraOffset) * (Time.deltaTime / _weaponData.SecondsToMaxShootOffset) * (_needReduceCameraOffset ? -1 : 1);
         }
 
         private void OnDisable() {
@@ -96,7 +129,7 @@ namespace Game {
         }
 
         private void DrawDebugRay(Vector3 spreadDirection) {
-            if(!CheatsActivator.CheatsIsActive) {
+            if (!CheatsActivator.CheatsIsActive) {
                 return;
             }
             Debug.DrawRay(_humanoid.PointOfView.transform.position, spreadDirection, Color.red, 100f, false);
@@ -104,6 +137,7 @@ namespace Game {
 
         private Vector3 GetSpreadVector() {
             var maxAngle = Mathf.Atan(GetBulletSpread() / _humanoid.PointOfView.CameraNear) * Mathf.Rad2Deg;
+         //   Debug.Log(maxAngle + " " + _isAim);
             var spread = Random.insideUnitSphere * maxAngle;
             return Quaternion.Euler(spread.y, spread.x, spread.z) * _humanoid.PointOfView.transform.forward;
         }
@@ -119,8 +153,9 @@ namespace Game {
         }
 
         public float GetBulletSpread() {
-            return _weaponData.MinSpread + (_weaponData.MaxSpread - _weaponData.MinSpread)
-                * _weaponData.WeaponSpreadCurve.Evaluate(_shotingTime) * _humanoid.CurrentState.StateData.WeaponSpreadModificator;
+            var currentSpreadSettings = isAim ? _weaponData.InAimSpreadSettings : _weaponData.DefaultSpreadSettings;
+            return currentSpreadSettings.MinSpread + (currentSpreadSettings.MaxSpread - currentSpreadSettings.MinSpread)
+                * currentSpreadSettings.WeaponSpreadCurve.Evaluate(_shotingTime) * _humanoid.CurrentState.StateData.WeaponSpreadModificator;
         }
 
         public override void OnUpdate() {
@@ -143,7 +178,7 @@ namespace Game {
 
         private IEnumerator ProcessReload() {
             _inReload = true;
-            while(_loadedCartridges < _weaponData.ClipSize) {
+            while (_loadedCartridges < _weaponData.ClipSize) {
                 yield return new WaitForSeconds(_weaponData.ReloadTime);
                 if (_isShooting || _mustAttack) {
                     _inReload = false;
@@ -166,17 +201,19 @@ namespace Game {
             if (!Application.isPlaying || !CheatsActivator.CheatsIsActive) {
                 return;
             }
-            
+
             Gizmos.DrawSphere(_humanoid.PointOfView.transform.position + _humanoid.PointOfView.transform.forward * _humanoid.PointOfView.CameraNear, GetBulletSpread());
         }
 
         public override WeaponUIData GetWeaponUIData() {
-            _weaponUIData.clipSize = _weaponData.ClipSize;
-            _weaponUIData.loadedCartridges = _loadedCartridges;
-            _weaponUIData.spread = GetBulletSpread();
-            _weaponUIData.sightType = _weaponData.SighType;
-            _weaponUIData.inReload = _inReload;
-            return _weaponUIData;
+            return new WeaponUIData {
+                clipSize = _weaponData.ClipSize,
+                loadedCartridges = _loadedCartridges,
+                spread = GetBulletSpread(),
+                sightType = isAim ? SightType.None : _weaponData.SighType,
+                inReload = _inReload,
+                icon = _weaponUIData.icon,
+            };
         }
     }
 }

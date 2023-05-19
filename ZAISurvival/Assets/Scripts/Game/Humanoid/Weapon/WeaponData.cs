@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Data {
 
     public enum SightType {
+        None,
         RangedWeapon,
     }
 

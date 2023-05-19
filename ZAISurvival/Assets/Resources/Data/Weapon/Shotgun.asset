@@ -15,7 +15,7 @@ MonoBehaviour:
   _damage:
     damage: 5
     damageType: 0
-  _sighType: 0
+  _sighType: 1
   _secondsBetweenAttacks: 0.5
   _isAutomaticWeapon: 0
   _attackDistance: 50
@@ -43,44 +43,83 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _weaponSpreadCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.19928688
-      value: 0.7316167
-      inSlope: 1.2023201
-      outSlope: 1.2023201
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _minSpread: 0.02
-  _maxSpread: 0.05
+  _defaultSpreadSettings:
+    _weaponSpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.19928688
+        value: 0.7316167
+        inSlope: 1.2023201
+        outSlope: 1.2023201
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _minSpread: 0.02
+    _maxSpread: 0.03
+  _inAimSpreadSettings:
+    _weaponSpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.19928688
+        value: 0.7316167
+        inSlope: 1.2023201
+        outSlope: 1.2023201
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _minSpread: 0
+    _maxSpread: 0
   _clipSize: 10
   _spreadIncreasSpeed: 1
   _spreadReductionSpeed: 1.2
   _bulletsInOneShot: 10
   _reloadTime: 0.5
   _bulletsLoadedAtTime: 1
+  _shootCameraOffset: {x: 0.1, y: 4}
+  _secondsToMaxShootOffset: 0.07
