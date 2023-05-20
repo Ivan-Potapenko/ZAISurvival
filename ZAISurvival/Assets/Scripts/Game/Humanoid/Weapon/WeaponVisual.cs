@@ -7,10 +7,12 @@ namespace Game {
     public class WeaponVisual : MonoBehaviour {
 
         [SerializeField]
-        private ParticleSystem _flashPartialSystem;
-        
+        private List<ParticleSystem> _startAttackParicles;
+
         public void StartAttack() {
-            _flashPartialSystem.Play();
+            foreach(var particle in _startAttackParicles) {
+                particle    .Play();
+            }
         }
     }
 }

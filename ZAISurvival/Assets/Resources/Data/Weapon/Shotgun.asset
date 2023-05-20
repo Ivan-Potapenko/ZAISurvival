@@ -113,8 +113,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _minSpread: 0
-    _maxSpread: 0
+    _minSpread: 0.01
+    _maxSpread: 0.02
   _clipSize: 10
   _spreadIncreasSpeed: 1
   _spreadReductionSpeed: 1.2
