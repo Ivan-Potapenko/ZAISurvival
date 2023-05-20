@@ -23,10 +23,14 @@ namespace Game {
         [SerializeField]
         private Camera _camera;
 
+        [SerializeField]
+        private HumanoidController.HumanoidControllerSettings _humanoidControllerSettings;
+
         private void Awake() {
             _humanoidLogics = GetComponents<HumanoidLogic>().ToList();
             var characterController = GetComponent<CharacterController>();
-            _humanoidController = new HumanoidController(characterController, _camera);
+            var collider = GetComponent<CapsuleCollider>();
+            _humanoidController = new HumanoidController(characterController, _camera, _humanoidControllerSettings, collider);
             _humanoid = new Humanoid(_humanoidController, _humanoidData, _pointOfView);
             InitLogics();
         }

@@ -11,12 +11,15 @@ namespace Game {
         }
 
         public override void HandleInput(HumanoidInput playerInput) {
-            _humanoid.CurrentState.ForceRotate(_humanoid.CurrentWeapon.GetCameraOffset());
-            _humanoid.CurrentState.isAim = playerInput.isAim;
-            _humanoid.CurrentWeapon.isAim = playerInput.isAim;
             if (playerInput.selectSlot != -1) {
                 _humanoid.ChangeWeaponSlot(playerInput.selectSlot);
             }
+            _humanoid.CurrentState.IsAim = playerInput.isAim;
+            if (_humanoid.CurrentWeapon == null) {
+                return;
+            }
+            _humanoid.CurrentState.ForceRotate(_humanoid.CurrentWeapon.GetCameraOffset());
+            _humanoid.CurrentWeapon.isAim = _humanoid.CurrentState.IsAim;
             if (playerInput.reload) {
                 _humanoid.CurrentWeapon.Reload();
             }

@@ -38,6 +38,8 @@ namespace Game {
             _inputs.Player.SelectSlot_2.Enable();
             _inputs.Player.SelectSlot_3.Enable();
             _inputs.Player.Reload.Enable();
+            _inputs.Player.Run.Enable();
+            _inputs.Player.Crouch.Enable();
         }
 
         private void OnDisable() {
@@ -51,6 +53,8 @@ namespace Game {
             _inputs.Player.SelectSlot_2.Disable();
             _inputs.Player.SelectSlot_3.Disable();
             _inputs.Player.Reload.Disable();
+            _inputs.Player.Run.Disable();
+            _inputs.Player.Crouch.Disable();
         }
 
         private void Update() {
@@ -70,12 +74,8 @@ namespace Game {
             _currentInput.selectSlot = _inputs.Player.SelectSlot_1.WasPressedThisFrame() ? 1 :
                 _inputs.Player.SelectSlot_2.WasPressedThisFrame() ? 2 : _inputs.Player.SelectSlot_3.WasPressedThisFrame() ? 3 : -1;
             _currentInput.reload = _inputs.Player.Reload.WasPressedThisFrame();
-            /*Debug.Log("isShooting = " + _currentInput.isShooting +
-                " isAim = " + _currentInput.isAim +
-                " isBuild = " + _currentInput.isBuild +
-                " isJump = " + _currentInput.isJump +
-                " moveDirection = " + _currentInput.moveDirection +
-                " mouseDelta = " + _currentInput.mouseDelta);*/
+            _currentInput.isRun = _inputs.Player.Run.IsPressed();
+            _currentInput.isCrouch = _inputs.Player.Crouch.IsPressed();
             _humanoidLogicController.HandleInput(_currentInput);
         }
     }

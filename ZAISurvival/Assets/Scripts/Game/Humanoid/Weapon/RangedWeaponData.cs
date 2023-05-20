@@ -64,5 +64,9 @@ namespace Data {
         [SerializeField]
         private float _secondsToMaxShootOffset;
         public float SecondsToMaxShootOffset => _secondsToMaxShootOffset;
+
+        [SerializeField]
+        private float _spreadUpdateSpeed;
+        public float SpreadUpdateSpeed => _spreadUpdateSpeed;
     }
 }

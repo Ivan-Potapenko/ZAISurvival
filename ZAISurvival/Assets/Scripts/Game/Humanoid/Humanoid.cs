@@ -1,9 +1,8 @@
 using Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using UnityEngine;
-using static Game.Humanoid;
 
 namespace Game {
 
@@ -11,9 +10,10 @@ namespace Game {
 
         public enum StateType {
             Run,
-            Stay,
+            Stand,
             Crouch,
             Test,
+            Walk,
         }
 
         private Dictionary<StateType, HumanoidState> _states;
@@ -42,39 +42,75 @@ namespace Game {
         private LayerMask _enemyLayerMask;
         public LayerMask EnemyLayerMask => _enemyLayerMask;
 
+        private HumanoidData _humanoidData;
+
         public Humanoid(HumanoidController controller, HumanoidData humanoidData, PointOfView pointOfView) {
             _health = new Health(humanoidData.HealthData);
             _pointOfView = pointOfView;
             _enemyLayerMask = humanoidData.EnemyLayerMask;
-            InitStates(controller, humanoidData);
-            InitWeapons(humanoidData);
+            _humanoidData = humanoidData;
+            InitStates(controller);
+            InitWeapons();
         }
 
         #region State
-        private void InitStates(HumanoidController controller, HumanoidData humanoidData) {
-            _states = new Dictionary<StateType, HumanoidState> {
-                {StateType.Test, new TestHumanoidState(controller, GetStateData(StateType.Test, humanoidData.StateDatas))}
-            };
-            SetCurrentState(StateType.Test);
+        private void InitStates(HumanoidController controller) {
+            _states = new Dictionary<StateType, HumanoidState>();
+            foreach (StateType state in Enum.GetValues(typeof(StateType))) {
+                TryAddState(state, controller);
+            }
+            SetCurrentState(StateType.Stand);
         }
 
-        private HumanoidStateData GetStateData(StateType stateType, List<HumanoidStateData> humanoidStateDatas) {
-            return humanoidStateDatas.Where(state => state.StateType == stateType).FirstOrDefault();
+        private bool TryAddState(StateType stateType, HumanoidController controller) {
+            var stateData = GetStateData(stateType);
+            if (stateData == null) {
+                return false;
+            }
+            var state = GetNewHumanoidState(stateType, controller, stateData);
+            if(state == null) {
+                return false;
+            }
+            _states.Add(stateType, state);
+            return true;
         }
 
-        public void SetCurrentState(StateType state) {
-            if (_states == null) {
-                return;
+        private HumanoidState GetNewHumanoidState(StateType stateType, HumanoidController controller, HumanoidStateData stateData) {
+            switch (stateType) {
+                case StateType.Walk:
+                    return new WalkHumanoidState(controller, stateData, SetCurrentState);
+                case StateType.Run:
+                    return new RunHumanoidState(controller, stateData, SetCurrentState);
+                case StateType.Stand:
+                    return new StandHumanoidState(controller, stateData, SetCurrentState);
+                case StateType.Test:
+                    return new TestHumanoidState(controller, stateData, SetCurrentState);
+                case StateType.Crouch:
+                    return new CrouchHumanoidState(controller, stateData, SetCurrentState);
+                default:
+                    return null;
+            }
+        }
+
+        private HumanoidStateData GetStateData(StateType stateType) {
+            return _humanoidData.StateDatas.Where(state => state.StateType == stateType).FirstOrDefault();
+        }
+
+        public HumanoidState SetCurrentState(StateType state) {
+            if (_states == null || !_states.ContainsKey(state)) {
+                return null;
             }
             _currentState = _states[state];
+            _currentState.Activate();
+            return _currentState;
         }
         #endregion State
 
         #region Weapon
-        private void InitWeapons(HumanoidData humanoidData) {
-            _weapons = new Weapon[humanoidData.WeaponPrefabs.Count];
-            for (int i = 0; i < humanoidData.WeaponPrefabs.Count; i++) {
-                _weapons[i] = Object.Instantiate(humanoidData.WeaponPrefabs[i], PointOfView.transform);
+        private void InitWeapons() {
+            _weapons = new Weapon[_humanoidData.WeaponPrefabs.Count];
+            for (int i = 0; i < _humanoidData.WeaponPrefabs.Count; i++) {
+                _weapons[i] = UnityEngine.Object.Instantiate(_humanoidData.WeaponPrefabs[i], PointOfView.transform);
                 _weapons[i].Init(this);
             }
             ChangeWeaponSlot(1);
@@ -97,8 +133,8 @@ namespace Game {
 
         public WeaponUIData[] GetWeaponsUIData() {
             var weaponUIDatas = new WeaponUIData[_weapons.Length];
-            for(int i = 0; i< weaponUIDatas.Length;i++) {
-                weaponUIDatas[i] = _weapons[i].GetWeaponUIData(); 
+            for (int i = 0; i < weaponUIDatas.Length; i++) {
+                weaponUIDatas[i] = _weapons[i].GetWeaponUIData();
             }
             return weaponUIDatas;
         }

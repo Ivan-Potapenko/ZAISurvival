@@ -1,8 +1,25 @@
+using System;
 using UnityEngine;
 
 namespace Game {
 
     public class HumanoidController {
+
+        [Serializable]
+        public class HumanoidControllerSettings {
+
+            [SerializeField]
+            private float _standingHeight;
+            public float StandingHeight => _standingHeight;
+
+            [SerializeField]
+            private float _crouchHeight;
+            public float CrouchHeight => _crouchHeight;
+
+            [SerializeField]
+            private float _hieghtChangeSpeed;
+            public float HieghtChangeSpeed => _hieghtChangeSpeed;
+        }
 
         private CharacterController _characterController;
 
@@ -13,14 +30,34 @@ namespace Game {
         private float _moveTime;
         private Vector2 _currentMoveDirection;
 
-        public HumanoidController(CharacterController characterController, Camera camera) {
+        public bool _isGrounded => _characterController.isGrounded;
+
+        private CapsuleCollider _collider;
+
+        private HumanoidControllerSettings _settings;
+        private bool _isCrouch = false;
+
+        public HumanoidController(CharacterController characterController, Camera camera, HumanoidControllerSettings humanoidControllerSettings, CapsuleCollider collider) {
             _characterController = characterController;
             _camera = camera;
+            _settings = humanoidControllerSettings;
+            _collider = collider;
         }
 
-        public void UpdateAirYPosition(float gravity) {
+        public void OnUpdate(float gravity) {
+            UpdateHeight();
             _moveVector.y -= gravity * Time.deltaTime;
             _characterController.Move(_moveVector);
+        }
+
+        private void UpdateHeight() {
+            var targetHeight = _isCrouch && _isGrounded ? _settings.CrouchHeight : _settings.StandingHeight;
+            var step = _settings.HieghtChangeSpeed * Time.deltaTime;
+            _characterController.height = Mathf.Lerp(_characterController.height, targetHeight, step);
+            _collider.height = _characterController.height;
+            if (_isCrouch && _isGrounded) {
+                _moveVector.y -= step;
+            }
         }
 
         public void Rotate(Vector2 mouseDelta, float rotationSpeed, float minYRotate, float maxYRotate) {
@@ -41,7 +78,7 @@ namespace Game {
         public void Move(Vector2 direction, float speed, AnimationCurve moveAccelerationCurve, float timeToMaxSpeed) {
             if (_currentMoveDirection == Vector2.zero || Vector2.Angle(_currentMoveDirection, direction) > 90 && direction != Vector2.zero) {
                 _moveTime = 0;
-            } 
+            }
             if (direction == Vector2.zero) {
                 if (_moveTime <= 0) {
                     _currentMoveDirection = Vector2.zero;
@@ -68,6 +105,14 @@ namespace Game {
                 return;
             }
             _moveVector.y = force;
+        }
+
+        public void SitDown() {
+            _isCrouch = true;
+        }
+
+        public void StandUp() {
+            _isCrouch = false;
         }
     }
 }

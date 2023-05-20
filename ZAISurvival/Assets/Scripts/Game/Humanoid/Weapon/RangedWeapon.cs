@@ -40,10 +40,13 @@ namespace Game {
         [SerializeField]
         private Vector3 _afterShotPositionOffset;
 
+        private float _currentSpread;
+
         public override void Init(Humanoid humanoid) {
             base.Init(humanoid);
             _loadedCartridges = _weaponData.ClipSize;
             _weaponVisual = GetComponent<WeaponVisual>();
+            _currentSpread = GetTargetSpread();
         }
 
         public override void StartAttacking() {
@@ -137,7 +140,6 @@ namespace Game {
 
         private Vector3 GetSpreadVector() {
             var maxAngle = Mathf.Atan(GetBulletSpread() / _humanoid.PointOfView.CameraNear) * Mathf.Rad2Deg;
-         //   Debug.Log(maxAngle + " " + _isAim);
             var spread = Random.insideUnitSphere * maxAngle;
             return Quaternion.Euler(spread.y, spread.x, spread.z) * _humanoid.PointOfView.transform.forward;
         }
@@ -153,14 +155,23 @@ namespace Game {
         }
 
         public float GetBulletSpread() {
+            return _currentSpread;
+        }
+
+        private float GetTargetSpread() {
             var currentSpreadSettings = isAim ? _weaponData.InAimSpreadSettings : _weaponData.DefaultSpreadSettings;
-            return currentSpreadSettings.MinSpread + (currentSpreadSettings.MaxSpread - currentSpreadSettings.MinSpread)
-                * currentSpreadSettings.WeaponSpreadCurve.Evaluate(_shotingTime) * _humanoid.CurrentState.StateData.WeaponSpreadModificator;
+            return (currentSpreadSettings.MinSpread + (currentSpreadSettings.MaxSpread - currentSpreadSettings.MinSpread)
+                * currentSpreadSettings.WeaponSpreadCurve.Evaluate(_shotingTime)) * _humanoid.CurrentState.StateData.WeaponSpreadModificator;
         }
 
         public override void OnUpdate() {
             base.OnUpdate();
             UpdateShotingTime();
+            UpdateSpread();
+        }
+
+        private void UpdateSpread() {
+            _currentSpread = Mathf.Lerp(_currentSpread, GetTargetSpread(), _weaponData.SpreadUpdateSpeed * Time.deltaTime);
         }
 
         private void UpdateShotingTime() {

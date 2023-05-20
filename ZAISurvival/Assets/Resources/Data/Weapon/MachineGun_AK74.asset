@@ -123,3 +123,4 @@ MonoBehaviour:
   _bulletsLoadedAtTime: 30
   _shootCameraOffset: {x: 0.2, y: 0.4}
   _secondsToMaxShootOffset: 0.04
+  _spreadUpdateSpeed: 10

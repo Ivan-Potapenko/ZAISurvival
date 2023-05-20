@@ -11,7 +11,7 @@ namespace Game {
 
         public void StartAttack() {
             foreach(var particle in _startAttackParicles) {
-                particle    .Play();
+                particle.Play();
             }
         }
     }

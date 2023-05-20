@@ -1,4 +1,5 @@
 using Game;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
@@ -46,7 +47,12 @@ namespace Data {
         public float TimeToMaxSpeed => _timeToMaxSpeed;
 
         [SerializeField]
-        private float _aimSpeed;
-        public float AimSpeed => _aimSpeed;
+        private bool _canAim;
+        public bool CanAim => _canAim;
+
+        [SerializeField]
+        [ShowIf(nameof(CanAim))]
+        private float _inAimMoveSpeed;
+        public float InAimMoveSpeed => _inAimMoveSpeed;
     }
 }

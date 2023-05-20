@@ -15,8 +15,8 @@ MonoBehaviour:
   _stateType: 3
   _weaponSpreadModificator: 1
   _speed: 5
-  _jumpForce: 0.05
-  _gravity: 0.1
+  _jumpForce: 0.06
+  _gravity: 0.15
   _maxYRotate: 360
   _minYRotate: -80
   _rotationSpeed: 10
@@ -45,4 +45,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _timeToMaxSpeed: 0.2
-  _aimSpeed: 2.5
+  _canAim: 1
+  _inAimMoveSpeed: 2.5

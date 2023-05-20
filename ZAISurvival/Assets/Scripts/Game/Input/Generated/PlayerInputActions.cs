@@ -118,6 +118,24 @@ namespace Game
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1df07a8-37eb-412e-b8dd-23e2a82c7283"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab37051f-4ab8-4bb1-9ec1-4e5b3c4f073b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -274,6 +292,28 @@ namespace Game
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ae0a2e3-b5f6-4179-b331-00acc5b1bc99"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce5ed00d-da06-48f5-a7a2-5a76d1f04b65"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -309,6 +349,8 @@ namespace Game
             m_Player_SelectSlot_2 = m_Player.FindAction("SelectSlot_2", throwIfNotFound: true);
             m_Player_SelectSlot_3 = m_Player.FindAction("SelectSlot_3", throwIfNotFound: true);
             m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+            m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
+            m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -380,6 +422,8 @@ namespace Game
         private readonly InputAction m_Player_SelectSlot_2;
         private readonly InputAction m_Player_SelectSlot_3;
         private readonly InputAction m_Player_Reload;
+        private readonly InputAction m_Player_Run;
+        private readonly InputAction m_Player_Crouch;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -394,6 +438,8 @@ namespace Game
             public InputAction @SelectSlot_2 => m_Wrapper.m_Player_SelectSlot_2;
             public InputAction @SelectSlot_3 => m_Wrapper.m_Player_SelectSlot_3;
             public InputAction @Reload => m_Wrapper.m_Player_Reload;
+            public InputAction @Run => m_Wrapper.m_Player_Run;
+            public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -433,6 +479,12 @@ namespace Game
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -467,6 +519,12 @@ namespace Game
                 @Reload.started -= instance.OnReload;
                 @Reload.performed -= instance.OnReload;
                 @Reload.canceled -= instance.OnReload;
+                @Run.started -= instance.OnRun;
+                @Run.performed -= instance.OnRun;
+                @Run.canceled -= instance.OnRun;
+                @Crouch.started -= instance.OnCrouch;
+                @Crouch.performed -= instance.OnCrouch;
+                @Crouch.canceled -= instance.OnCrouch;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -505,6 +563,8 @@ namespace Game
             void OnSelectSlot_2(InputAction.CallbackContext context);
             void OnSelectSlot_3(InputAction.CallbackContext context);
             void OnReload(InputAction.CallbackContext context);
+            void OnRun(InputAction.CallbackContext context);
+            void OnCrouch(InputAction.CallbackContext context);
         }
     }
 }

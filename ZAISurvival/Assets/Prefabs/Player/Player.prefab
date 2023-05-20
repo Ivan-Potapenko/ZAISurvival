@@ -102,6 +102,10 @@ MonoBehaviour:
   _humanoidData: {fileID: 11400000, guid: 0792cb38fa4c00944b180f0cbaa2b118, type: 2}
   _pointOfView: {fileID: 2230734713844991127}
   _camera: {fileID: 8951171938146072793}
+  _humanoidControllerSettings:
+    _standingHeight: 2
+    _crouchHeight: 1
+    _hieghtChangeSpeed: 50
 --- !u!114 &6809456456362527350
 MonoBehaviour:
   m_ObjectHideFlags: 0
