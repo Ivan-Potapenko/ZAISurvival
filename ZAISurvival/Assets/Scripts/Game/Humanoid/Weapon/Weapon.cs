@@ -7,6 +7,7 @@ namespace Game {
     [Serializable]
     public struct WeaponUIData {
         public Sprite icon;
+        public Vector3 iconOffset;
         [NonSerialized]
         public int loadedCartridges;
         [NonSerialized]

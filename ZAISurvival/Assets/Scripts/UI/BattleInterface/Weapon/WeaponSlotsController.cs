@@ -15,7 +15,7 @@ namespace UI {
         public void UpdateSlots(WeaponUIData[] weaponUIDatas, int activeSlot) {
             DeactivateSlots();
             for (int i = 0; i < weaponUIDatas.Length; i++) {
-                _weaponSlots[i].UpdateSlot(weaponUIDatas[i].icon, activeSlot == i + 1);
+                _weaponSlots[i].UpdateSlot(weaponUIDatas[i].icon, activeSlot == i + 1, weaponUIDatas[i].iconOffset);
                 _weaponSlots[i].SetActive(true);
             }
         }

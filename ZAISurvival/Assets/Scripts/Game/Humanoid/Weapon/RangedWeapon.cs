@@ -224,6 +224,7 @@ namespace Game {
                 sightType = isAim ? SightType.None : _weaponData.SighType,
                 inReload = _inReload,
                 icon = _weaponUIData.icon,
+                iconOffset = _weaponUIData.iconOffset,
             };
         }
     }
