@@ -14,11 +14,11 @@ namespace Game {
                 return;
 
             }
-            if (Math.Abs(Vector2.Angle(direction, Vector2.up)) >= 90) {
+            if (Math.Abs(Vector2.Angle(direction, Vector2.up)) >= 90 || IsAim) {
                 SwitchState(Humanoid.StateType.Walk)?.Move(direction);
                 return;
             }
-            _controller.Move(direction, StateData.Speed, StateData.MoveAccelerationCurve, StateData.TimeToMaxSpeed);
+            _controller.Move(direction, _currentSpeed, StateData.MoveAccelerationCurve, StateData.TimeToMaxSpeed);
         }
     }
 }

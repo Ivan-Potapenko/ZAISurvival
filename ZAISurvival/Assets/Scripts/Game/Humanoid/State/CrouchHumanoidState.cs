@@ -25,7 +25,7 @@ namespace Game {
             if(!_controller._isGrounded) {
                 SwitchState(Humanoid.StateType.Walk).Move(direction);
             }
-            _controller.Move(direction, IsAim ? StateData.InAimMoveSpeed : StateData.Speed, StateData.MoveAccelerationCurve, StateData.TimeToMaxSpeed);
+            _controller.Move(direction, _currentSpeed, StateData.MoveAccelerationCurve, StateData.TimeToMaxSpeed);
         }
 
         public override void Jump() {

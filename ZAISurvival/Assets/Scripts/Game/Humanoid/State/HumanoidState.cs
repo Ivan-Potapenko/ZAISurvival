@@ -19,8 +19,12 @@ namespace Game {
         private bool _isAim;
         public bool IsAim {
             get { return _isAim; }
-            set { _isAim = StateData.CanAim && value; }
+            set { _isAim = value; }
         }
+
+        protected float _currentSpeed => IsAim && _controller._isGrounded ? _stateData.InAimMoveSpeed : _stateData.Speed;
+
+        public float WeaponSpreadModificator => _controller._isGrounded ? _stateData.WeaponSpreadModificator : _stateData.InAirWeaponSpreadModificator;
 
         private Func<Humanoid.StateType, HumanoidState> _switchStateCallback;
 
@@ -53,7 +57,7 @@ namespace Game {
         }
 
         public virtual void Crouch(Vector2 direction) {
-            if(_controller._isGrounded) {
+            if (_controller._isGrounded) {
                 SwitchState(Humanoid.StateType.Crouch)?.Crouch(direction);
             }
         }
@@ -77,7 +81,9 @@ namespace Game {
 
         protected HumanoidState SwitchState(Humanoid.StateType stateType) {
             Deactivate();
-            return _switchStateCallback.Invoke(stateType);
+            var state = _switchStateCallback.Invoke(stateType);
+            state.IsAim = IsAim;
+            return state;
         }
     }
 }

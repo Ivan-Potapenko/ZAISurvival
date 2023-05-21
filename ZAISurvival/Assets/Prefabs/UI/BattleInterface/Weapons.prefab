@@ -2106,8 +2106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7016e29e4e914eaeb3d1853b14800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponImage: {fileID: 3185798581260833235}
+  _image: {fileID: 0}
   _backImage: {fileID: 5795701621526727804}
+  _text: {fileID: 0}
 --- !u!1 &2170305327865011429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,8 +3405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7016e29e4e914eaeb3d1853b14800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponImage: {fileID: 629780043406812661}
+  _image: {fileID: 629780043406812661}
   _backImage: {fileID: 5795701621526727804}
+  _text: {fileID: 0}
 --- !u!1 &3474296443419948496
 GameObject:
   m_ObjectHideFlags: 0
@@ -3998,8 +4000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7016e29e4e914eaeb3d1853b14800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponImage: {fileID: 1307516426963331294}
+  _image: {fileID: 0}
   _backImage: {fileID: 9068944360340190561}
+  _text: {fileID: 0}
 --- !u!1 &4046833922243826565
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,7 +4353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588082ca90c4bbf4fbf3c4e8de57f05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponSlots:
+  _slots:
   - {fileID: 4075480383816903989}
   - {fileID: 8592273077170188947}
   - {fileID: 2488120563287513818}
@@ -6826,8 +6829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7016e29e4e914eaeb3d1853b14800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponImage: {fileID: 8935886397835867047}
+  _image: {fileID: 8935886397835867047}
   _backImage: {fileID: 572464343075214926}
+  _text: {fileID: 0}
 --- !u!1 &7029713831952165208
 GameObject:
   m_ObjectHideFlags: 0
@@ -7854,8 +7858,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7016e29e4e914eaeb3d1853b14800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponImage: {fileID: 1835615332771452242}
+  _image: {fileID: 0}
   _backImage: {fileID: 4390151901558050443}
+  _text: {fileID: 0}
 --- !u!1 &7896309185505282843
 GameObject:
   m_ObjectHideFlags: 0
@@ -8158,8 +8163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7016e29e4e914eaeb3d1853b14800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponImage: {fileID: 9167588937188959590}
+  _image: {fileID: 9167588937188959590}
   _backImage: {fileID: 6500201883524993194}
+  _text: {fileID: 0}
 --- !u!1 &8130683628470862753
 GameObject:
   m_ObjectHideFlags: 0

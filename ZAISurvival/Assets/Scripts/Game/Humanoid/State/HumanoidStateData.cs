@@ -1,6 +1,5 @@
 using Game;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
 
 namespace Data {
@@ -12,46 +11,58 @@ namespace Data {
         private Humanoid.StateType _stateType;
         public Humanoid.StateType StateType => _stateType;
 
+        [BoxGroup("Weapon")]
         [SerializeField]
         private float _weaponSpreadModificator;
         public float WeaponSpreadModificator => _weaponSpreadModificator;
 
+        [BoxGroup("Weapon")]
+        [SerializeField]
+        private float _inAirWeaponSpreadModificator;
+        public float InAirWeaponSpreadModificator => _inAirWeaponSpreadModificator;
+
+        [BoxGroup("Move")]
         [SerializeField]
         private float _speed;
         public float Speed => _speed;
 
+        [BoxGroup("Move")]
         [SerializeField]
         private float _jumpForce;
         public float JumpForce => _jumpForce;
 
+        [BoxGroup("Move")]
         [SerializeField]
         private float _gravity;
         public float Gravity => _gravity;
 
+        [BoxGroup("Rotation")]
         [SerializeField]
         private float _maxYRotate;
         public float MaxYRotate => _maxYRotate;
+
+        [BoxGroup("Rotation")]
         [SerializeField]
         private float _minYRotate;
         public float MinYRotate => _minYRotate;
+
+        [BoxGroup("Rotation")]
         [SerializeField]
         private float _rotationSpeed;
         public float RotationSpeed => _rotationSpeed;
 
+        [BoxGroup("Move")]
         [SerializeField]
         private AnimationCurve _moveAccelerationCurve;
         public AnimationCurve MoveAccelerationCurve => _moveAccelerationCurve;
 
+        [BoxGroup("Move")]
         [SerializeField]
         private float _timeToMaxSpeed;
         public float TimeToMaxSpeed => _timeToMaxSpeed;
 
+        [BoxGroup("Move")]
         [SerializeField]
-        private bool _canAim;
-        public bool CanAim => _canAim;
-
-        [SerializeField]
-        [ShowIf(nameof(CanAim))]
         private float _inAimMoveSpeed;
         public float InAimMoveSpeed => _inAimMoveSpeed;
     }

@@ -13,7 +13,7 @@ namespace Game {
                 SwitchState(Humanoid.StateType.Walk).Move(direction);
                 return;
             }
-            _controller.Move(direction, IsAim ? StateData.InAimMoveSpeed : StateData.Speed, StateData.MoveAccelerationCurve, StateData.TimeToMaxSpeed);
+            _controller.Move(direction, _currentSpeed, StateData.MoveAccelerationCurve, StateData.TimeToMaxSpeed);
         }
     }
 }

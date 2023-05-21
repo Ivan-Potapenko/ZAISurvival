@@ -31,7 +31,10 @@ namespace Game {
         protected WeaponUIData _weaponUIData;
 
         [SerializeField]
-        protected Vector3 _weaponPositionOffset;
+        private Vector3 _weaponPositionOffset;
+        protected Vector3 WeaponPositionOffset => _weaponPositionOffset;
+
+        protected Vector3 _currentWeaponPositionOffset;
 
         [SerializeField]
         private Vector3 _aimPositionOffset;
@@ -62,7 +65,7 @@ namespace Game {
                 UpdateAimPosition();
             }
             else {
-                gameObject.transform.localPosition = _weaponPositionOffset;
+                gameObject.transform.localPosition = _currentWeaponPositionOffset;
             }
         }
 

@@ -22,5 +22,9 @@ namespace Data {
         [SerializeField]
         private LayerMask _enemyLayerMask;
         public LayerMask EnemyLayerMask => _enemyLayerMask;
+
+        [SerializeField]
+        private List<ResourceData> _resourceDatas;
+        public List<ResourceData> ResourceDatas => _resourceDatas;
     }
 }

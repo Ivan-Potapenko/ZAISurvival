@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
@@ -25,10 +26,12 @@ namespace Data {
         private AnimationCurve _damageDistanceCurve;
         public AnimationCurve DamageDistanceCurve => _damageDistanceCurve;
 
+        [BoxGroup("Spread")]
         [SerializeField]
         private WeaponAimSettings _defaultSpreadSettings;
         public WeaponAimSettings DefaultSpreadSettings => _defaultSpreadSettings;
 
+        [BoxGroup("Spread")]
         [SerializeField]
         private WeaponAimSettings _inAimSpreadSettings;
         public WeaponAimSettings InAimSpreadSettings => _inAimSpreadSettings;
@@ -37,10 +40,12 @@ namespace Data {
         private int _clipSize;
         public int ClipSize => _clipSize;
 
+        [BoxGroup("Spread")]
         [SerializeField]
         private float _spreadIncreasSpeed = 1;
         public float SpreadIncreasSpeed => _spreadIncreasSpeed;
 
+        [BoxGroup("Spread")]
         [SerializeField]
         private float _spreadReductionSpeed = 1;
         public float SpreadReductionSpeed => _spreadReductionSpeed;
@@ -65,6 +70,7 @@ namespace Data {
         private float _secondsToMaxShootOffset;
         public float SecondsToMaxShootOffset => _secondsToMaxShootOffset;
 
+        [BoxGroup("Spread")]
         [SerializeField]
         private float _spreadUpdateSpeed;
         public float SpreadUpdateSpeed => _spreadUpdateSpeed;

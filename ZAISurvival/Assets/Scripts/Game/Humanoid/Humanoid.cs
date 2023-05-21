@@ -27,9 +27,6 @@ namespace Game {
         public int CurrentWeaponSlot => _currentWeaponSlot;
         public Weapon CurrentWeapon => _weapons[_currentWeaponSlot - 1];
 
-        private ResourceStorage _resourceStorage;
-        public ResourceStorage ResourceStorage => _resourceStorage;
-
         private AimController _aimController;
         public AimController AimController => _aimController;
 
@@ -44,11 +41,16 @@ namespace Game {
 
         private HumanoidData _humanoidData;
 
+        public InteractiveEnvironmentObject currentObjectInSight;
+
+        public HumanoidInventory Inventory { get; private set; }
+
         public Humanoid(HumanoidController controller, HumanoidData humanoidData, PointOfView pointOfView) {
             _health = new Health(humanoidData.HealthData);
             _pointOfView = pointOfView;
             _enemyLayerMask = humanoidData.EnemyLayerMask;
             _humanoidData = humanoidData;
+            Inventory = new HumanoidInventory(humanoidData.ResourceDatas);
             InitStates(controller);
             InitWeapons();
         }

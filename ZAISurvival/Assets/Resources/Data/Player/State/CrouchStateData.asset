@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stateType: 2
   _weaponSpreadModificator: 0.9
+  _inAirWeaponSpreadModificator: 1.2
   _speed: 2.5
   _jumpForce: 0.06
   _gravity: 0.15
@@ -45,5 +46,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _timeToMaxSpeed: 0.2
-  _canAim: 1
   _inAimMoveSpeed: 2.5

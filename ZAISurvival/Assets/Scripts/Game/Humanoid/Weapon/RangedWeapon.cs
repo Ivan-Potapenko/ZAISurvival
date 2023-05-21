@@ -2,6 +2,7 @@ using Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 namespace Game {
 
@@ -38,6 +39,9 @@ namespace Game {
         private bool _needReduceCameraOffset;
 
         [SerializeField]
+        private GameObject _bulletHole;
+
+        [SerializeField]
         private Vector3 _afterShotPositionOffset;
 
         private float _currentSpread;
@@ -47,6 +51,7 @@ namespace Game {
             _loadedCartridges = _weaponData.ClipSize;
             _weaponVisual = GetComponent<WeaponVisual>();
             _currentSpread = GetTargetSpread();
+            _currentWeaponPositionOffset = WeaponPositionOffset;
         }
 
         public override void StartAttacking() {
@@ -81,18 +86,17 @@ namespace Game {
         }
 
         protected virtual IEnumerator ChangeShotPosition(float time) {
-            var startPosition = _weaponPositionOffset;
             while (time > 0) {
                 var step = Time.deltaTime / _weaponData.SecondsToMaxShootOffset;
                 if (_needReduceCameraOffset) {
-                    _weaponPositionOffset = Vector3.Lerp(_weaponPositionOffset, startPosition, step);
+                    _currentWeaponPositionOffset = Vector3.Lerp(_currentWeaponPositionOffset, WeaponPositionOffset, step);
                 } else {
-                    _weaponPositionOffset = Vector3.Lerp(_weaponPositionOffset, _afterShotPositionOffset, step);
+                    _currentWeaponPositionOffset = Vector3.Lerp(_currentWeaponPositionOffset, _afterShotPositionOffset, step);
                 }
                 time -= Time.deltaTime;
                 yield return null;
             }
-            _weaponPositionOffset = startPosition;
+            _currentWeaponPositionOffset = WeaponPositionOffset;
         }
 
         protected override bool TryToMakeAttack() {
@@ -102,6 +106,7 @@ namespace Game {
             _loadedCartridges--;
             _weaponVisual.StartAttack();
             for (int i = 0; i < _weaponData.BulletsInOneShot; i++) {
+                _weaponVisual.StartBulletVisual();
                 if (TryRaycastAttack(out var hitInfo)) {
                     TryDoDamage(hitInfo);
                 }
@@ -118,6 +123,9 @@ namespace Game {
             _mustAttack = false;
             _inReload = false;
             StopAllCoroutines();
+            _shootCameraOffset = Vector2.zero;
+            _needReduceCameraOffset = false;
+            _currentWeaponPositionOffset = WeaponPositionOffset;
         }
 
         private bool TryRaycastAttack(out RaycastHit raycastHit) {
@@ -125,6 +133,7 @@ namespace Game {
             var ray = new Ray(_humanoid.PointOfView.transform.position, spreadDirection);
             DrawDebugRay(spreadDirection);
             if (Physics.Raycast(ray, out raycastHit, _weaponData.MaxAttackDistance, _humanoid.EnemyLayerMask.value)) {
+                Instantiate(_bulletHole, raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
                 _hits.Add(raycastHit.point);
                 return true;
             }
@@ -161,7 +170,7 @@ namespace Game {
         private float GetTargetSpread() {
             var currentSpreadSettings = isAim ? _weaponData.InAimSpreadSettings : _weaponData.DefaultSpreadSettings;
             return (currentSpreadSettings.MinSpread + (currentSpreadSettings.MaxSpread - currentSpreadSettings.MinSpread)
-                * currentSpreadSettings.WeaponSpreadCurve.Evaluate(_shotingTime)) * _humanoid.CurrentState.StateData.WeaponSpreadModificator;
+                * currentSpreadSettings.WeaponSpreadCurve.Evaluate(_shotingTime)) * _humanoid.CurrentState.WeaponSpreadModificator;
         }
 
         public override void OnUpdate() {
@@ -184,21 +193,33 @@ namespace Game {
 
         public override void Reload() {
             base.Reload();
+            var ammoResources = _humanoid.Inventory.Get(ResourceType.Ammo);
+            if (ammoResources.Count == 0) {
+                return;
+            }
             StartCoroutine(ProcessReload());
         }
 
         private IEnumerator ProcessReload() {
             _inReload = true;
-            while (_loadedCartridges < _weaponData.ClipSize) {
+            var ammoResources = _humanoid.Inventory.Get(ResourceType.Ammo);
+            while (_loadedCartridges < _weaponData.ClipSize && ammoResources.Count > 0) {
                 yield return new WaitForSeconds(_weaponData.ReloadTime);
                 if (_isShooting || _mustAttack) {
                     _inReload = false;
                     yield break;
                 }
-                _loadedCartridges += _weaponData.BulletsLoadedAtTime;
+                if (ammoResources.Count == 0) {
+                    break;
+                }
+                if (_weaponData.BulletsLoadedAtTime <= _weaponData.ClipSize - _loadedCartridges) {
+                    _loadedCartridges += ammoResources.PullResource(_weaponData.BulletsLoadedAtTime);
+                }
+                else {
+                    _loadedCartridges += ammoResources.PullResource(_weaponData.ClipSize - _loadedCartridges);
+                }
             }
             _inReload = false;
-            _loadedCartridges = _weaponData.ClipSize;
         }
 
         void OnDrawGizmos() {

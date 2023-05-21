@@ -1,10 +1,9 @@
 using Game;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 namespace UI {
+
     public class WeaponInterfaceController : MonoBehaviour {
 
         [SerializeField]

@@ -19,9 +19,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 165a5f5cb08bab5439088a9efcff0ba5, type: 2}
   - {fileID: 11400000, guid: 9212262d1d6b76345a71bfbef3566399, type: 2}
   _weaponPrefabs:
-  - {fileID: 7702836044722811907, guid: 3066a59f72946b947927a81578f22f28, type: 3}
-  - {fileID: 8517365454141948059, guid: a307e26581c8dda489869a50b6855750, type: 3}
-  - {fileID: 6522521496537375440, guid: 91b59939526bd0f40ab7917ad58a9c4c, type: 3}
+  - {fileID: 3861711356922793403, guid: 91b59939526bd0f40ab7917ad58a9c4c, type: 3}
+  - {fileID: 5350636927022917670, guid: 3066a59f72946b947927a81578f22f28, type: 3}
+  - {fileID: 7099440804984507497, guid: a307e26581c8dda489869a50b6855750, type: 3}
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 55
+  _resourceDatas:
+  - {fileID: 11400000, guid: 1a8c3d44d1ee14443bcd18d717152d25, type: 2}
+  - {fileID: 11400000, guid: f9cd884b70c232a4082f746a56ac530b, type: 2}
+  - {fileID: 11400000, guid: 2bbef5fbbdcca024c81441ab4c9078a2, type: 2}
+  - {fileID: 11400000, guid: cc16e780824595243bc6ebc6d5a1d41d, type: 2}
+  - {fileID: 11400000, guid: c52938925dec48c4b894a02ddaac3098, type: 2}
