@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace UI {
@@ -5,29 +6,28 @@ namespace UI {
     public class BattleInterfaceScreen : InterfaceScreen {
 
         [SerializeField]
-        private WeaponInterfaceController _weaponInterfaceController;
-
-        [SerializeField]
-        private ResourceInterfaceController _resourceInterfaceController;
+        private List<InterfaceController> _interfaceControllers;
 
         public override void Show() {
             base.Show();
             Cursor.lockState = CursorLockMode.Locked;
-            _weaponInterfaceController.Init(_interfaceScreenData.humanoid);
-            _weaponInterfaceController.SetActive(true);
-            _resourceInterfaceController.Init(_interfaceScreenData.humanoid);
-            _resourceInterfaceController.SetActive(true);
+            foreach (var controller in _interfaceControllers) {
+                controller.Init(_interfaceScreenData.humanoid);
+                controller.SetActive(true);
+            }
         }
 
         private void Update() {
-            _weaponInterfaceController.OnUpdate();
-            _resourceInterfaceController.OnUpdate();
+            foreach (var controller in _interfaceControllers) {
+                controller.OnUpdate();
+            }
         }
 
         public override void Hide() {
             base.Hide();
-            _weaponInterfaceController.SetActive(false);
-            _resourceInterfaceController.SetActive(false);
+            foreach (var controller in _interfaceControllers) {
+                controller.SetActive(false);
+            }
         }
     }
 }

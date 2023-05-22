@@ -40,6 +40,7 @@ namespace Game {
             _inputs.Player.Reload.Enable();
             _inputs.Player.Run.Enable();
             _inputs.Player.Crouch.Enable();
+            _inputs.Player.Interact.Enable();
         }
 
         private void OnDisable() {
@@ -55,6 +56,7 @@ namespace Game {
             _inputs.Player.Reload.Disable();
             _inputs.Player.Run.Disable();
             _inputs.Player.Crouch.Disable();
+            _inputs.Player.Interact.Disable();
         }
 
         private void Update() {
@@ -76,6 +78,7 @@ namespace Game {
             _currentInput.reload = _inputs.Player.Reload.WasPressedThisFrame();
             _currentInput.isRun = _inputs.Player.Run.IsPressed();
             _currentInput.isCrouch = _inputs.Player.Crouch.IsPressed();
+            _currentInput.interact = _inputs.Player.Interact.IsPressed();
             _humanoidLogicController.HandleInput(_currentInput);
         }
     }

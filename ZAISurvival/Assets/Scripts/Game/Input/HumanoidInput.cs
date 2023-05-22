@@ -13,5 +13,6 @@ namespace Game {
         public bool isCrouch;
         public int selectSlot;
         public bool reload;
+        public bool interact;
     }
 }

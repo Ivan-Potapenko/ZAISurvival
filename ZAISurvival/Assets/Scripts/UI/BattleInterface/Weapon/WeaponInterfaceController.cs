@@ -4,12 +4,10 @@ using UnityEngine;
 
 namespace UI {
 
-    public class WeaponInterfaceController : MonoBehaviour {
+    public class WeaponInterfaceController : InterfaceController {
 
         [SerializeField]
         private WeaponSlotsController _weaponSlotsController;
-
-        private Humanoid _humanoid;
 
         [SerializeField]
         private TextMeshProUGUI _ammoText;
@@ -17,12 +15,13 @@ namespace UI {
         [SerializeField]
         private SightController _sightController;
 
-        public void Init(Humanoid humanoid) {
-            _humanoid = humanoid;
+        public override void Init(Humanoid humanoid) {
+            base.Init(humanoid);
             _weaponSlotsController.Init();
         }
 
-        public void OnUpdate() {
+        public override void OnUpdate() {
+            base.OnUpdate();
             UpdateWeaponsSlots();
             UpdateAmmoVisual();
             UpdateSight();
@@ -41,10 +40,6 @@ namespace UI {
 
         private void UpdateWeaponsSlots() {
             _weaponSlotsController.UpdateSlots(_humanoid.GetWeaponsUIData(), _humanoid.CurrentWeaponSlot);
-        }
-
-        public void SetActive(bool value) {
-            gameObject.SetActive(value);
         }
     }
 }
