@@ -20,6 +20,7 @@ namespace Game {
 
         private float _currentTime = 0;
 
+        [SerializeField]
         private GameObject _destroyEffects;
 
         [SerializeField]
@@ -27,21 +28,22 @@ namespace Game {
 
         public override void Interact(Humanoid humanoid) {
             _currentTime += Time.deltaTime;
-            if(_currentTime >= _timeToCollect) {
+            if (_currentTime >= _timeToCollect) {
                 var inventory = humanoid.Inventory;
-                foreach(var collectible in _resources) {
+                foreach (var collectible in _resources) {
                     var resource = inventory.Get(collectible.resourceType);
                     resource.PutResource(collectible.count);
                 }
-                if(_destroyEffects != null) {
-                    Instantiate(_destroyEffects, transform.position, Quaternion.identity);
+                if (_destroyEffects != null) {
+                    var effect = Instantiate(_destroyEffects, transform.position, Quaternion.identity);
+                    effect.transform.localScale = gameObject.transform.localScale;
                 }
                 Destroy(gameObject);
             }
         }
 
         public override InteractiveEnvironmentUIData GetUIData() {
-            _uiData.collectionPercentage = _currentTime / _timeToCollect;
+            _uiData.collectionPercentage = _currentTime == 0 ? 0 : _currentTime / _timeToCollect;
             return _uiData;
         }
     }

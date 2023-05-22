@@ -123,7 +123,8 @@ MonoBehaviour:
     text: "\u0441\u043E\u0431\u0440\u0430\u0442\u044C \u043F\u0430\u0442\u0440\u043E\u043D\u044B"
     type: 0
     ResourceTypes: 01000000
-  _timeToCollect: 0
+  _timeToCollect: 0.2
+  _destroyEffects: {fileID: 3137935257036094108, guid: 4e2202fb2a111da4e8e7bb1917d110bd, type: 3}
   _resources:
   - resourceType: 1
     count: 100
