@@ -27,9 +27,6 @@ namespace Game {
         public int CurrentWeaponSlot => _currentWeaponSlot;
         public Weapon CurrentWeapon => _weapons[_currentWeaponSlot - 1];
 
-        private AimController _aimController;
-        public AimController AimController => _aimController;
-
         private Health _health;
         public Health Health => _health;
 
