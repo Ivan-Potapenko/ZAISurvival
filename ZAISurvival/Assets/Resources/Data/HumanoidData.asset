@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d9e016fe0d6d484f91c509488fb66b1, type: 3}
-  m_Name: PlayerData
+  m_Name: HumanoidData
   m_EditorClassIdentifier: 
   _stateDatas:
   - {fileID: 11400000, guid: d4bf384728b9a2846bc25dd1ed9bcb8d, type: 2}
@@ -24,7 +24,7 @@ MonoBehaviour:
   - {fileID: 7099440804984507497, guid: a307e26581c8dda489869a50b6855750, type: 3}
   _enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 119
   _resourceDatas:
   - {fileID: 11400000, guid: 1a8c3d44d1ee14443bcd18d717152d25, type: 2}
   - {fileID: 11400000, guid: f9cd884b70c232a4082f746a56ac530b, type: 2}

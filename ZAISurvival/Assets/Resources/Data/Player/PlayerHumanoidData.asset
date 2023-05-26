@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68599febf52253646a680d07a060fd58, type: 3}
+  m_Name: PlayerHumanoidData
+  m_EditorClassIdentifier: 
+  _stateDatas:
+  - {fileID: 11400000, guid: d4bf384728b9a2846bc25dd1ed9bcb8d, type: 2}
+  - {fileID: 11400000, guid: dfec18d522b10c649aa269c98b5bda17, type: 2}
+  - {fileID: 11400000, guid: 83bfbffa29df31f47a718514b2c80c01, type: 2}
+  - {fileID: 11400000, guid: 165a5f5cb08bab5439088a9efcff0ba5, type: 2}
+  - {fileID: 11400000, guid: 9212262d1d6b76345a71bfbef3566399, type: 2}
+  _weaponPrefabs:
+  - {fileID: 3861711356922793403, guid: 91b59939526bd0f40ab7917ad58a9c4c, type: 3}
+  - {fileID: 5350636927022917670, guid: 3066a59f72946b947927a81578f22f28, type: 3}
+  - {fileID: 7099440804984507497, guid: a307e26581c8dda489869a50b6855750, type: 3}
+  _enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 119
+  _resourceDatas:
+  - {fileID: 11400000, guid: 1a8c3d44d1ee14443bcd18d717152d25, type: 2}
+  - {fileID: 11400000, guid: f9cd884b70c232a4082f746a56ac530b, type: 2}
+  - {fileID: 11400000, guid: 2bbef5fbbdcca024c81441ab4c9078a2, type: 2}
+  - {fileID: 11400000, guid: cc16e780824595243bc6ebc6d5a1d41d, type: 2}
+  - {fileID: 11400000, guid: c52938925dec48c4b894a02ddaac3098, type: 2}
+  _playerSettings: {fileID: 11400000, guid: deefc6e135ea79e4aad47cd48c3eeb92, type: 2}
+  _traps:
+  - {fileID: 11400000, guid: 8434726a96fdd364f83c70e819ad608a, type: 2}

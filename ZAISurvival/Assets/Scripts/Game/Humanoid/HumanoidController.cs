@@ -23,7 +23,7 @@ namespace Game {
 
         private CharacterController _characterController;
 
-        private Camera _camera;
+        private PointOfView _pointOfView;
 
         private Vector3 _moveVector;
 
@@ -37,9 +37,9 @@ namespace Game {
         private HumanoidControllerSettings _settings;
         private bool _isCrouch = false;
 
-        public HumanoidController(CharacterController characterController, Camera camera, HumanoidControllerSettings humanoidControllerSettings, CapsuleCollider collider) {
+        public HumanoidController(CharacterController characterController, PointOfView pointOfView, HumanoidControllerSettings humanoidControllerSettings, CapsuleCollider collider) {
             _characterController = characterController;
-            _camera = camera;
+            _pointOfView = pointOfView;
             _settings = humanoidControllerSettings;
             _collider = collider;
         }
@@ -62,17 +62,17 @@ namespace Game {
 
         public void Rotate(Vector2 mouseDelta, float rotationSpeed, float minYRotate, float maxYRotate) {
             mouseDelta *= rotationSpeed * Time.deltaTime;
-            var rotationVector = new Vector3(Mathf.Clamp(-mouseDelta.y + _camera.transform.localRotation.eulerAngles.x, minYRotate, maxYRotate),
+            var rotationVector = new Vector3(Mathf.Clamp(-mouseDelta.y + _pointOfView.transform.localRotation.eulerAngles.x, minYRotate, maxYRotate),
                 mouseDelta.x + _characterController.transform.rotation.eulerAngles.y, 0);
             _characterController.transform.rotation = Quaternion.Euler(0, rotationVector.y, 0);
-            _camera.transform.localRotation = Quaternion.Euler(rotationVector.x, 0, 0);
+            _pointOfView.transform.localRotation = Quaternion.Euler(rotationVector.x, 0, 0);
         }
 
         public void ForceRotate(Vector2 mouseDelta, float minYRotate, float maxYRotate) {
-            var rotationVector = new Vector3(Mathf.Clamp(-mouseDelta.y + _camera.transform.localRotation.eulerAngles.x, minYRotate, maxYRotate),
+            var rotationVector = new Vector3(Mathf.Clamp(-mouseDelta.y + _pointOfView.transform.localRotation.eulerAngles.x, minYRotate, maxYRotate),
                 mouseDelta.x + _characterController.transform.rotation.eulerAngles.y, 0);
             _characterController.transform.rotation = Quaternion.Euler(0, rotationVector.y, 0);
-            _camera.transform.localRotation = Quaternion.Euler(rotationVector.x, 0, 0);
+            _pointOfView.transform.localRotation = Quaternion.Euler(rotationVector.x, 0, 0);
         }
 
         public void Move(Vector2 direction, float speed, AnimationCurve moveAccelerationCurve, float timeToMaxSpeed) {

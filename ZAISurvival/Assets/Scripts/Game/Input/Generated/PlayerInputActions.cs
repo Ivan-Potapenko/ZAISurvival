@@ -145,6 +145,15 @@ namespace Game
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActivateBuildScheme"",
+                    ""type"": ""Button"",
+                    ""id"": ""c394ca50-7cec-4a2a-8d80-4b5fbf34a359"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -334,6 +343,17 @@ namespace Game
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2db1ebd6-da50-46af-8b25-eefe26a5fa4e"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""ActivateBuildScheme"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -372,6 +392,7 @@ namespace Game
             m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+            m_Player_ActivateBuildScheme = m_Player.FindAction("ActivateBuildScheme", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -446,6 +467,7 @@ namespace Game
         private readonly InputAction m_Player_Run;
         private readonly InputAction m_Player_Crouch;
         private readonly InputAction m_Player_Interact;
+        private readonly InputAction m_Player_ActivateBuildScheme;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -463,6 +485,7 @@ namespace Game
             public InputAction @Run => m_Wrapper.m_Player_Run;
             public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
+            public InputAction @ActivateBuildScheme => m_Wrapper.m_Player_ActivateBuildScheme;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -511,6 +534,9 @@ namespace Game
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @ActivateBuildScheme.started += instance.OnActivateBuildScheme;
+                @ActivateBuildScheme.performed += instance.OnActivateBuildScheme;
+                @ActivateBuildScheme.canceled += instance.OnActivateBuildScheme;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -554,6 +580,9 @@ namespace Game
                 @Interact.started -= instance.OnInteract;
                 @Interact.performed -= instance.OnInteract;
                 @Interact.canceled -= instance.OnInteract;
+                @ActivateBuildScheme.started -= instance.OnActivateBuildScheme;
+                @ActivateBuildScheme.performed -= instance.OnActivateBuildScheme;
+                @ActivateBuildScheme.canceled -= instance.OnActivateBuildScheme;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -595,6 +624,7 @@ namespace Game
             void OnRun(InputAction.CallbackContext context);
             void OnCrouch(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
+            void OnActivateBuildScheme(InputAction.CallbackContext context);
         }
     }
 }

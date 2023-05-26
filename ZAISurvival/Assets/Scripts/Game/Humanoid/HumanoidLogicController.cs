@@ -5,37 +5,45 @@ using UnityEngine;
 
 namespace Game {
 
-    public class HumanoidLogicController : MonoBehaviour {
+    public abstract class HumanoidLogicController<THumanoid, THumanoidData> : MonoBehaviour where THumanoidData : HumanoidData where THumanoid : Humanoid {
 
-        private Humanoid _humanoid;
-        public Humanoid Humanoid => _humanoid;
+        protected THumanoid _humanoid;
+        public THumanoid Humanoid => _humanoid;
 
-        private HumanoidController _humanoidController;
+        protected HumanoidController _humanoidController;
 
-        private List<HumanoidLogic> _humanoidLogics;
-
-        [SerializeField]
-        private HumanoidData _humanoidData;
+        protected List<HumanoidLogic> _humanoidLogics;
 
         [SerializeField]
-        private PointOfView _pointOfView;
+        protected THumanoidData _humanoidData;
 
         [SerializeField]
-        private Camera _camera;
+        protected PointOfView _pointOfView;
 
         [SerializeField]
         private HumanoidController.HumanoidControllerSettings _humanoidControllerSettings;
 
         private void Awake() {
-            _humanoidLogics = GetComponents<HumanoidLogic>().ToList();
+            Init();
+        }
+
+        protected virtual void Init() {
+            FindHumanoidLogics();
             var characterController = GetComponent<CharacterController>();
             var collider = GetComponent<CapsuleCollider>();
-            _humanoidController = new HumanoidController(characterController, _camera, _humanoidControllerSettings, collider);
-            _humanoid = new Humanoid(_humanoidController, _humanoidData, _pointOfView);
+            _humanoidController = new HumanoidController(characterController, _pointOfView, _humanoidControllerSettings, collider);
+            InitHumanoid();
             InitLogics();
         }
 
-        private void InitLogics() {
+        protected virtual void FindHumanoidLogics() {
+            _humanoidLogics = GetComponents<HumanoidLogic>().ToList();
+        }
+
+        protected virtual void InitHumanoid() {
+        }
+
+        protected virtual void InitLogics() {
             for (int i = 0; i < _humanoidLogics.Count; i++) {
                 _humanoidLogics[i].Init(_humanoid);
             }
@@ -45,13 +53,13 @@ namespace Game {
             OnUpdate();
         }
 
-        private void OnUpdate() {
+        protected virtual void OnUpdate() {
             for (int i = 0; i < _humanoidLogics.Count; i++) {
                 _humanoidLogics[i].OnUpdate();
             }
         }
 
-        public void HandleInput(HumanoidInput playerInput) {
+        public virtual void HandleInput(HumanoidInput playerInput) {
             for (int i = 0; i < _humanoidLogics.Count; i++) {
                 _humanoidLogics[i].HandleInput(playerInput);
             }

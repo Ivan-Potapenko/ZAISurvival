@@ -36,21 +36,6 @@ namespace Data {
         private float _gravity;
         public float Gravity => _gravity;
 
-        [BoxGroup("Rotation")]
-        [SerializeField]
-        private float _maxYRotate;
-        public float MaxYRotate => _maxYRotate;
-
-        [BoxGroup("Rotation")]
-        [SerializeField]
-        private float _minYRotate;
-        public float MinYRotate => _minYRotate;
-
-        [BoxGroup("Rotation")]
-        [SerializeField]
-        private float _rotationSpeed;
-        public float RotationSpeed => _rotationSpeed;
-
         [BoxGroup("Move")]
         [SerializeField]
         private AnimationCurve _moveAccelerationCurve;

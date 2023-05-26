@@ -25,7 +25,7 @@ namespace Game {
 
         private int _currentWeaponSlot;
         public int CurrentWeaponSlot => _currentWeaponSlot;
-        public Weapon CurrentWeapon => _weapons[_currentWeaponSlot - 1];
+        public Weapon CurrentWeapon => _currentWeaponSlot >= 0 && _currentWeaponSlot <= _weapons.Length ? _weapons[_currentWeaponSlot - 1] : null;
 
         private Health _health;
         public Health Health => _health;
@@ -119,8 +119,8 @@ namespace Game {
             if (slot - 1 > _weapons.Length || slot == _currentWeaponSlot) {
                 return;
             }
-            _currentWeaponSlot = slot;
             DeactivateWeapon();
+            _currentWeaponSlot = slot;
             CurrentWeapon.SetActive(true);
         }
 
@@ -128,6 +128,7 @@ namespace Game {
             foreach (var weapon in _weapons) {
                 weapon.SetActive(false);
             }
+            _currentWeaponSlot = -1;
         }
 
         public WeaponUIData[] GetWeaponsUIData() {

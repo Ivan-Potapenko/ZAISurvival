@@ -29,11 +29,17 @@ namespace UI {
         }
 
         private void UpdateSight() {
+            if (_humanoid.CurrentWeapon == null) {
+                return;
+            }
             var weaponUIData = _humanoid.CurrentWeapon.GetWeaponUIData();
             _sightController.UpdateSight(weaponUIData);
         }
 
         private void UpdateAmmoVisual() {
+            if(_humanoid.CurrentWeapon == null) {
+                return;
+            }
             var weaponUIData = _humanoid.CurrentWeapon.GetWeaponUIData();
             _ammoText.text = $"{weaponUIData.loadedCartridges}/{weaponUIData.clipSize}";
         }

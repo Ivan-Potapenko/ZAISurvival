@@ -66,12 +66,12 @@ namespace Game {
             _controller.Jump(_stateData.JumpForce);
         }
 
-        public virtual void Rotate(Vector2 mouseDelta) {
-            HumanoidController.Rotate(mouseDelta, _stateData.RotationSpeed, _stateData.MinYRotate, _stateData.MaxYRotate);
+        public virtual void Rotate(Vector2 mouseDelta, float rotationSpeed, float minYRotate, float maxYRotate) {
+            HumanoidController.Rotate(mouseDelta, rotationSpeed, minYRotate, maxYRotate);
         }
 
-        public virtual void ForceRotate(Vector2 mouseDelta) {
-            HumanoidController.ForceRotate(mouseDelta, _stateData.MinYRotate, _stateData.MaxYRotate);
+        public virtual void ForceRotate(Vector2 mouseDelta, float minYRotate, float maxYRotate) {
+            HumanoidController.ForceRotate(mouseDelta, minYRotate, maxYRotate);
         }
 
         public virtual void Update() {

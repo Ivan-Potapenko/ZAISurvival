@@ -8,13 +8,13 @@ namespace Game {
         private SpawnPoint _spawnPoint;
 
         [SerializeField]
-        private HumanoidLogicController _playerPrefab;
+        private PlayerLogicController _playerPrefab;
 
         [SerializeField]
         private PlayerInputConroller _playerInputControllerPrefab;
 
-        private HumanoidLogicController _player;
-        public HumanoidLogicController Player => _player;
+        private PlayerLogicController _player;
+        public PlayerLogicController Player => _player;
 
         private PlayerInputConroller _playerInputController;
         public PlayerInputConroller PlayerInputController => _playerInputController;

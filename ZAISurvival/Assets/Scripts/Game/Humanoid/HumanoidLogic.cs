@@ -2,11 +2,15 @@ using UnityEngine;
 
 namespace Game {
 
-    public abstract class HumanoidLogic : MonoBehaviour {
+    public abstract class HumanoidLogic : HumanoidLogic<Humanoid> {
 
-        protected Humanoid _humanoid;
+    }
 
-        public virtual void Init(Humanoid humanoid) {
+    public abstract class HumanoidLogic<THumanoid> : MonoBehaviour where THumanoid : Humanoid {
+
+        protected THumanoid _humanoid;
+
+        public virtual void Init(THumanoid humanoid) {
             _humanoid = humanoid;
         }
 

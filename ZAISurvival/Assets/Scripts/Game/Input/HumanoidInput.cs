@@ -14,5 +14,7 @@ namespace Game {
         public int selectSlot;
         public bool reload;
         public bool interact;
+        public bool activateBuildScheme;
+        public bool build;
     }
 }

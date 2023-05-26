@@ -18,9 +18,6 @@ MonoBehaviour:
   _speed: 2.5
   _jumpForce: 0.06
   _gravity: 0.15
-  _maxYRotate: 360
-  _minYRotate: -80
-  _rotationSpeed: 10
   _moveAccelerationCurve:
     serializedVersion: 2
     m_Curve:

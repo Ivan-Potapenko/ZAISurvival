@@ -4,7 +4,7 @@ namespace Game {
 
     public class PlayerInputConroller : MonoBehaviour {
 
-        private HumanoidLogicController _humanoidLogicController;
+        private PlayerLogicController _humanoidLogicController;
 
         private PlayerInputActions _inputs;
 
@@ -12,7 +12,7 @@ namespace Game {
 
         private bool _inited = false;
 
-        public void Init(HumanoidLogicController player) {
+        public void Init(PlayerLogicController player) {
             _humanoidLogicController = player;
             _inputs = new PlayerInputActions();
             _currentInput = new HumanoidInput();
@@ -41,6 +41,7 @@ namespace Game {
             _inputs.Player.Run.Enable();
             _inputs.Player.Crouch.Enable();
             _inputs.Player.Interact.Enable();
+            _inputs.Player.ActivateBuildScheme.Enable();
         }
 
         private void OnDisable() {
@@ -57,6 +58,7 @@ namespace Game {
             _inputs.Player.Run.Disable();
             _inputs.Player.Crouch.Disable();
             _inputs.Player.Interact.Disable();
+            _inputs.Player.ActivateBuildScheme.Disable();
         }
 
         private void Update() {
@@ -70,6 +72,7 @@ namespace Game {
             _currentInput.moveDirection = _inputs.Player.Move.ReadValue<Vector2>();
             _currentInput.mouseDelta = _inputs.Player.MouseMove.ReadValue<Vector2>();
             _currentInput.isShooting = _inputs.Player.Shoot.IsPressed();
+            _currentInput.build = _inputs.Player.Shoot.WasPressedThisFrame();
             _currentInput.isAim = _inputs.Player.Aim.IsPressed();
             _currentInput.isJump = _inputs.Player.Jump.WasPressedThisFrame();
             _currentInput.isBuild = _inputs.Player.Build.WasPressedThisFrame();
@@ -79,6 +82,7 @@ namespace Game {
             _currentInput.isRun = _inputs.Player.Run.IsPressed();
             _currentInput.isCrouch = _inputs.Player.Crouch.IsPressed();
             _currentInput.interact = _inputs.Player.Interact.IsPressed();
+            _currentInput.activateBuildScheme = _inputs.Player.ActivateBuildScheme.WasPressedThisFrame();
             _humanoidLogicController.HandleInput(_currentInput);
         }
     }

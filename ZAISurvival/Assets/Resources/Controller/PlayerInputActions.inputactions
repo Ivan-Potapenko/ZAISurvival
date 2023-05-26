@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ActivateBuildScheme",
+                    "type": "Button",
+                    "id": "c394ca50-7cec-4a2a-8d80-4b5fbf34a359",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -308,6 +317,17 @@
                     "processors": "",
                     "groups": "Keyboard+Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2db1ebd6-da50-46af-8b25-eefe26a5fa4e",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "ActivateBuildScheme",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
