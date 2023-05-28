@@ -1,5 +1,4 @@
 using Data;
-using Sirenix.Utilities.Editor;
 using UnityEngine;
 
 namespace Game {
@@ -14,6 +13,8 @@ namespace Game {
 
         [SerializeField]
         private LayerMask _surfacesForBuildLayer;
+        [SerializeField]
+        private LayerMask _colisionLayer;
 
         [SerializeField]
         private BuildSurfaceType _buildSurfaceType;
@@ -26,17 +27,25 @@ namespace Game {
         private PlayerSettings _playerSettings;
 
         [SerializeField]
-        private GameObject _trapVisual;
+        private Material _permittedMaterial;
+        [SerializeField]
+        private Material _prohibitedMaterial;
+
+        [SerializeField]
+        private Collider _collider;
+
+        [SerializeField]
+        private MeshRenderer _trapVisual;
 
         public void Init(PointOfView pointOfView, PlayerSettings playerSettings) {
             _pointOfView = pointOfView;
             _playerSettings = playerSettings;
-            _trapVisual.SetActive(false);
+            _trapVisual.gameObject.SetActive(false);
         }
 
         public void SetActive(bool enable) {
             gameObject.SetActive(enable);
-            _trapVisual.SetActive(false);
+            _trapVisual.gameObject.SetActive(false);
         }
 
         private bool CheckNormalIsSuitable(Vector3 normal) {
@@ -54,16 +63,22 @@ namespace Game {
         public void OnUpdate() {
             var ray = new Ray(_pointOfView.transform.position, _pointOfView.transform.forward);
             Physics.Raycast(ray, out var raycastHit, _playerSettings.MaxBuildDistance, _surfacesForBuildLayer);
-            if(raycastHit.collider == null || !CheckNormalIsSuitable(raycastHit.normal)) {
-                _trapVisual.SetActive(false);
+            if (raycastHit.collider == null || !CheckNormalIsSuitable(raycastHit.normal)) {
+                _trapVisual.gameObject.SetActive(false);
                 _canBuild = false;
                 return;
-            }
-            else {
-                _trapVisual.SetActive(true);
+            } else {
+                _trapVisual.gameObject.SetActive(true);
                 gameObject.transform.position = raycastHit.point;
                 _canBuild = true;
-                //gameObject.transform.rotation = Quaternion.LookRotation(raycastHit.normal);
+            }
+
+            if (Physics.CheckBox(_collider.bounds.center, _collider.bounds.size / 2, gameObject.transform.rotation, _colisionLayer)) {
+                _canBuild = false;
+                _trapVisual.sharedMaterial = _prohibitedMaterial;
+            } else {
+                _canBuild = true;
+                _trapVisual.sharedMaterial = _permittedMaterial;
             }
 
         }

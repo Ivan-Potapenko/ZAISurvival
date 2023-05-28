@@ -14,6 +14,7 @@ namespace Game {
             Crouch,
             Test,
             Walk,
+            ControllableStop,
         }
 
         private Dictionary<StateType, HumanoidState> _states;
@@ -86,6 +87,8 @@ namespace Game {
                     return new TestHumanoidState(controller, stateData, SetCurrentState);
                 case StateType.Crouch:
                     return new CrouchHumanoidState(controller, stateData, SetCurrentState);
+                case StateType.ControllableStop:
+                    return new ControllableStopState(controller, stateData, SetCurrentState);
                 default:
                     return null;
             }
@@ -102,6 +105,14 @@ namespace Game {
             _currentState = _states[state];
             _currentState.Activate();
             return _currentState;
+        }
+
+        public void SetControllableState(StateType stateType) {
+            SetCurrentState(stateType);
+        }
+
+        public void ExitControllableState() {
+            SetCurrentState(StateType.Stand);
         }
         #endregion State
 

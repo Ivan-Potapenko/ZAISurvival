@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class CollectibleEnvironment : InteractiveEnvironmentObject {
+    public class CollectibleEnvironment : ProcessEnvironment {
 
         [Serializable]
         private class CollectibleResource {
@@ -16,35 +16,26 @@ namespace Game {
         }
 
         [SerializeField]
-        private float _timeToCollect;
-
-        private float _currentTime = 0;
-
-        [SerializeField]
         private GameObject _destroyEffects;
 
         [SerializeField]
         private List<CollectibleResource> _resources;
 
-        public override void Interact(Humanoid humanoid) {
-            _currentTime += Time.deltaTime;
-            if (_currentTime >= _timeToCollect) {
-                var inventory = humanoid.Inventory;
-                foreach (var collectible in _resources) {
-                    var resource = inventory.Get(collectible.resourceType);
-                    resource.PutResource(collectible.count);
-                }
-                if (_destroyEffects != null) {
-                    var effect = Instantiate(_destroyEffects, transform.position, Quaternion.identity);
-                    effect.transform.localScale = gameObject.transform.localScale;
-                }
-                Destroy(gameObject);
-            }
+        protected override void Activate(Humanoid humanoid) {
+            CollectResources(humanoid);
         }
 
-        public override InteractiveEnvironmentUIData GetUIData() {
-            _uiData.collectionPercentage = _currentTime == 0 ? 0 : _currentTime / _timeToCollect;
-            return _uiData;
+        protected virtual void CollectResources(Humanoid humanoid) {
+            var inventory = humanoid.Inventory;
+            foreach (var collectible in _resources) {
+                var resource = inventory.Get(collectible.resourceType);
+                resource.PutResource(collectible.count);
+            }
+            if (_destroyEffects != null) {
+                var effect = Instantiate(_destroyEffects, transform.position, Quaternion.identity);
+                //  effect.transform.localScale = gameObject.transform.localScale;
+            }
+            Destroy(gameObject);
         }
     }
 }

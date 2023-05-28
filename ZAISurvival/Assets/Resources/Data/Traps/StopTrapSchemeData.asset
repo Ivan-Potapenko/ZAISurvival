@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StopTrapSchemeData
   m_EditorClassIdentifier: 
   _type: 0
-  _trapPrefab: {fileID: 8637604047178635560, guid: ce38059b88a8782408cae17d0ea825a6, type: 3}
+  _trapPrefab: {fileID: 8285752323768806195, guid: ce38059b88a8782408cae17d0ea825a6, type: 3}
   _trapSchemePrefab: {fileID: 4143094220022259210, guid: 3a59dc6e99105c642bb4dadc60586bf0, type: 3}
   _necessaryResources:
   - resourceType: 2

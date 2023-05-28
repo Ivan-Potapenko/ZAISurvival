@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83bfbffa29df31f47a718514b2c80c01, type: 2}
   - {fileID: 11400000, guid: 165a5f5cb08bab5439088a9efcff0ba5, type: 2}
   - {fileID: 11400000, guid: 9212262d1d6b76345a71bfbef3566399, type: 2}
+  - {fileID: 11400000, guid: 1e4246400496b5b409ff22fa62400087, type: 2}
   _weaponPrefabs:
   - {fileID: 3861711356922793403, guid: 91b59939526bd0f40ab7917ad58a9c4c, type: 3}
   - {fileID: 5350636927022917670, guid: 3066a59f72946b947927a81578f22f28, type: 3}
