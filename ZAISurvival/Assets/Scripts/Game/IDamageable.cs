@@ -5,7 +5,8 @@ using UnityEngine.PlayerLoop;
 namespace Game {
 
     public enum DamageType {
-        PenetratingBullets
+        PenetratingBullets,
+        StabbingTrap,
     }
 
     [Serializable]

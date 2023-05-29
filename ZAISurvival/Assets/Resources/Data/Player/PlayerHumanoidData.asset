@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68599febf52253646a680d07a060fd58, type: 3}
   m_Name: PlayerHumanoidData
   m_EditorClassIdentifier: 
+  _healthData:
+    _healthAmount: 100
   _stateDatas:
   - {fileID: 11400000, guid: d4bf384728b9a2846bc25dd1ed9bcb8d, type: 2}
   - {fileID: 11400000, guid: dfec18d522b10c649aa269c98b5bda17, type: 2}
@@ -34,4 +36,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c52938925dec48c4b894a02ddaac3098, type: 2}
   _playerSettings: {fileID: 11400000, guid: deefc6e135ea79e4aad47cd48c3eeb92, type: 2}
   _traps:
+  - {fileID: 11400000, guid: fedd70db4da84434c83fa00eb023a1c6, type: 2}
   - {fileID: 11400000, guid: 8434726a96fdd364f83c70e819ad608a, type: 2}

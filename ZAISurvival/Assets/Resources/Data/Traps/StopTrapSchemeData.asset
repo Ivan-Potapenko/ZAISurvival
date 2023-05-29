@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: StopTrapSchemeData
   m_EditorClassIdentifier: 
   _type: 0
+  _uiData:
+    name: 
+    icon: {fileID: 21300000, guid: af12155b7fbd3c54c8eced8df029dcbc, type: 3}
+    menuOffset: {x: 0, y: 0, z: 0}
+    slotOffset: {x: 23.03, y: -33.16, z: 0}
+    slotSize: {x: 0.3, y: 0.3, z: 0.3}
   _trapPrefab: {fileID: 8285752323768806195, guid: ce38059b88a8782408cae17d0ea825a6, type: 3}
   _trapSchemePrefab: {fileID: 4143094220022259210, guid: 3a59dc6e99105c642bb4dadc60586bf0, type: 3}
   _necessaryResources:

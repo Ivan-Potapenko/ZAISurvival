@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +15,11 @@ namespace UI {
         [SerializeField]
         private TextMeshProUGUI _text;
 
-        public void UpdateSlot(Sprite weaponIcon, bool selected, Vector3 offset, string text = "") {
-            _image.sprite = weaponIcon;
+        public void UpdateSlot(Sprite icon, bool selected, Vector3 offset, Vector3 size, string text = "" ) {
+            _image.sprite = icon;
             _image.SetNativeSize();
             _image.transform.localPosition = offset;
+            _image.transform.localScale = size;
             if(_backImage != null) {
                 _backImage.enabled = selected;
             }

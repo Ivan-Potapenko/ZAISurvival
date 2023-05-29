@@ -186,3 +186,5 @@ MonoBehaviour:
   _screenPrefabs:
   - ScreenType: 0
     interfaceScreen: {fileID: 5073490001815892263, guid: d7f4bcad099a271428e8e50b48119417, type: 3}
+  - ScreenType: 1
+    interfaceScreen: {fileID: 7427769137712692128, guid: a3f74e8decb6e6b4eb032eeb30518740, type: 3}

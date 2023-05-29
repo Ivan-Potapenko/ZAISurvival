@@ -10,7 +10,7 @@ namespace UI {
         protected List<ItemSlot> _slots;
 
         protected void UpdateSlot(ItemSlot itemSlot, Sprite sprite, bool enable, Vector3 position, string text = "") {
-            itemSlot.UpdateSlot(sprite, enable, position, text);
+            itemSlot.UpdateSlot(sprite, enable, position, Vector3.one, text);
             itemSlot.SetActive(true);
         }
 

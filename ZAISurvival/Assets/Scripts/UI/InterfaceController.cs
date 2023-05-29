@@ -5,9 +5,9 @@ namespace UI {
 
     public abstract class InterfaceController : MonoBehaviour {
 
-        protected Humanoid _humanoid;
+        protected PlayerHumanoid _humanoid;
 
-        public virtual void Init(Humanoid humanoid) {
+        public virtual void Init(PlayerHumanoid humanoid) {
             _humanoid = humanoid;
         }
 

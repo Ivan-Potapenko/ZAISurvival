@@ -4,11 +4,13 @@ using UnityEngine;
 namespace UI {
 
     public enum ScreenType {
-        Battle
+        Battle,
+        BuildMenu,
     }
 
     public struct InterfaceScreenData {
-        public Humanoid humanoid;
+        public PlayerHumanoid humanoid;
+        public UIManager manager;
     }
 
     public abstract class InterfaceScreen : MonoBehaviour {

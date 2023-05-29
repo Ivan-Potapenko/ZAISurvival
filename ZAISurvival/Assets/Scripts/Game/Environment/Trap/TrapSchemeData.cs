@@ -7,13 +7,22 @@ namespace Data {
     [CreateAssetMenu(fileName = "TrapSchemeData", menuName = "Data/TrapSchemeData")]
     public class TrapSchemeData : ScriptableObject {
 
+        [Serializable]
         public struct TrapBuilderUIData {
             public string name;
             public Sprite icon;
+            public Vector3 menuOffset;
+            [NonSerialized]
+            public TrapSchemeType trapSchemeType;
+            [NonSerialized]
+            public NecessaryResource[] necessaryResources;
+            public Vector3 slotOffset;
+            public Vector3 slotSize;
         }
 
         public enum TrapSchemeType {
-            StopTrap
+            StopTrap,
+            Hedgehog,
         }
 
         [SerializeField]
@@ -42,6 +51,11 @@ namespace Data {
         private NecessaryResource[] _necessaryResources;
         public NecessaryResource[] NecessaryResources => _necessaryResources;
 
+        public TrapBuilderUIData GetTrapBuilderUIData() {
+            _uiData.trapSchemeType = _type;
+            _uiData.necessaryResources = _necessaryResources;
+            return _uiData;
+        }
     }
 }
 

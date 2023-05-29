@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 namespace Game {
@@ -19,10 +20,10 @@ namespace Game {
         private PlayerInputConroller _playerInputController;
         public PlayerInputConroller PlayerInputController => _playerInputController;
 
-        public void Spawn() {
+        public void Spawn(UIManager uiManager) {
             _player = Instantiate(_playerPrefab, _spawnPoint.transform.position, Quaternion.identity);
             _playerInputController = Instantiate(_playerInputControllerPrefab);
-            _playerInputController.Init(_player);
+            _playerInputController.Init(_player, uiManager);
         }
     }
 }

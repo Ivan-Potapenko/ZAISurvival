@@ -1,7 +1,7 @@
 using Data;
-using UnityEngine;
 
 namespace Game {
+
     public class PlayerHumanoid : Humanoid {
 
         public PlayerSettings Settings { get; private set; }
@@ -12,6 +12,7 @@ namespace Game {
             Settings = humanoidData.PlayerSettings;
             TrapBuilder = new TrapBuilder(humanoidData.TrapSchemeDatas, pointOfView, Settings);
         }
+
     }
 }
 

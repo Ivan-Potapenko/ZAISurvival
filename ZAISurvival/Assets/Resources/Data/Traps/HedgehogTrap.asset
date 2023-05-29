@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7627fe5868a1b04ba5b48b5b8a6a4f3, type: 3}
+  m_Name: HedgehogTrap
+  m_EditorClassIdentifier: 
+  _type: 1
+  _uiData:
+    name: 
+    icon: {fileID: 21300000, guid: 8e80540ad7a12e74396c8e057571bd50, type: 3}
+    menuOffset: {x: 1.28, y: 33.41, z: 0}
+    slotOffset: {x: 25.9, y: -24.89, z: 0}
+    slotSize: {x: 0.3, y: 0.3, z: 0.3}
+  _trapPrefab: {fileID: 408225485358781584, guid: d80d414deb3ac074c93b67c662a8b0e5, type: 3}
+  _trapSchemePrefab: {fileID: 5128311722785817616, guid: 3b0dd7839da198f4f87ce48b5076d95b, type: 3}
+  _necessaryResources:
+  - resourceType: 0
+    count: 20

@@ -15,22 +15,36 @@ namespace Game {
 
     public class Health {
 
-        private float _healthAmount;
-        public float HealthAmount => _healthAmount;
+        public float HealthAmount { get; private set; } 
 
-        private Action _onHealthChanged;
-        public Action OnHeathChanged => _onHealthChanged;
+        public Action OnHeathChanged { get; set; }
+
+        public float HealthPercentage => HealthAmount / _healthData.HealthAmount;
+
+        private HealthData _healthData;
 
         public Health(HealthData healthData) {
-        
+            HealthAmount = healthData.HealthAmount;
+            _healthData = healthData;
         }
 
         public void ReduceHealth(Damage damage) {
-            _onHealthChanged.Invoke();
+            if(HealthAmount - damage.damage > 0) {
+                HealthAmount -= damage.damage;
+            }
+            else {
+                HealthAmount = 0;
+            }
+            OnHeathChanged?.Invoke();
         }
 
         public void RecoveryHealth(HealthRecoveryData healthRecoveryData) {
-            _onHealthChanged.Invoke();
+            if (HealthAmount + healthRecoveryData.healthRecoveryCount > _healthData.HealthAmount) {
+                HealthAmount = _healthData.HealthAmount;
+            } else {
+                HealthAmount = 0;
+            }
+            OnHeathChanged?.Invoke();
         }
     }
 }

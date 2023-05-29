@@ -15,7 +15,7 @@ namespace UI {
         [SerializeField]
         private Slider _slider;
 
-        public override void Init(Humanoid humanoid) {
+        public override void Init(PlayerHumanoid humanoid) {
             base.Init(humanoid);
         }
 

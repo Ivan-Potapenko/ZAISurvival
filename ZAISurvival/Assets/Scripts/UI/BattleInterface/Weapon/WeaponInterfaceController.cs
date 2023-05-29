@@ -15,7 +15,7 @@ namespace UI {
         [SerializeField]
         private SightController _sightController;
 
-        public override void Init(Humanoid humanoid) {
+        public override void Init(PlayerHumanoid humanoid) {
             base.Init(humanoid);
             _weaponSlotsController.Init();
         }

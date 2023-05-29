@@ -17,6 +17,8 @@ namespace UI {
 
         private Dictionary<ScreenType, InterfaceScreen> _screens = new Dictionary<ScreenType, InterfaceScreen>();
 
+        public ScreenType CurrentScreen { get; private set; }
+
         private void Awake() {
             foreach(var screenPrefab in _screenPrefabs) {
                 _screens.Add(screenPrefab.ScreenType, Instantiate(screenPrefab.interfaceScreen, gameObject.transform));
@@ -26,8 +28,10 @@ namespace UI {
 
         public void ActivateScreen(ScreenType screenType, InterfaceScreenData interfaceScreenData) {
             DeactivateScreens();
+            interfaceScreenData.manager = this;
             _screens[screenType].Init(interfaceScreenData);
             _screens[screenType].Show();
+            CurrentScreen = screenType;
         }
 
         private void DeactivateScreens() {

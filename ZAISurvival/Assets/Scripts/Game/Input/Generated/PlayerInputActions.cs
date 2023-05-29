@@ -154,6 +154,15 @@ namespace Game
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenBuildMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""5bcec882-e0cc-46eb-abc5-1abfebbef7b0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -354,6 +363,17 @@ namespace Game
                     ""action"": ""ActivateBuildScheme"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70a421ae-e069-4211-bc27-ef992481f8c3"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""OpenBuildMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -393,6 +413,7 @@ namespace Game
             m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_ActivateBuildScheme = m_Player.FindAction("ActivateBuildScheme", throwIfNotFound: true);
+            m_Player_OpenBuildMenu = m_Player.FindAction("OpenBuildMenu", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -468,6 +489,7 @@ namespace Game
         private readonly InputAction m_Player_Crouch;
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_ActivateBuildScheme;
+        private readonly InputAction m_Player_OpenBuildMenu;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -486,6 +508,7 @@ namespace Game
             public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
             public InputAction @ActivateBuildScheme => m_Wrapper.m_Player_ActivateBuildScheme;
+            public InputAction @OpenBuildMenu => m_Wrapper.m_Player_OpenBuildMenu;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -537,6 +560,9 @@ namespace Game
                 @ActivateBuildScheme.started += instance.OnActivateBuildScheme;
                 @ActivateBuildScheme.performed += instance.OnActivateBuildScheme;
                 @ActivateBuildScheme.canceled += instance.OnActivateBuildScheme;
+                @OpenBuildMenu.started += instance.OnOpenBuildMenu;
+                @OpenBuildMenu.performed += instance.OnOpenBuildMenu;
+                @OpenBuildMenu.canceled += instance.OnOpenBuildMenu;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -583,6 +609,9 @@ namespace Game
                 @ActivateBuildScheme.started -= instance.OnActivateBuildScheme;
                 @ActivateBuildScheme.performed -= instance.OnActivateBuildScheme;
                 @ActivateBuildScheme.canceled -= instance.OnActivateBuildScheme;
+                @OpenBuildMenu.started -= instance.OnOpenBuildMenu;
+                @OpenBuildMenu.performed -= instance.OnOpenBuildMenu;
+                @OpenBuildMenu.canceled -= instance.OnOpenBuildMenu;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -625,6 +654,7 @@ namespace Game
             void OnCrouch(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnActivateBuildScheme(InputAction.CallbackContext context);
+            void OnOpenBuildMenu(InputAction.CallbackContext context);
         }
     }
 }

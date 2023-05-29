@@ -25,6 +25,7 @@ namespace UI {
 
         public override void Hide() {
             base.Hide();
+            Cursor.lockState = CursorLockMode.None;
             foreach (var controller in _interfaceControllers) {
                 controller.SetActive(false);
             }

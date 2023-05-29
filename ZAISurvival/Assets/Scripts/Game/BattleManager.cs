@@ -19,7 +19,7 @@ namespace Game {
         }
 
         private void Init() {
-            _playerSpawner.Spawn();
+            _playerSpawner.Spawn(_uiManager);
             _uiManager.ActivateScreen(ScreenType.Battle, new InterfaceScreenData { humanoid = _playerSpawner.Player.Humanoid });
         }
 

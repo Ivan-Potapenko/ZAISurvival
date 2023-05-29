@@ -7,7 +7,7 @@ namespace Game {
         private Health _health;
         public Health Health => _health;
 
-        private bool _canTakeDamage;
+        private bool _canTakeDamage = true;
 
         public void Init(Health health) {
             _health = health;

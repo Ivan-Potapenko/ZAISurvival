@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 namespace Game {
@@ -10,13 +11,16 @@ namespace Game {
 
         private HumanoidInput _currentInput;
 
+        private UIManager _uiManager;
+
         private bool _inited = false;
 
-        public void Init(PlayerLogicController player) {
+        public void Init(PlayerLogicController player, UIManager uiManager) {
             _humanoidLogicController = player;
             _inputs = new PlayerInputActions();
             _currentInput = new HumanoidInput();
             _inited = true;
+            _uiManager = uiManager;
             EnableInputs();
         }
 
@@ -42,6 +46,7 @@ namespace Game {
             _inputs.Player.Crouch.Enable();
             _inputs.Player.Interact.Enable();
             _inputs.Player.ActivateBuildScheme.Enable();
+            _inputs.Player.OpenBuildMenu.Enable();
         }
 
         private void OnDisable() {
@@ -59,6 +64,7 @@ namespace Game {
             _inputs.Player.Crouch.Disable();
             _inputs.Player.Interact.Disable();
             _inputs.Player.ActivateBuildScheme.Disable();
+            _inputs.Player.OpenBuildMenu.Disable();
         }
 
         private void Update() {
@@ -69,21 +75,45 @@ namespace Game {
             if (!_inited) {
                 return;
             }
+            if(_inputs.Player.OpenBuildMenu.WasPressedThisFrame()) {
+                ActivateBuildMenu();
+            }
             _currentInput.moveDirection = _inputs.Player.Move.ReadValue<Vector2>();
-            _currentInput.mouseDelta = _inputs.Player.MouseMove.ReadValue<Vector2>();
-            _currentInput.isShooting = _inputs.Player.Shoot.IsPressed();
-            _currentInput.build = _inputs.Player.Shoot.WasPressedThisFrame();
-            _currentInput.isAim = _inputs.Player.Aim.IsPressed();
+            if(_uiManager.CurrentScreen != ScreenType.BuildMenu) {
+                _currentInput.mouseDelta = _inputs.Player.MouseMove.ReadValue<Vector2>();
+                _currentInput.isShooting = _inputs.Player.Shoot.IsPressed();
+                _currentInput.build = _inputs.Player.Shoot.WasPressedThisFrame();
+                _currentInput.isAim = _inputs.Player.Aim.IsPressed();
+                _currentInput.interact = _inputs.Player.Interact.IsPressed();
+                _currentInput.reload = _inputs.Player.Reload.WasPressedThisFrame();
+                _currentInput.selectSlot = _inputs.Player.SelectSlot_1.WasPressedThisFrame() ? 1 :
+               _inputs.Player.SelectSlot_2.WasPressedThisFrame() ? 2 : _inputs.Player.SelectSlot_3.WasPressedThisFrame() ? 3 : -1;
+                _currentInput.activateBuildScheme = _inputs.Player.ActivateBuildScheme.WasPressedThisFrame();
+            }
+            else {
+                _currentInput.mouseDelta = Vector2.zero;
+                _currentInput.isShooting = false;
+                _currentInput.build = false;
+                _currentInput.isAim = false;
+                _currentInput.interact = false;
+                _currentInput.reload = false;
+                _currentInput.selectSlot = -1;
+                _currentInput.activateBuildScheme = false;
+            }
             _currentInput.isJump = _inputs.Player.Jump.WasPressedThisFrame();
             _currentInput.isBuild = _inputs.Player.Build.WasPressedThisFrame();
-            _currentInput.selectSlot = _inputs.Player.SelectSlot_1.WasPressedThisFrame() ? 1 :
-                _inputs.Player.SelectSlot_2.WasPressedThisFrame() ? 2 : _inputs.Player.SelectSlot_3.WasPressedThisFrame() ? 3 : -1;
-            _currentInput.reload = _inputs.Player.Reload.WasPressedThisFrame();
             _currentInput.isRun = _inputs.Player.Run.IsPressed();
             _currentInput.isCrouch = _inputs.Player.Crouch.IsPressed();
-            _currentInput.interact = _inputs.Player.Interact.IsPressed();
-            _currentInput.activateBuildScheme = _inputs.Player.ActivateBuildScheme.WasPressedThisFrame();
             _humanoidLogicController.HandleInput(_currentInput);
+        }
+
+        private void ActivateBuildMenu() {
+            if(_uiManager.CurrentScreen == ScreenType.BuildMenu) {
+                _uiManager.ActivateScreen(ScreenType.Battle, new InterfaceScreenData { humanoid = _humanoidLogicController.Humanoid });
+            }
+            else {
+                _uiManager.ActivateScreen(ScreenType.BuildMenu, new InterfaceScreenData { humanoid = _humanoidLogicController.Humanoid });
+            }
         }
     }
 }

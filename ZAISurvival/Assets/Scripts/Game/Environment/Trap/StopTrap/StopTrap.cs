@@ -14,6 +14,9 @@ namespace Game {
         [SerializeField]
         private DestroyAfterTimeParticle _bloodEffect;
 
+        [SerializeField]
+        private Damage _damage;
+
         private HumanoidTrapInteractionLogic _currentTarget;
 
         private void Start() {
@@ -22,6 +25,9 @@ namespace Game {
 
         private void OnTriggerEnter(Collider other) {
             if(other.gameObject.TryGetComponent<HumanoidTrapInteractionLogic>(out var humanoidTrapInteractionLogic)) {
+                if(other.gameObject.TryGetComponent<IDamageable>(out var damageable)) {
+                    damageable.TryDoDamage(_damage);
+                }
                 _currentTarget = humanoidTrapInteractionLogic;
                 _currentTarget.EnterStopTrapState();
                 Activate();

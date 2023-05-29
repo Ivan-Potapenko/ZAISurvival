@@ -30,6 +30,18 @@ namespace Game {
             Deactivate();
         }
 
+        public TrapSchemeData.TrapBuilderUIData[] GetTrapBuilderUIDatas() {
+            var data = new List<TrapSchemeData.TrapBuilderUIData>();
+            foreach (var trap in _traps) {
+                data.Add(trap.Value.GetTrapBuilderUIData());
+            }
+            return data.ToArray();
+        }
+
+        public TrapSchemeData.TrapBuilderUIData GetCurrentTrapUIData() {
+            return _traps[_currentTrapType].GetTrapBuilderUIData();
+        }
+
         public void SelectTrap(TrapSchemeData.TrapSchemeType trapSchemeType) {
             if(!_trapSchemes.ContainsKey(trapSchemeType)) {
                 return;
