@@ -21,6 +21,11 @@ namespace Game {
                 _humanoid.ExitControllableState();
             }
         }
+
+        private void OnControllerColliderHit(ControllerColliderHit hit) {
+            if(hit.gameObject.TryGetComponent<Trap>(out var trap)) {
+            }
+        }
     }
 }
 

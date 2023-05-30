@@ -32,21 +32,20 @@ namespace Game {
 
         public bool _isGrounded => _characterController.isGrounded;
 
-        private CapsuleCollider _collider;
-
         private HumanoidControllerSettings _settings;
         private bool _isCrouch = false;
 
-        public HumanoidController(CharacterController characterController, PointOfView pointOfView, HumanoidControllerSettings humanoidControllerSettings, CapsuleCollider collider) {
+        public HumanoidController(CharacterController characterController, PointOfView pointOfView, HumanoidControllerSettings humanoidControllerSettings) {
             _characterController = characterController;
             _pointOfView = pointOfView;
             _settings = humanoidControllerSettings;
-            _collider = collider;
         }
 
         public void OnUpdate(float gravity) {
             UpdateHeight();
-            _moveVector.y -= gravity * Time.deltaTime;
+            if(!_characterController.isGrounded) {
+                _moveVector.y -= gravity * Time.deltaTime;
+            }
             _characterController.Move(_moveVector);
         }
 
@@ -54,7 +53,6 @@ namespace Game {
             var targetHeight = _isCrouch && _isGrounded ? _settings.CrouchHeight : _settings.StandingHeight;
             var step = _settings.HieghtChangeSpeed * Time.deltaTime;
             _characterController.height = Mathf.Lerp(_characterController.height, targetHeight, step);
-            _collider.height = _characterController.height;
             if (_isCrouch && _isGrounded) {
                 _moveVector.y -= step;
             }

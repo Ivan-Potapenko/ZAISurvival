@@ -24,8 +24,8 @@ namespace Game {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if(other.gameObject.TryGetComponent<HumanoidTrapInteractionLogic>(out var humanoidTrapInteractionLogic)) {
-                if(other.gameObject.TryGetComponent<IDamageable>(out var damageable)) {
+            if (other.gameObject.TryGetComponent<HumanoidTrapInteractionLogic>(out var humanoidTrapInteractionLogic)) {
+                if (other.gameObject.TryGetComponent<IDamageable>(out var damageable)) {
                     damageable.TryDoDamage(_damage);
                 }
                 _currentTarget = humanoidTrapInteractionLogic;
@@ -41,7 +41,7 @@ namespace Game {
             IsActive = true;
             _trap.gameObject.SetActive(false);
             _activeTrap.gameObject.SetActive(true);
-            Instantiate(_bloodEffect,gameObject.transform.position,Quaternion.identity);
+            Instantiate(_bloodEffect, gameObject.transform.position, Quaternion.identity);
         }
 
         public override void Deactivate() {

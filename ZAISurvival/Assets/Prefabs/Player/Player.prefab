@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8294618281457844870}
   - component: {fileID: 8104580594292249927}
-  - component: {fileID: 4777898851107954248}
   - component: {fileID: 3888639603604101457}
   - component: {fileID: 6809456456362527350}
   - component: {fileID: 989482623327956337}
@@ -21,6 +20,7 @@ GameObject:
   - component: {fileID: 5262120088200212532}
   - component: {fileID: 2689029813163164975}
   - component: {fileID: 8618186056540330384}
+  - component: {fileID: 7390184949675225660}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -64,34 +64,11 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &4777898851107954248
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2242473011017869233}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3888639603604101457
 MonoBehaviour:
@@ -217,6 +194,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30063239027651f49b64a93fb8773bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7390184949675225660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242473011017869233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f5bde0199173345b88af6e335b01b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6082022520024659320

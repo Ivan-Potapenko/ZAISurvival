@@ -30,8 +30,7 @@ namespace Game {
         protected virtual void Init() {
             FindHumanoidLogics();
             var characterController = GetComponent<CharacterController>();
-            var collider = GetComponent<CapsuleCollider>();
-            _humanoidController = new HumanoidController(characterController, _pointOfView, _humanoidControllerSettings, collider);
+            _humanoidController = new HumanoidController(characterController, _pointOfView, _humanoidControllerSettings);
             InitHumanoid();
             InitLogics();
         }

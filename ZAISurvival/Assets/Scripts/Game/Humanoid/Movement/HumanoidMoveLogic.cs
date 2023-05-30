@@ -8,7 +8,7 @@ namespace Game {
         }
 
         public override void HandleInput(HumanoidInput playerInput) {
-            Debug.Log(_humanoid.CurrentState.StateData.StateType);
+            //Debug.Log(_humanoid.CurrentState.StateData.StateType);
             if (playerInput.isRun) {
                 _humanoid.CurrentState.Run(playerInput.moveDirection);
             } else if(playerInput.isCrouch) {

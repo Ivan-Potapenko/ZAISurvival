@@ -14,23 +14,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619147425502169106, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5453640273726461857, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5453640273726461857, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.2425704
       objectReference: {fileID: 0}
     - target: {fileID: 5453640273726461857, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05000019
       objectReference: {fileID: 0}
     - target: {fileID: 5453640273726461857, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.2041492
       objectReference: {fileID: 0}
     - target: {fileID: 5453640273726461857, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -76,10 +76,7 @@ PrefabInstance:
       addedObject: {fileID: 5288666740959844342}
     - targetCorrespondingSourceObject: {fileID: 4619147425502169106, guid: 102276286b70693478900919fe77d9b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8920335773626634044}
-    - targetCorrespondingSourceObject: {fileID: 4619147425502169106, guid: 102276286b70693478900919fe77d9b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7990273899028785061}
+      addedObject: {fileID: 794899798645997264}
     - targetCorrespondingSourceObject: {fileID: 5839376031657450165, guid: 102276286b70693478900919fe77d9b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6781162181209417760}
@@ -99,7 +96,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2559380227948186362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4662ea14164d0a44fa963a80b77a6543, type: 3}
   m_Name: 
@@ -132,7 +129,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -177,53 +174,28 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.84957826, y: 1.4067868, z: 1.0496551}
-  m_Center: {x: -0.048805773, y: 0.7251124, z: -0.25613123}
---- !u!65 &8920335773626634044
-BoxCollider:
+  m_Size: {x: 1.1077195, y: 1.5931497, z: 0.8441776}
+  m_Center: {x: 0.08026539, y: 0.8182945, z: -0.35886827}
+--- !u!114 &794899798645997264
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3645555399411259485}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.28, y: 1.63, z: 1.21}
-  m_Center: {x: -0.048805773, y: 0.7251124, z: -0.25613123}
---- !u!54 &7990273899028785061
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3645555399411259485}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4662ea14164d0a44fa963a80b77a6543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiData:
+    text: "(E) \u0420\u0430\u0437\u043E\u0431\u0440\u0430\u0442\u044C \u043B\u043E\u0432\u0443\u0448\u043A\u0443"
+    type: 0
+    ResourceTypes: 00000000
+  _canReduceProgress: 1
+  _timeBeforeReduceProgress: 0.4
+  _timeToCollect: 10
+  _destroyEffects: {fileID: 3137935257036094108, guid: 4e2202fb2a111da4e8e7bb1917d110bd, type: 3}
+  _resources:
+  - resourceType: 0
+    count: 10
