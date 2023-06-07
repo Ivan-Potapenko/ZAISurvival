@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game.HumanoidLogicController&lt;THumanoid, THumanoidData&gt;" Collapsed="true">
+    <Position X="20.25" Y="3.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAAAAAAAAAAAAAAwAoCAIQCAAEIAkA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidLogicController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_humanoidController" />
+      <Field Name="_pointOfView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_humanoidLogics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Game.PlayerLogicController" Collapsed="true">
+    <Position X="16" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACABAAAAAAAAAAAAAAAAAAAwAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerLogicController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_playerHumanoidLogics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Game.Humanoid" Collapsed="true">
+    <Position X="16" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGEACAoAgAEAAACAAAMAECECAABgAEwAAAAAAgBAAhA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Humanoid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_currentState" />
+      <Field Name="_pointOfView" />
+      <Field Name="_humanoidData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Game.PlayerHumanoid" Collapsed="true">
+    <Position X="16" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerHumanoid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Game.HumanoidState" Collapsed="true">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAA4DAAABAIAIAAAACEgAAAAAgEABIAEAAMAI=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\HumanoidState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_controller" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Game.ControllableStopState" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAoAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\ControllableStopState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.CrouchHumanoidState" Collapsed="true">
+    <Position X="18" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgBAAABAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\CrouchHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.RunHumanoidState" Collapsed="true">
+    <Position X="20.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\RunHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.StandHumanoidState" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\StandHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.TestHumanoidState" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\TestHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.WalkHumanoidState" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\WalkHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.PointOfView" Collapsed="true">
+    <Position X="20" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\PointOfView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.HumanoidData" Collapsed="true">
+    <Position X="18" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAIACAAAAEAAAAAAQAAAAQIAEgAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_stateDatas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Data.HumanoidStateData" Collapsed="true">
+    <Position X="18" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAwAAQAIAAEAAAABAAABAoAABAAABABRAACAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\HumanoidStateData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidController" Collapsed="true">
+    <Position X="16.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAkABoAgAAIEgAACCAAAEgAAAAgAAAAgAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_characterController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Game.HumanoidLogic" Collapsed="true">
+    <Position X="18.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidCollisionLogic" Collapsed="true">
+    <Position X="22.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAgAAACAAAAAAAAAAAAAAAAAkAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidCollisionLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidMoveLogic" Collapsed="true">
+    <Position X="24.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Movement\HumanoidMoveLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.PlayerHumanoidLogic" Collapsed="true">
+    <Position X="18.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerHumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.PlayerRotationLogic" Collapsed="true">
+    <Position X="18.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Movement\PlayerRotationLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.CharacterController" Collapsed="true">
+    <Position X="16.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Data.PlayerSettings" Collapsed="true">
+    <Position X="16" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggACAAAAAACAAAAABAAECAKhAgAAIAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="21" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

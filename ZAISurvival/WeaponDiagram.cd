@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game.PlayerHumanoidSlotsLogic" Collapsed="true">
+    <Position X="5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerHumanoidSlotsLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.RangedWeapon" Collapsed="true">
+    <Position X="1.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIBEAIABAgQgBAAICAABAhAAgEAQIBAJDQIC2RFAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Weapon\RangedWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.MeleeWeapon" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAABAAAAAQAAABAQAAAABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Weapon\MeleeWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Weapon" Collapsed="true">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAAAACACAAAAAAAAAAAAAQAAIBSQESAYFCAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Weapon\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Health" Collapsed="true">
+    <Position X="3.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAJgAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Health.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_healthData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Game.DamageableHumanoid" Collapsed="true">
+    <Position X="9.25" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQCAAAAAEAAAAACAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Health\DamageableHumanoid.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Data.HealthData" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\HealthData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.PlayerWeaponLogic" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Weapon\HumanoidWeaponLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidHealthLogic" Collapsed="true">
+    <Position X="6.25" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Health\HumanoidHealthLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.PlayerHumanoidLogic" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerHumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidLogicController&lt;THumanoid, THumanoidData&gt;" Collapsed="true">
+    <Position X="5" Y="3.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAAAAAAAAAAAAAAwAoCAIQCAAEIAkA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidLogicController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_pointOfView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_humanoidLogics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Game.PlayerHumanoid" Collapsed="true">
+    <Position X="2.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerHumanoid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Humanoid" Collapsed="true">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGEACAoAgAEAAACAAAMAECECAABgAEwAAAAAAgBAAhA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Humanoid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_pointOfView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_weapons" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Game.PointOfView" Collapsed="true">
+    <Position X="4.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\PointOfView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidLogic" Collapsed="true">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.PlayerLogicController" Collapsed="true">
+    <Position X="8" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACABAAAAAAAAAAAAAAAAAAAwAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerLogicController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_playerHumanoidLogics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="Game.IDamageable" Collapsed="true">
+    <Position X="3.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\IDamageable.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Health" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

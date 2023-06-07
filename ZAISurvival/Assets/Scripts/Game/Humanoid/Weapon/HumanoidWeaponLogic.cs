@@ -1,9 +1,7 @@
 
-using UnityEngine;
-
 namespace Game {
 
-    public class PlayerWeaponLogic : PlayerRotationLogic {
+    public class PlayerWeaponLogic : PlayerHumanoidLogic {
 
         public override void OnUpdate() {
             if(_humanoid.CurrentWeapon != null) {

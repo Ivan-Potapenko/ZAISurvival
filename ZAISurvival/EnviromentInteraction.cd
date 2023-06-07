@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game.InteractiveEnvironmentObject" Collapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Environment\InteractiveEnvironmentObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.ProcessEnvironment" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAQAAAIQICAAAAAAAQAAABAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Environment\ProcessEnvironment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.CollectibleEnvironment" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAABAAAAAAAAAAAACAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Environment\CollectibleEnvironment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.StopTrapEnvironment" Collapsed="true">
+    <Position X="3.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Environment\Trap\StopTrap\StopTrapEnvironment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.EnvironmentVisionHumanoidLogic" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAgAAAIAACAAAAAAAAAAIAAACAAEACAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\EnvironmentInteraction\EnvironmentVisionHumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidLogicController&lt;THumanoid, THumanoidData&gt;" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAAAAAAAAAAAAAAwAoCAIQCAAEIAkA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidLogicController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_humanoidLogics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Game.PlayerLogicController" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACABAAAAAAAAAAAAAAAAAAAwAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerLogicController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_playerHumanoidLogics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Game.Humanoid" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGEACAoAgAEAAACAAAMAECECAABgAEwAAAAAAgBAAhA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Humanoid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="currentObjectInSight" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Game.PlayerHumanoid" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerHumanoid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.PlayerHumanoidLogic" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\Player\PlayerHumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.EnvironmentActivationHumanoidLogic" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\EnvironmentInteraction\EnvironmentActivationHumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidLogic" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\HumanoidLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
