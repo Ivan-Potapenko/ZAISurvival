@@ -87,7 +87,7 @@ MonoBehaviour:
   _humanoidControllerSettings:
     _standingHeight: 2
     _crouchHeight: 1
-    _hieghtChangeSpeed: 50
+    _hieghtChangeSpeed: 0.1
 --- !u!114 &6809456456362527350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30063239027651f49b64a93fb8773bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canDestroy: 0
+  _ragdoll: {fileID: 0}
 --- !u!114 &7390184949675225660
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,8 +1,7 @@
-
 using Data;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Game {
 
@@ -10,8 +9,13 @@ namespace Game {
 
         private List<PlayerHumanoidLogic> _playerHumanoidLogics;
 
+        [SerializeField]
+        protected HumanoidController.HumanoidControllerSettings _humanoidControllerSettings;
+
         protected override void InitHumanoid() {
             base.InitHumanoid();
+            var characterController = GetComponent<CharacterController>();
+            _humanoidController = new PlayerHumanoidController(characterController, _pointOfView, _humanoidControllerSettings);
             _humanoid = new PlayerHumanoid(_humanoidController, _humanoidData, _pointOfView);
         }
 

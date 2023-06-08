@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4917368526648841579}
   - {fileID: 669393426387662323}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2614849836253717566
 MonoBehaviour:
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zombieWaveController: {fileID: 486711348072385459}
   _playerSpawner: {fileID: 7066363098907060370}
+  _uiManager: {fileID: 0}
 --- !u!1001 &219361627352305577
 PrefabInstance:
   m_ObjectHideFlags: 0

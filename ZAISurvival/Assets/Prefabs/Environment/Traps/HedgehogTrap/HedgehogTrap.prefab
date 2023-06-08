@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5453640273726461857, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5453640273726461857, guid: 102276286b70693478900919fe77d9b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,63 +77,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4619147425502169106, guid: 102276286b70693478900919fe77d9b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 794899798645997264}
-    - targetCorrespondingSourceObject: {fileID: 5839376031657450165, guid: 102276286b70693478900919fe77d9b3, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4619147425502169106, guid: 102276286b70693478900919fe77d9b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6781162181209417760}
-    - targetCorrespondingSourceObject: {fileID: 5839376031657450165, guid: 102276286b70693478900919fe77d9b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6306232758125085849}
+      addedObject: {fileID: 5718303838888806906}
   m_SourcePrefab: {fileID: 100100000, guid: 102276286b70693478900919fe77d9b3, type: 3}
---- !u!1 &2559380227948186362 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5839376031657450165, guid: 102276286b70693478900919fe77d9b3, type: 3}
-  m_PrefabInstance: {fileID: 8254288112593522767}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6781162181209417760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2559380227948186362}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4662ea14164d0a44fa963a80b77a6543, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uiData:
-    text: "(E) \u0420\u0430\u0437\u043E\u0431\u0440\u0430\u0442\u044C \u043B\u043E\u0432\u0443\u0448\u043A\u0443"
-    type: 0
-    ResourceTypes: 00000000
-  _canReduceProgress: 1
-  _timeBeforeReduceProgress: 0.4
-  _timeToCollect: 10
-  _destroyEffects: {fileID: 3137935257036094108, guid: 4e2202fb2a111da4e8e7bb1917d110bd, type: 3}
-  _resources:
-  - resourceType: 0
-    count: 10
---- !u!64 &6306232758125085849
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2559380227948186362}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 369a11f1c72361d4193ed5796b165c6d, type: 3}
 --- !u!1 &3645555399411259485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4619147425502169106, guid: 102276286b70693478900919fe77d9b3, type: 3}
@@ -199,3 +146,19 @@ MonoBehaviour:
   _resources:
   - resourceType: 0
     count: 10
+--- !u!208 &5718303838888806906
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645555399411259485}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.59, y: 0.78, z: 0.565}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.07, y: 0.9, z: -0.4}
+  m_TimeToStationary: 0.5

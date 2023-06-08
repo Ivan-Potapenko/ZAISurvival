@@ -10,7 +10,12 @@ namespace Game {
 
         public Health Health => _health;
 
-        public void Init(Health health) {
+        public GameObject DamageEffect => null;
+
+        public bool Destroyed { get ; set; }
+
+        public void Init(Health health, GameObject DamageEffect) {
+            Destroyed = false;
         }
 
         public bool TryDoDamage(Damage damage) {

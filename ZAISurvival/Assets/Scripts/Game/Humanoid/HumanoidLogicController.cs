@@ -20,17 +20,12 @@ namespace Game {
         [SerializeField]
         protected PointOfView _pointOfView;
 
-        [SerializeField]
-        private HumanoidController.HumanoidControllerSettings _humanoidControllerSettings;
-
         private void Awake() {
             Init();
         }
 
         protected virtual void Init() {
             FindHumanoidLogics();
-            var characterController = GetComponent<CharacterController>();
-            _humanoidController = new HumanoidController(characterController, _pointOfView, _humanoidControllerSettings);
             InitHumanoid();
             InitLogics();
         }

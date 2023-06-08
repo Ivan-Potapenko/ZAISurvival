@@ -1,6 +1,5 @@
-
 using System;
-using UnityEngine.PlayerLoop;
+using UnityEngine;
 
 namespace Game {
 
@@ -19,8 +18,12 @@ namespace Game {
 
         Health Health { get; }
 
+        bool Destroyed { get; set; }
+
+        public GameObject DamageEffect { get; }
+
         bool TryDoDamage(Damage damage);
 
-        void Init(Health health);
+        void Init(Health health, GameObject DamageEffect);
     }
 }

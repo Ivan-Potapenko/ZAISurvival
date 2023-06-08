@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 0}
-  _playerPrefab: {fileID: 1801437893304971290, guid: f7cebb83fdf4b3c4b88489dd45589c12, type: 3}
+  _playerPrefab: {fileID: 3888639603604101457, guid: f7cebb83fdf4b3c4b88489dd45589c12, type: 3}
   _playerInputControllerPrefab: {fileID: 2292064573584015183, guid: 311a3a14b46ce364eb14bac1d5950500, type: 3}

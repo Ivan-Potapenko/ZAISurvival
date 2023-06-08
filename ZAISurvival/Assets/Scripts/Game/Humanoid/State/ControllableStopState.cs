@@ -9,11 +9,11 @@ namespace Game {
         public ControllableStopState(HumanoidController controller, HumanoidStateData stateData, Func<Humanoid.StateType, HumanoidState> switchStateCallback) : base(controller, stateData, switchStateCallback) {
         }
 
-        public override void Move(Vector2 direction) { }
+        public override void Move(Vector3 direction) { }
 
-        public override void Run(Vector2 direction) { }
+        public override void Run(Vector3 direction) { }
 
-        public override void Crouch(Vector2 direction) { }
+        public override void Crouch(Vector3 direction) { }
 
         public override void Jump() { }
 

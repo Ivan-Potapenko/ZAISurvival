@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Game {
 
     public struct HumanoidInput {
-        public Vector2 moveDirection;
+        public Vector3 moveDirection;
         public Vector2 mouseDelta;
         public bool isShooting;
         public bool isAim;

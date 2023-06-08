@@ -133,7 +133,6 @@ namespace Game {
             var ray = new Ray(_humanoid.PointOfView.transform.position, spreadDirection);
             DrawDebugRay(spreadDirection);
             if (Physics.Raycast(ray, out raycastHit, _weaponData.MaxAttackDistance, _humanoid.EnemyLayerMask.value)) {
-                Instantiate(_bulletHole, raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
                 _hits.Add(raycastHit.point);
                 return true;
             }
@@ -154,8 +153,15 @@ namespace Game {
         }
 
         private bool TryDoDamage(RaycastHit hitInfo) {
-            if (!hitInfo.collider.gameObject.TryGetComponent<IDamageable>(out var damageable)) {
+            if (hitInfo.collider == null || !hitInfo.collider.gameObject.TryGetComponent<IDamageable>(out var damageable)) {
+                Instantiate(_bulletHole, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 return false;
+            }
+            if (damageable.Destroyed) {
+                return false;
+            }
+            if (damageable.DamageEffect != null) {
+                Instantiate(damageable.DamageEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             }
             var damageModificator = _weaponData.DamageDistanceCurve.Evaluate(hitInfo.distance / _weaponData.MaxAttackDistance);
             var damage = _weaponData.Damage;
@@ -214,8 +220,7 @@ namespace Game {
                 }
                 if (_weaponData.BulletsLoadedAtTime <= _weaponData.ClipSize - _loadedCartridges) {
                     _loadedCartridges += ammoResources.PullResource(_weaponData.BulletsLoadedAtTime);
-                }
-                else {
+                } else {
                     _loadedCartridges += ammoResources.PullResource(_weaponData.ClipSize - _loadedCartridges);
                 }
             }

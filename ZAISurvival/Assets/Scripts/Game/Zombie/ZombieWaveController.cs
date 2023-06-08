@@ -10,5 +10,9 @@ namespace Game {
 
         [SerializeField]
         private ZombieSpawner _spawner;
+
+        public void Spawn(PlayerLogicController player) {
+            _spawner.Spawn(player);
+        }
     }
 }

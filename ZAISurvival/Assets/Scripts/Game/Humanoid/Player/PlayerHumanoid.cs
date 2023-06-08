@@ -12,7 +12,6 @@ namespace Game {
             Settings = humanoidData.PlayerSettings;
             TrapBuilder = new TrapBuilder(humanoidData.TrapSchemeDatas, pointOfView, Settings);
         }
-
     }
 }
 

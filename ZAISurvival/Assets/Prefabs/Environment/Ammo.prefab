@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 8640630533110981959}
   - component: {fileID: 508994790651122924}
   - component: {fileID: 387388417382609249}
+  - component: {fileID: 7456448806838838171}
   m_Layer: 6
   m_Name: Ammo
   m_TagString: Untagged
@@ -374,7 +375,7 @@ Transform:
   - {fileID: 132075053848779760}
   - {fileID: 8442078657286692408}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4748091738927122925
 MeshFilter:
@@ -497,3 +498,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.021321753, y: 0.021435002, z: 0.021222062}
   m_Center: {x: -0.000016763808, y: 0.00014987636, z: 0.00009736234}
+--- !u!208 &7456448806838838171
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024611913751973364}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.011000001, y: 0.011000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

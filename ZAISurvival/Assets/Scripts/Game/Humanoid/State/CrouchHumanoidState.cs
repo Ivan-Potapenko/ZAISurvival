@@ -21,7 +21,7 @@ namespace Game {
             _controller.StandUp();
         }
 
-        public override void Crouch(Vector2 direction) {
+        public override void Crouch(Vector3 direction) {
             if(!_controller._isGrounded) {
                 SwitchState(Humanoid.StateType.Walk).Move(direction);
             }

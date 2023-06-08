@@ -9,8 +9,8 @@ namespace Game {
     public class Humanoid {
 
         public enum StateType {
-            Run,
             Stand,
+            Run,
             Crouch,
             Test,
             Walk,
@@ -48,7 +48,9 @@ namespace Game {
             _pointOfView = pointOfView;
             _enemyLayerMask = humanoidData.EnemyLayerMask;
             _humanoidData = humanoidData;
-            Inventory = new HumanoidInventory(humanoidData.ResourceDatas);
+            if(humanoidData.ResourceDatas != null) {
+                Inventory = new HumanoidInventory(humanoidData.ResourceDatas);
+            }
             InitStates(controller);
             InitWeapons();
         }
@@ -59,7 +61,7 @@ namespace Game {
             foreach (StateType state in Enum.GetValues(typeof(StateType))) {
                 TryAddState(state, controller);
             }
-            SetCurrentState(StateType.Stand);
+            SetCurrentState(_humanoidData.StateDatas[0].StateType);
         }
 
         private bool TryAddState(StateType stateType, HumanoidController controller) {
@@ -75,7 +77,7 @@ namespace Game {
             return true;
         }
 
-        private HumanoidState GetNewHumanoidState(StateType stateType, HumanoidController controller, HumanoidStateData stateData) {
+        protected virtual HumanoidState GetNewHumanoidState(StateType stateType, HumanoidController controller, HumanoidStateData stateData) {
             switch (stateType) {
                 case StateType.Walk:
                     return new WalkHumanoidState(controller, stateData, SetCurrentState);
@@ -118,6 +120,9 @@ namespace Game {
 
         #region Weapon
         private void InitWeapons() {
+            if(_humanoidData.WeaponPrefabs == null || _humanoidData.WeaponPrefabs.Count == 0) {
+                return;
+            }
             _weapons = new Weapon[_humanoidData.WeaponPrefabs.Count];
             for (int i = 0; i < _humanoidData.WeaponPrefabs.Count; i++) {
                 _weapons[i] = UnityEngine.Object.Instantiate(_humanoidData.WeaponPrefabs[i], PointOfView.transform);
@@ -127,7 +132,7 @@ namespace Game {
         }
 
         public void ChangeWeaponSlot(int slot) {
-            if (slot - 1 > _weapons.Length || slot == _currentWeaponSlot) {
+            if (_weapons == null || slot - 1 > _weapons.Length || slot == _currentWeaponSlot) {
                 return;
             }
             DeactivateWeapon();
@@ -136,6 +141,9 @@ namespace Game {
         }
 
         public void DeactivateWeapon() {
+            if (_weapons == null) {
+                return;
+            }
             foreach (var weapon in _weapons) {
                 weapon.SetActive(false);
             }

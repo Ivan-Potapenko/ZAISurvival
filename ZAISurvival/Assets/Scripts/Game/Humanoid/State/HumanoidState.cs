@@ -40,23 +40,23 @@ namespace Game {
 
         public virtual void Deactivate() { }
 
-        public virtual void Move(Vector2 direction) {
-            if (direction == Vector2.zero) {
+        public virtual void Move(Vector3 direction) {
+            if (direction == Vector3.zero) {
                 SwitchState(Humanoid.StateType.Stand)?.Move(direction);
                 return;
             }
             SwitchState(Humanoid.StateType.Walk)?.Move(direction);//_controller.Move(direction, IsAim ? StateData.InAimMoveSpeed : StateData.Speed, StateData.MoveAccelerationCurve, StateData.TimeToMaxSpeed);
         }
 
-        public virtual void Run(Vector2 direction) {
-            if (direction != Vector2.zero && Math.Abs(Vector2.Angle(direction, Vector2.up)) < 90) {
+        public virtual void Run(Vector3 direction) {
+            if (direction != Vector3.zero && Math.Abs(Vector2.Angle(direction, Vector2.up)) < 90) {
                 SwitchState(Humanoid.StateType.Run)?.Run(direction);
                 return;
             }
             Move(direction);
         }
 
-        public virtual void Crouch(Vector2 direction) {
+        public virtual void Crouch(Vector3 direction) {
             if (_controller._isGrounded) {
                 SwitchState(Humanoid.StateType.Crouch)?.Crouch(direction);
             }

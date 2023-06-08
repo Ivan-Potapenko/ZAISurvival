@@ -8,8 +8,8 @@ namespace Game {
         public RunHumanoidState(HumanoidController controller, HumanoidStateData stateData, Func<Humanoid.StateType, HumanoidState> switchStateCallback) : base(controller, stateData, switchStateCallback) {
         }
 
-        public override void Run(Vector2 direction) {
-            if (direction == Vector2.zero) {
+        public override void Run(Vector3 direction) {
+            if (direction == Vector3.zero) {
                 SwitchState(Humanoid.StateType.Stand)?.Move(direction);
                 return;
 
