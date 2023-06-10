@@ -12,13 +12,13 @@ namespace Game {
 
         }
 
-        public void EnterStopTrapState() {
-            _humanoid.SetControllableState(Humanoid.StateType.ControllableStop);
+        public void EnterStopTrapState(Trap trap) {
+            _humanoid.SetControllableState(Humanoid.StateType.ControllableStop, trap);
         }
 
-        public void ExiteStopTrapState() {
+        public void ExiteStopTrapState(Trap trap) {
             if(_humanoid.CurrentState.StateData.StateType == Humanoid.StateType.ControllableStop) {
-                _humanoid.ExitControllableState();
+                _humanoid.ExitControllableState(trap);
             }
         }
 

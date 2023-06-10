@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game {
@@ -24,20 +23,24 @@ namespace Game {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if (other.gameObject.TryGetComponent<HumanoidTrapInteractionLogic>(out var humanoidTrapInteractionLogic)) {
+            if (!IsActive && other.gameObject.TryGetComponent<HumanoidTrapInteractionLogic>(out var humanoidTrapInteractionLogic)) {
                 if (other.gameObject.TryGetComponent<IDamageable>(out var damageable)) {
                     damageable.TryDoDamage(_damage);
                 }
-                _currentTarget = humanoidTrapInteractionLogic;
-                _currentTarget.EnterStopTrapState();
-                Activate();
+                Activate(humanoidTrapInteractionLogic);
             }
         }
 
-        public override void Activate() {
+        public void Activate(HumanoidTrapInteractionLogic trapInteractionLogic) {
             if (IsActive) {
                 return;
             }
+            _currentTarget = trapInteractionLogic;
+            _currentTarget.EnterStopTrapState(this);
+            Activate();
+        }
+
+        public override void Activate() {
             IsActive = true;
             _trap.gameObject.SetActive(false);
             _activeTrap.gameObject.SetActive(true);
@@ -46,7 +49,7 @@ namespace Game {
 
         public override void Deactivate() {
             if (_currentTarget != null) {
-                _currentTarget.ExiteStopTrapState();
+                _currentTarget.ExiteStopTrapState(this);
             }
             IsActive = false;
             _trap.gameObject.SetActive(true);
@@ -54,9 +57,11 @@ namespace Game {
         }
 
         private void OnDisable() {
-            if (_currentTarget != null) {
-                _currentTarget.ExiteStopTrapState();
-            }
+            Deactivate();
+        }
+
+        private void OnDestroy() {
+            Deactivate();
         }
     }
 }

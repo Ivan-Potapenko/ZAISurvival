@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Game {
 
@@ -42,6 +43,8 @@ namespace Game {
         public InteractiveEnvironmentObject currentObjectInSight;
 
         public HumanoidInventory Inventory { get; private set; }
+
+        public Trap CurrentTrap { get; private set; }
 
         public Humanoid(HumanoidController controller, HumanoidData humanoidData, PointOfView pointOfView) {
             _health = new Health(humanoidData.HealthData);
@@ -109,12 +112,14 @@ namespace Game {
             return _currentState;
         }
 
-        public void SetControllableState(StateType stateType) {
+        public virtual void SetControllableState(StateType stateType, Trap trap) {
             SetCurrentState(stateType);
+            CurrentTrap = trap;
         }
 
-        public void ExitControllableState() {
-            SetCurrentState(StateType.Stand);
+        public virtual void ExitControllableState(Trap trap) {
+            SetCurrentState(_humanoidData.StateDatas[0].StateType);
+            CurrentTrap = null;
         }
         #endregion State
 

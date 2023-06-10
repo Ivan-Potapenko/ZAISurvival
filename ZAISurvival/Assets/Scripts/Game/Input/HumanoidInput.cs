@@ -16,5 +16,6 @@ namespace Game {
         public bool interact;
         public bool activateBuildScheme;
         public bool build;
+        public bool makeDamageToObject;
     }
 }

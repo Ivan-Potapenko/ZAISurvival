@@ -15,7 +15,7 @@ MonoBehaviour:
   _stateType: 4
   _weaponSpreadModificator: 1.2
   _inAirWeaponSpreadModificator: 1.6
-  _speed: 3
+  _speed: 3.5
   _jumpForce: 0.06
   _gravity: 0.15
   _moveAccelerationCurve:

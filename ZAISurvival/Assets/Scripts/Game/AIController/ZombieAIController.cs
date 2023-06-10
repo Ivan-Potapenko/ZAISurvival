@@ -24,6 +24,7 @@ namespace Game {
                 return;
             }
             _currentInput.moveDirection = _humanoidLogicController.transform.position;
+            _currentInput.makeDamageToObject = true;
             _zombieLogicController.HandleInput(_currentInput);
         }
     }

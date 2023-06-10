@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
 
-    public class HumanoidCollisionLogic : HumanoidLogic {
+    public class HumanoidCharacterControllerCollisionLogic : HumanoidLogic {
 
         private List<ICollisionDetecter> _currentCollisionObjects = new List<ICollisionDetecter>();
         private List<ICollisionDetecter> _previousCollisionObjects = new List<ICollisionDetecter>();
@@ -14,11 +13,11 @@ namespace Game {
 
         public override void OnUpdate() {
 
-            foreach (var detecter in _previousCollisionObjects) {
+            /*foreach (var detecter in _previousCollisionObjects) {
                 if (_previousCollisionObjects.Contains(detecter)) {
-                    detecter.OnHumanoidStay(gameObject);
+                    //detecter.OnHumanoidStay(gameObject);
                 }
-            }
+            }*/
             _previousCollisionObjects = _currentCollisionObjects;
             _currentCollisionObjects = new List<ICollisionDetecter>();
         }

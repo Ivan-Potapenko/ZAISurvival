@@ -3,13 +3,13 @@ namespace Game {
 
     public class ZombieMoveLogic : ZombieLogic {
 
-        private bool _firstRun = true;
-
         public override void HandleInput(HumanoidInput playerInput) {
-            if(_firstRun) {
-                _firstRun = false;
+            if(playerInput.makeDamageToObject && _humanoid.destroyableByZombies != null) {
+                _humanoid.CurrentState.Move(_humanoid.destroyableByZombies.transform.position);
             }
-            _humanoid.CurrentState.Move(playerInput.moveDirection);
+            else {
+                _humanoid.CurrentState.Move(playerInput.moveDirection);
+            }
         }
 
         public override void OnUpdate() {

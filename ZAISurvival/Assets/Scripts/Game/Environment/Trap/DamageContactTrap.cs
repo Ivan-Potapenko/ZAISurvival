@@ -27,15 +27,6 @@ namespace Game {
             Debug.Log("Hit");
         }
 
-        /* private void OnControllerColliderHit(ControllerColliderHit hit) {
-             if (hit.gameObject.TryGetComponent<HumanoidTrapInteractionLogic>(out var humanoidTrapInteractionLogic)) {
-                 if (humanoidTrapInteractionLogic.gameObject.TryGetComponent<IDamageable>(out var damageable)) {
-                     damageable.TryDoDamage(_damage);
-                     Instantiate(_bloodEffect, hit.point, Quaternion.identity);
-                 }
-             }
-         }*/
-
         public override void Activate() {
         }
 
