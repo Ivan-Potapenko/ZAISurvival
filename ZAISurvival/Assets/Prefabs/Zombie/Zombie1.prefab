@@ -1851,7 +1851,7 @@ MonoBehaviour:
     _standingHeight: 0
     _crouchHeight: 0
     _hieghtChangeSpeed: 0
-    speedRandomModifierRange: {x: 0.5, y: 1.2}
+    speedRandomModifierRange: {x: 0.6, y: 1.4}
 --- !u!114 &355281123920618364
 MonoBehaviour:
   m_ObjectHideFlags: 0

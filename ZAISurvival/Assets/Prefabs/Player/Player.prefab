@@ -87,7 +87,7 @@ MonoBehaviour:
   _humanoidControllerSettings:
     _standingHeight: 2
     _crouchHeight: 1
-    _hieghtChangeSpeed: 0.1
+    _hieghtChangeSpeed: 10
 --- !u!114 &6809456456362527350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canDestroy: 0
   _ragdoll: {fileID: 0}
+  _damageEffect: {fileID: 0}
 --- !u!114 &7390184949675225660
 MonoBehaviour:
   m_ObjectHideFlags: 0

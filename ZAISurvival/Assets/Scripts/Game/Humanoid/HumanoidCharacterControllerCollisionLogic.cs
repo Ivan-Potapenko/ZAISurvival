@@ -12,12 +12,6 @@ namespace Game {
         }
 
         public override void OnUpdate() {
-
-            /*foreach (var detecter in _previousCollisionObjects) {
-                if (_previousCollisionObjects.Contains(detecter)) {
-                    //detecter.OnHumanoidStay(gameObject);
-                }
-            }*/
             _previousCollisionObjects = _currentCollisionObjects;
             _currentCollisionObjects = new List<ICollisionDetecter>();
         }

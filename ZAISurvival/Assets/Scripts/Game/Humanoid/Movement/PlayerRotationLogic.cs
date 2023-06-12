@@ -6,7 +6,8 @@ namespace Game {
         }
 
         public override void HandleInput(HumanoidInput playerInput) {
-            _humanoid.CurrentState.Rotate(playerInput.mouseDelta, _humanoid.Settings.RotationSpeed, _humanoid.Settings.MinYRotate, _humanoid.Settings.MaxYRotate);
+            _humanoid.CurrentState.Rotate(playerInput.mouseDelta, _humanoid.Settings.RotationSpeed, _humanoid.Settings.MinYRotate,
+                _humanoid.Settings.MaxYRotate);
         }
     }
 }

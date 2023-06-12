@@ -70,7 +70,8 @@ namespace Game {
             _isShooting = true;
             while (_mustAttack) {
                 TryToMakeAttack();
-                _shootCameraOffset = new Vector2(Random.Range(-_weaponData.ShootCameraOffset.x, _weaponData.ShootCameraOffset.x), _weaponData.ShootCameraOffset.y);
+                _shootCameraOffset = new Vector2(Random.Range(-_weaponData.ShootCameraOffset.x, _weaponData.ShootCameraOffset.x),
+                    _weaponData.ShootCameraOffset.y);
                 _needReduceCameraOffset = false;
                 StartCoroutine(ChangeShotPosition(_weaponData.SecondsToMaxShootOffset * 2));
                 yield return new WaitForSeconds(_weaponData.SecondsToMaxShootOffset);
@@ -179,14 +180,14 @@ namespace Game {
                 * currentSpreadSettings.WeaponSpreadCurve.Evaluate(_shotingTime)) * _humanoid.CurrentState.WeaponSpreadModificator;
         }
 
+        private void UpdateSpread() {
+            _currentSpread = Mathf.Lerp(_currentSpread, GetTargetSpread(), _weaponData.SpreadUpdateSpeed * Time.deltaTime);
+        }
+
         public override void OnUpdate() {
             base.OnUpdate();
             UpdateShotingTime();
             UpdateSpread();
-        }
-
-        private void UpdateSpread() {
-            _currentSpread = Mathf.Lerp(_currentSpread, GetTargetSpread(), _weaponData.SpreadUpdateSpeed * Time.deltaTime);
         }
 
         private void UpdateShotingTime() {

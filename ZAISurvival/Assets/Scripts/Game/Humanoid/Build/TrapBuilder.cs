@@ -67,7 +67,8 @@ namespace Game {
             foreach (var resource in _traps[_currentTrapType].NecessaryResources) {
                 humanoidInventory.Get(resource.resourceType).PullResource(resource.count);
             }
-            GameObject.Instantiate(_traps[_currentTrapType].TrapPrefab, _trapSchemes[_currentTrapType].transform.position, _trapSchemes[_currentTrapType].transform.rotation, _trapRoot.transform);
+            GameObject.Instantiate(_traps[_currentTrapType].TrapPrefab, _trapSchemes[_currentTrapType].transform.position,
+                _trapSchemes[_currentTrapType].transform.rotation, _trapRoot.transform);
         }
 
         public void Activate() {

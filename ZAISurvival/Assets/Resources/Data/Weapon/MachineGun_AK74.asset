@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MachineGun_AK74
   m_EditorClassIdentifier: 
   _damage:
-    damage: 10
+    damage: 20
     damageType: 0
   _sighType: 1
   _secondsBetweenAttacks: 0.1

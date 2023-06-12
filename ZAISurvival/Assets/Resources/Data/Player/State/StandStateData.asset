@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760e8d692656991479a41e3aa6dc8057, type: 3}
   m_Name: StandStateData
   m_EditorClassIdentifier: 
-  _stateType: 1
+  _stateType: 0
   _weaponSpreadModificator: 1
   _inAirWeaponSpreadModificator: 1.5
   _speed: 5
   _jumpForce: 0.06
   _gravity: 0.15
-  _maxYRotate: 360
-  _minYRotate: -80
-  _rotationSpeed: 10
   _moveAccelerationCurve:
     serializedVersion: 2
     m_Curve:

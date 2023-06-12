@@ -9,7 +9,6 @@ namespace Game {
         }
 
         public override void OnUpdate() {
-
         }
 
         public void EnterStopTrapState(Trap trap) {
@@ -19,11 +18,6 @@ namespace Game {
         public void ExiteStopTrapState(Trap trap) {
             if(_humanoid.CurrentState.StateData.StateType == Humanoid.StateType.ControllableStop) {
                 _humanoid.ExitControllableState(trap);
-            }
-        }
-
-        private void OnControllerColliderHit(ControllerColliderHit hit) {
-            if(hit.gameObject.TryGetComponent<Trap>(out var trap)) {
             }
         }
     }

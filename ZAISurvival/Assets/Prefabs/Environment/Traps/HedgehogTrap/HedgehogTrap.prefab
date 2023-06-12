@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bloodEffect: {fileID: 7378717459133183089, guid: f371e6c5faf41434c8642ca60bfadd6b, type: 3}
   _damage:
-    damage: 1
+    damage: 15
     damageType: 0
 --- !u!65 &5288666740959844342
 BoxCollider:
