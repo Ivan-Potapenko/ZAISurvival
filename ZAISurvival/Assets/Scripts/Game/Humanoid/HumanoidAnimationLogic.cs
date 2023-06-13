@@ -16,13 +16,13 @@ namespace Game {
         }
 
         public override void OnUpdate() {
-            if (_humanoid?.CurrentState?.StateData == null) {
+            if (_humanoid?.CurrentState?.StateData == null || _animator == null) {
                 return;
             }
-            if(_humanoid.PrevState != null) {
-                _animator.SetTrigger(_humanoid.PrevState.StateData.AnimationStateName);
+            if (_humanoid.PrevState != null) {
+                _animator.SetBool(_humanoid.PrevState.StateData.AnimationStateName, false);//.SetTrigger(_humanoid.PrevState.StateData.AnimationStateName);
             }
-            _animator.SetTrigger(_humanoid.CurrentState.StateData.AnimationStateName);//?.Play(_humanoid.CurrentState.StateData.AnimationStateName);
+            _animator.SetBool(_humanoid.CurrentState.StateData.AnimationStateName, true);//_animator.SetTrigger(_humanoid.CurrentState.StateData.AnimationStateName);//?.Play(_humanoid.CurrentState.StateData.AnimationStateName);
         }
     }
 }
