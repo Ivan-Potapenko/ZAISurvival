@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnPoints:
   - {fileID: 0}
-  _zombiePrefab: {fileID: 1139798453353792886, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
+  _zombiePrefab: {fileID: 2843287546000013822, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}

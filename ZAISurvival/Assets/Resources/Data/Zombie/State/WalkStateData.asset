@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WalkStateData
   m_EditorClassIdentifier: 
   _stateType: 4
+  _animationStateName: run
   _weaponSpreadModificator: 1.2
   _inAirWeaponSpreadModificator: 1.6
   _speed: 3.5

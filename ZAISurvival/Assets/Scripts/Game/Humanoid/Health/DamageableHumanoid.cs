@@ -21,7 +21,7 @@ namespace Game {
         }
 
         public bool TryDoDamage(Damage damage) {
-            if(!_canTakeDamage) {
+            if(!_canTakeDamage || _health == null) {
                 return false;
             }
             _health.ReduceHealth(damage);

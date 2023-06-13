@@ -16,12 +16,16 @@ namespace Game {
             Test,
             Walk,
             ControllableStop,
+            Attack,
         }
 
         private Dictionary<StateType, HumanoidState> _states;
 
         private HumanoidState _currentState;
         public HumanoidState CurrentState => _currentState;
+
+        private HumanoidState _prevState;
+        public HumanoidState PrevState => _prevState;
 
         private Weapon[] _weapons;
 
@@ -107,6 +111,7 @@ namespace Game {
             if (_states == null || !_states.ContainsKey(state)) {
                 return null;
             }
+            _prevState = _currentState;
             _currentState = _states[state];
             _currentState.Activate();
             return _currentState;

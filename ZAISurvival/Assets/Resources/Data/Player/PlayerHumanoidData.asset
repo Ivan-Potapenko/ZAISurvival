@@ -27,7 +27,7 @@ MonoBehaviour:
   - {fileID: 7099440804984507497, guid: a307e26581c8dda489869a50b6855750, type: 3}
   _enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 631
+    m_Bits: 567
   _resourceDatas:
   - {fileID: 11400000, guid: 1a8c3d44d1ee14443bcd18d717152d25, type: 2}
   - {fileID: 11400000, guid: f9cd884b70c232a4082f746a56ac530b, type: 2}

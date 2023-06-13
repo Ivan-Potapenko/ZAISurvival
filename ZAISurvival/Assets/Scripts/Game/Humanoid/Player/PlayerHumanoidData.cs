@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Data {
 
-
     [CreateAssetMenu(fileName = "PlayerHumanoidData", menuName = "Data/Player/PlayerHumanoidData")]
     public class PlayerHumanoidData : HumanoidData {
 

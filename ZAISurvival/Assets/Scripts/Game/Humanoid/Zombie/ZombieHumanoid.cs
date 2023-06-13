@@ -6,12 +6,16 @@ namespace Game {
 
         public DestroyableByZombies destroyableByZombies;
 
-        public ZombieHumanoid(HumanoidController controller, HumanoidData humanoidData, PointOfView pointOfView) : base(controller, humanoidData, pointOfView) {
+        public float AttackDistance { get; private set; }
+
+        public ZombieHumanoid(HumanoidController controller, ZombieHumanoidData humanoidData, PointOfView pointOfView) : base(controller, humanoidData, pointOfView) {
+            AttackDistance = humanoidData.AttackDistance;
         }
 
         protected override HumanoidState GetNewHumanoidState(StateType stateType, HumanoidController controller, HumanoidStateData stateData) {
             switch (stateType) {
                 case StateType.Walk:
+                case StateType.Attack:
                     return new WalkHumanoidState(controller, stateData, SetCurrentState);
                 case StateType.Test:
                     return new TestHumanoidState(controller, stateData, SetCurrentState);

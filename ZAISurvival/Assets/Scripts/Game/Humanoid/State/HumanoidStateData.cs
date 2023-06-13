@@ -11,6 +11,10 @@ namespace Data {
         private Humanoid.StateType _stateType;
         public Humanoid.StateType StateType => _stateType;
 
+        [SerializeField]
+        private string _animationStateName;
+        public string AnimationStateName => _animationStateName;
+
         [BoxGroup("Weapon")]
         [SerializeField]
         private float _weaponSpreadModificator;

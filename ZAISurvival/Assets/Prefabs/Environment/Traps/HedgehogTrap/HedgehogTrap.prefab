@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bloodEffect: {fileID: 7378717459133183089, guid: f371e6c5faf41434c8642ca60bfadd6b, type: 3}
   _damage:
-    damage: 15
+    damage: 30
     damageType: 0
 --- !u!65 &5288666740959844342
 BoxCollider:
@@ -127,8 +127,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1077195, y: 1.5931497, z: 0.8441776}
-  m_Center: {x: 0.08026539, y: 0.8182945, z: -0.35886827}
+  m_Size: {x: 1.169973, y: 1.5931497, z: 0.96938735}
+  m_Center: {x: 0.083441205, y: 0.8182945, z: -0.3704402}
 --- !u!114 &794899798645997264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +162,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.465, y: 0.745, z: 0.505}
+  m_Extents: {x: 0.51, y: 0.67, z: 0.37}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0.07, y: 0.9, z: -0.4}
+  m_Center: {x: 0.07, y: 0.84, z: -0.34}
   m_TimeToStationary: 0.5
 --- !u!114 &2372733255519761498
 MonoBehaviour:

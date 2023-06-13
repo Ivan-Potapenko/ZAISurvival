@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 760e8d692656991479a41e3aa6dc8057, type: 3}
-  m_Name: ControllableStopState
+  m_Name: AttackStateData
   m_EditorClassIdentifier: 
-  _stateType: 5
+  _stateType: 6
   _animationStateName: attack
-  _weaponSpreadModificator: 1
-  _inAirWeaponSpreadModificator: 1.5
-  _speed: 5
+  _weaponSpreadModificator: 1.2
+  _inAirWeaponSpreadModificator: 1.6
+  _speed: 1.5
   _jumpForce: 0.06
   _gravity: 0.15
   _moveAccelerationCurve:

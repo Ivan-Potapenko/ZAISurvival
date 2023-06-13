@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Game {
 
-    public class ZombieLogicController : HumanoidLogicController<ZombieHumanoid, HumanoidData> {
+    public class ZombieLogicController : HumanoidLogicController<ZombieHumanoid, ZombieHumanoidData> {
 
         private List<ZombieLogic> _zombieHumanoidLogics;
 
