@@ -123,7 +123,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4700707, y: 1.4891028, z: 1.4847183}
+  m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: -0.051836334, y: 0.868465, z: -0.24236044}
 --- !u!23 &5369473056314099123 stripped
 MeshRenderer:

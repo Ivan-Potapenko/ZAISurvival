@@ -23,6 +23,7 @@ namespace Data {
         public enum TrapSchemeType {
             StopTrap,
             Hedgehog,
+            Claymore,
         }
 
         [SerializeField]

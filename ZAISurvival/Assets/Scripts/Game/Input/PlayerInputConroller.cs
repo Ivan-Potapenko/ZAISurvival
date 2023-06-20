@@ -47,6 +47,7 @@ namespace Game {
             _inputs.Player.Interact.Enable();
             _inputs.Player.ActivateBuildScheme.Enable();
             _inputs.Player.OpenBuildMenu.Enable();
+            _inputs.Player.RotateTrapScheme.Enable();
         }
 
         private void OnDisable() {
@@ -65,6 +66,7 @@ namespace Game {
             _inputs.Player.Interact.Disable();
             _inputs.Player.ActivateBuildScheme.Disable();
             _inputs.Player.OpenBuildMenu.Disable();
+            _inputs.Player.RotateTrapScheme.Disable();
         }
 
         private void Update() {
@@ -75,11 +77,11 @@ namespace Game {
             if (!_inited) {
                 return;
             }
-            if(_inputs.Player.OpenBuildMenu.WasPressedThisFrame()) {
+            if (_inputs.Player.OpenBuildMenu.WasPressedThisFrame()) {
                 ActivateBuildMenu();
             }
             _currentInput.moveDirection = _inputs.Player.Move.ReadValue<Vector2>();
-            if(_uiManager.CurrentScreen != ScreenType.BuildMenu) {
+            if (_uiManager.CurrentScreen != ScreenType.BuildMenu) {
                 _currentInput.mouseDelta = _inputs.Player.MouseMove.ReadValue<Vector2>();
                 _currentInput.isShooting = _inputs.Player.Shoot.IsPressed();
                 _currentInput.build = _inputs.Player.Shoot.WasPressedThisFrame();
@@ -89,8 +91,8 @@ namespace Game {
                 _currentInput.selectSlot = _inputs.Player.SelectSlot_1.WasPressedThisFrame() ? 1 :
                _inputs.Player.SelectSlot_2.WasPressedThisFrame() ? 2 : _inputs.Player.SelectSlot_3.WasPressedThisFrame() ? 3 : -1;
                 _currentInput.activateBuildScheme = _inputs.Player.ActivateBuildScheme.WasPressedThisFrame();
-            }
-            else {
+                _currentInput.rotateTrapScheme = _inputs.Player.RotateTrapScheme.IsPressed();
+            } else {
                 _currentInput.mouseDelta = Vector2.zero;
                 _currentInput.isShooting = false;
                 _currentInput.build = false;
@@ -99,6 +101,7 @@ namespace Game {
                 _currentInput.reload = false;
                 _currentInput.selectSlot = -1;
                 _currentInput.activateBuildScheme = false;
+                _currentInput.rotateTrapScheme = false;
             }
             _currentInput.isJump = _inputs.Player.Jump.WasPressedThisFrame();
             _currentInput.isBuild = _inputs.Player.Build.WasPressedThisFrame();
@@ -108,10 +111,9 @@ namespace Game {
         }
 
         private void ActivateBuildMenu() {
-            if(_uiManager.CurrentScreen == ScreenType.BuildMenu) {
+            if (_uiManager.CurrentScreen == ScreenType.BuildMenu) {
                 _uiManager.ActivateScreen(ScreenType.Battle, new InterfaceScreenData { humanoid = _humanoidLogicController.Humanoid });
-            }
-            else {
+            } else {
                 _uiManager.ActivateScreen(ScreenType.BuildMenu, new InterfaceScreenData { humanoid = _humanoidLogicController.Humanoid });
             }
         }

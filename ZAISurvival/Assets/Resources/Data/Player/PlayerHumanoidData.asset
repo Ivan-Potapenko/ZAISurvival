@@ -38,3 +38,4 @@ MonoBehaviour:
   _traps:
   - {fileID: 11400000, guid: fedd70db4da84434c83fa00eb023a1c6, type: 2}
   - {fileID: 11400000, guid: 8434726a96fdd364f83c70e819ad608a, type: 2}
+  - {fileID: 11400000, guid: acce530a3aba40c4ca4abe173513a432, type: 2}

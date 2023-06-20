@@ -163,6 +163,15 @@ namespace Game
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateTrapScheme"",
+                    ""type"": ""Button"",
+                    ""id"": ""8047403b-55ff-4774-8904-d6271dc33272"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -374,6 +383,17 @@ namespace Game
                     ""action"": ""OpenBuildMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6910cf81-d895-45bd-b6ac-55934426f336"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateTrapScheme"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -414,6 +434,7 @@ namespace Game
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_ActivateBuildScheme = m_Player.FindAction("ActivateBuildScheme", throwIfNotFound: true);
             m_Player_OpenBuildMenu = m_Player.FindAction("OpenBuildMenu", throwIfNotFound: true);
+            m_Player_RotateTrapScheme = m_Player.FindAction("RotateTrapScheme", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -490,6 +511,7 @@ namespace Game
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_ActivateBuildScheme;
         private readonly InputAction m_Player_OpenBuildMenu;
+        private readonly InputAction m_Player_RotateTrapScheme;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -509,6 +531,7 @@ namespace Game
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
             public InputAction @ActivateBuildScheme => m_Wrapper.m_Player_ActivateBuildScheme;
             public InputAction @OpenBuildMenu => m_Wrapper.m_Player_OpenBuildMenu;
+            public InputAction @RotateTrapScheme => m_Wrapper.m_Player_RotateTrapScheme;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -563,6 +586,9 @@ namespace Game
                 @OpenBuildMenu.started += instance.OnOpenBuildMenu;
                 @OpenBuildMenu.performed += instance.OnOpenBuildMenu;
                 @OpenBuildMenu.canceled += instance.OnOpenBuildMenu;
+                @RotateTrapScheme.started += instance.OnRotateTrapScheme;
+                @RotateTrapScheme.performed += instance.OnRotateTrapScheme;
+                @RotateTrapScheme.canceled += instance.OnRotateTrapScheme;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -612,6 +638,9 @@ namespace Game
                 @OpenBuildMenu.started -= instance.OnOpenBuildMenu;
                 @OpenBuildMenu.performed -= instance.OnOpenBuildMenu;
                 @OpenBuildMenu.canceled -= instance.OnOpenBuildMenu;
+                @RotateTrapScheme.started -= instance.OnRotateTrapScheme;
+                @RotateTrapScheme.performed -= instance.OnRotateTrapScheme;
+                @RotateTrapScheme.canceled -= instance.OnRotateTrapScheme;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -655,6 +684,7 @@ namespace Game
             void OnInteract(InputAction.CallbackContext context);
             void OnActivateBuildScheme(InputAction.CallbackContext context);
             void OnOpenBuildMenu(InputAction.CallbackContext context);
+            void OnRotateTrapScheme(InputAction.CallbackContext context);
         }
     }
 }

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ControllableStopState
   m_EditorClassIdentifier: 
   _stateType: 5
+  _animationStateName: 
   _weaponSpreadModificator: 1
   _inAirWeaponSpreadModificator: 1.5
   _speed: 5
-  _jumpForce: 0.06
+  _jumpForce: 0.07
   _gravity: 0.15
   _moveAccelerationCurve:
     serializedVersion: 2

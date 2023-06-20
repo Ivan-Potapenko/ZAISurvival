@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game.CrouchHumanoidState" Collapsed="true">
+    <Position X="7.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgBAAABAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\CrouchHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HumanoidState" Collapsed="true">
+    <Position X="6.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAA4DAAABAIAIAAAACEgAAAAAgEABIAEAAMAI=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\HumanoidState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_stateData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Data.HumanoidStateData" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYAwAAQAIAAEAAAABAAABAoACBAAABABRAACAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\HumanoidStateData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.RunHumanoidState" Collapsed="true">
+    <Position X="6" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\RunHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.StandHumanoidState" Collapsed="true">
+    <Position X="9.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\StandHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.WalkHumanoidState" Collapsed="true">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Humanoid\State\WalkHumanoidState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

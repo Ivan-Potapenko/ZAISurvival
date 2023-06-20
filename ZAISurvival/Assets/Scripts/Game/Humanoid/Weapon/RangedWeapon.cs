@@ -55,7 +55,11 @@ namespace Game {
         }
 
         public override void StartAttacking() {
-            if (_isShooting || _loadedCartridges <= 0 || (_mustAttack && !_weaponData.IsAutomaticWeapon)) {
+            if ( _loadedCartridges <= 0 ) {
+                Reload();
+                return;
+            }
+            if (_isShooting || (_mustAttack && !_weaponData.IsAutomaticWeapon)) {
                 return;
             }
             _mustAttack = true;

@@ -15,6 +15,7 @@ namespace Game {
         public bool reload;
         public bool interact;
         public bool activateBuildScheme;
+        public bool rotateTrapScheme;
         public bool build;
         public bool makeDamageToObject;
     }

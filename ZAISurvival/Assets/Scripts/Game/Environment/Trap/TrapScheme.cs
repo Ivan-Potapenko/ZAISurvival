@@ -40,22 +40,23 @@ namespace Game {
         public void Init(PointOfView pointOfView, PlayerSettings playerSettings) {
             _pointOfView = pointOfView;
             _playerSettings = playerSettings;
-            _trapVisual.gameObject.SetActive(false);
+            SetActive(false);
         }
 
         public void SetActive(bool enable) {
             gameObject.SetActive(enable);
-            _trapVisual.gameObject.SetActive(false);
+            _trapVisual.gameObject.SetActive(enable);
         }
 
         private bool CheckNormalIsSuitable(Vector3 normal) {
+            var vector = new Vector3(normal.x, normal.y, normal.z);
             switch (_buildSurfaceType) {
                 case BuildSurfaceType.Floor:
-                    return Vector3.up == normal;
-                case BuildSurfaceType.Ceiling:
-                    return normal.y == 0;
+                    return Vector3.Angle(Vector3.up, vector) <= 0.1f;
                 case BuildSurfaceType.Wall:
-                    return Vector3.down == normal;
+                    return vector.y == 0;
+                case BuildSurfaceType.Ceiling:
+                    return Vector3.Angle(Vector3.down, vector) == 0;
             }
             return false;
         }
@@ -64,11 +65,13 @@ namespace Game {
             var ray = new Ray(_pointOfView.transform.position, _pointOfView.transform.forward);
             Physics.Raycast(ray, out var raycastHit, _playerSettings.MaxBuildDistance, _surfacesForBuildLayer);
             if (raycastHit.collider == null || !CheckNormalIsSuitable(raycastHit.normal)) {
-                _trapVisual.gameObject.SetActive(false);
+                //_trapVisual.gameObject.SetActive(false);
+                SetActive(false);
                 _canBuild = false;
                 return;
             } else {
-                _trapVisual.gameObject.SetActive(true);
+                SetActive(true);
+                //_trapVisual.gameObject.SetActive(true);
                 gameObject.transform.position = raycastHit.point;
                 _canBuild = true;
             }

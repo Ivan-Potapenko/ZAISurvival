@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: CrouchStateData
   m_EditorClassIdentifier: 
   _stateType: 2
+  _animationStateName: 
   _weaponSpreadModificator: 0.9
   _inAirWeaponSpreadModificator: 1.2
   _speed: 2.5
-  _jumpForce: 0.06
+  _jumpForce: 0.07
   _gravity: 0.15
   _moveAccelerationCurve:
     serializedVersion: 2

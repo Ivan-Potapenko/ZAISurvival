@@ -43,10 +43,10 @@ namespace Game {
         }
 
         public void SelectTrap(TrapSchemeData.TrapSchemeType trapSchemeType) {
-            if(!_trapSchemes.ContainsKey(trapSchemeType)) {
+            if (!_trapSchemes.ContainsKey(trapSchemeType)) {
                 return;
             }
-            if(CurrentTrapScheme != null) {
+            if (CurrentTrapScheme != null) {
                 CurrentTrapScheme.SetActive(false);
             }
             _currentTrapType = trapSchemeType;
@@ -71,6 +71,13 @@ namespace Game {
                 _trapSchemes[_currentTrapType].transform.rotation, _trapRoot.transform);
         }
 
+        public void Rotate() {
+            if (CurrentTrapScheme == null) {
+                return;
+            }
+            CurrentTrapScheme.gameObject.transform.Rotate(Vector3.up, 1f);
+        }
+
         public void Activate() {
             IsActive = true;
             CurrentTrapScheme.SetActive(true);
@@ -82,7 +89,7 @@ namespace Game {
         }
 
         public void Update() {
-            if(CurrentTrapScheme != null) {
+            if (CurrentTrapScheme != null) {
                 CurrentTrapScheme.OnUpdate();
             }
         }
