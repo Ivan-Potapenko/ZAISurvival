@@ -127,8 +127,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.169973, y: 1.5931497, z: 0.96938735}
-  m_Center: {x: 0.083441205, y: 0.8182945, z: -0.3704402}
+  m_Size: {x: 1.4071097, y: 1.5931497, z: 1.263993}
+  m_Center: {x: 0.09887707, y: 0.8182945, z: -0.3879673}
 --- !u!114 &794899798645997264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +162,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.595, y: 0.65, z: 0.465}
+  m_Extents: {x: 0.5849865, y: 0.796575, z: 0.4846937}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0.07, y: 0.84, z: -0.34}
+  m_Center: {x: 0.083441205, y: 0.8182945, z: -0.3704402}
   m_TimeToStationary: 0.5
 --- !u!114 &2372733255519761498
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
-  health: 100
+  health: 50
 --- !u!54 &3523732821500836194
 Rigidbody:
   m_ObjectHideFlags: 0

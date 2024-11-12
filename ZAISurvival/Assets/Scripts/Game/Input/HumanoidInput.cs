@@ -18,5 +18,6 @@ namespace Game {
         public bool rotateTrapScheme;
         public bool build;
         public bool makeDamageToObject;
+        public GameObject target;
     }
 }

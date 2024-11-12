@@ -10,7 +10,6 @@ namespace Game {
         private bool _inited = false;
         private HumanoidInput _currentInput;
 
-        [SerializeField]
         private ZombieLogicController _zombieLogicController;
 
         public void Init(PlayerLogicController player, ZombieLogicController zombieLogicController) {
@@ -24,6 +23,7 @@ namespace Game {
                 return;
             }
             _currentInput.moveDirection = _humanoidLogicController.transform.position;
+            _currentInput.target = _humanoidLogicController.gameObject;
             _currentInput.makeDamageToObject = true;
             _zombieLogicController.HandleInput(_currentInput);
         }

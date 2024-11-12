@@ -8,8 +8,14 @@ namespace Game {
 
         public float AttackDistance { get; private set; }
 
+        public Damage Damage { get; private set; }
+
+        public float TimeBetweenAttack {  get; private set; }
+
         public ZombieHumanoid(HumanoidController controller, ZombieHumanoidData humanoidData, PointOfView pointOfView) : base(controller, humanoidData, pointOfView) {
             AttackDistance = humanoidData.AttackDistance;
+            Damage = humanoidData.Damage;
+            TimeBetweenAttack = humanoidData.TimeBetweenAttack;
         }
 
         protected override HumanoidState GetNewHumanoidState(StateType stateType, HumanoidController controller, HumanoidStateData stateData) {

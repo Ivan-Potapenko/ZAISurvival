@@ -1,3 +1,4 @@
+using Game;
 using UnityEngine;
 
 namespace Data {
@@ -8,6 +9,14 @@ namespace Data {
         [SerializeField]
         private float _attackDistance;
         public float AttackDistance => _attackDistance;
+
+        [SerializeField]
+        private Damage _damage;
+        public Damage Damage => _damage;
+
+        [SerializeField]
+        private float _timeBetweenAttack;
+        public float TimeBetweenAttack => _timeBetweenAttack;
     }
 }
 

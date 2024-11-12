@@ -24,4 +24,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   _resourceDatas: []
-  _attackDistance: 2
+  _attackDistance: 2.5
+  _damage:
+    damage: 20
+    damageType: 0
+  _timeBetweenAttack: 1

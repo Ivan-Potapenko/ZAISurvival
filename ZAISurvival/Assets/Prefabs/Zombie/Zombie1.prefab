@@ -350,7 +350,7 @@ Transform:
   m_GameObject: {fileID: 1154798202476429864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1090302614081998023}
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355a59ec59d4a8046b77e9df64890439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBetweenUpdateMove: 0.5
+  _timeBetweenUpdateMove: 0.2
 --- !u!114 &1700437760957106688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203955e9d235edc42af50b0654defb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zombieLogicController: {fileID: 0}
 --- !u!114 &68469199350064593
 MonoBehaviour:
   m_ObjectHideFlags: 0
